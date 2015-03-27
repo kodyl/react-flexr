@@ -1,15 +1,16 @@
 {
-  "name": "flexr",
+  "name": "react-flexr",
   "version": "1.0.0",
-  "description": "React Flex grid made simple.",
-  "main": "index.js",
+  "description": "React flexbox grid made simple.",
+  "main": "lib",
   "scripts": {
     "test": "make test"
   },
   "keywords": [
     "react",
     "grid",
-    "flex"
+    "flex",
+    "flexbox"
   ],
   "devDependencies": {
     "babel": "^4.7.16",
