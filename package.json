@@ -1,0 +1,29 @@
+{
+  "name": "flexr",
+  "version": "1.0.0",
+  "description": "React Flex grid made simple.",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "keywords": [
+    "react",
+    "grid",
+    "flex"
+  ],
+  "devDependencies": {
+    "babel": "^4.7.16",
+    "babel-loader": "^4.2.0",
+    "jsdom": "^4.0.5",
+    "mocha": "^2.2.1",
+    "mocha-clean": "^0.4.0",
+    "react-hot-loader": "^1.2.2",
+    "webpack": "^1.7.2",
+    "webpack-dev-server": "^1.7.0"
+  },
+  "dependencies": {
+    "react": "^0.13.0"
+  },
+  "author": "Chris Kjær Sørensen",
+  "license": "MIT"
+}
