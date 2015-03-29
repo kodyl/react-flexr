@@ -14,7 +14,7 @@ class Grid extends Component {
       display: 'flex',
       flexWrap: 'wrap',
       listStyle: 'none',
-      margin: gutter ? gutter : '-1em 0 1em -1em',
+      margin: gutter ? gutter : '0 -1em 1em',
       padding: 0,
       alignItems: align ? flexAlignments[align] : null
     };

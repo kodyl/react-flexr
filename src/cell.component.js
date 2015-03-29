@@ -12,7 +12,7 @@ class Cell extends React.Component {
 
     const styles = {
       flex: size ? `0 0 ${ ( 100 / denom ) * numer }%` : 1,
-      padding: gutter ? gutter : '1em 0 0 1em',
+      padding: gutter ? gutter : '0 1em',
       display: flex ? 'flex' : null,
       alignSelf: align ? flexAlignments[align] : null
     };
