@@ -13,8 +13,8 @@
     "flexbox"
   ],
   "devDependencies": {
-    "babel": "^4.7.16",
-    "babel-loader": "^4.2.0",
+    "babel": "^5.0.9",
+    "babel-loader": "^5.0.0",
     "jsdom": "^4.0.5",
     "mocha": "^2.2.1",
     "mocha-clean": "^0.4.0",
