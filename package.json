@@ -10,7 +10,8 @@
     "react",
     "grid",
     "flex",
-    "flexbox"
+    "flexbox",
+    "react-component"
   ],
   "devDependencies": {
     "babel": "^5.0.9",
