@@ -7,11 +7,15 @@ const { PropTypes } = React;
 class Cell extends React.Component {
   constructor(props) {
     super(props);
-    const { size, gutter, flex, style, align } = props;
+    const { size, gutter, flex, style, align, grow } = props;
     const [ numer, denom ] = size ? size.split('/') : [];
+    const growStyle =
+      typeof grow === 'number' ? grow :
+      grow === false ? 0 :
+      1;
 
     const styles = {
-      flex: size ? `0 0 ${ ( 100 / denom ) * numer }%` : 1,
+      flex: size ? `${ growStyle } 0 ${ ( 100 / denom ) * numer }%` : `${ growStyle } 1`,
       padding: gutter ? gutter : '0 1em',
       display: flex ? 'flex' : null,
       alignSelf: align ? flexAlignments[align] : null
@@ -32,6 +36,7 @@ class Cell extends React.Component {
 }
 
 Cell.propTypes = {
+  grow: PropTypes.oneOf([false, true, React.PropTypes.number]),
   gutter: React.PropTypes.string,
   flex: React.PropTypes.bool,
   align: PropTypes.oneOf(['top', 'center', 'bottom']),
