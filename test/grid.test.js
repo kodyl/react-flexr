@@ -32,7 +32,7 @@ describe('CellComponent', () => {
 
   it('has correct base styling', () => {
     const node = Utils.renderIntoDocument( <Cell /> );
-    assert.equal( node.styles.flex, 1);
+    assert.equal( node.styles.flex, '1 1');
   });
 
   ['top', 'bottom', 'center'].map(alignment => {

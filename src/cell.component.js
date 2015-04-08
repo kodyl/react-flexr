@@ -15,7 +15,7 @@ class Cell extends React.Component {
       1;
 
     const styles = {
-      flex: size ? `${ growStyle } 0 ${ ( 100 / denom ) * numer }%` : `${ growStyle } 1`,
+      flex: size ? `0 0 ${ ( 100 / denom ) * numer }%` : `${ growStyle } 1`,
       padding: gutter ? gutter : '0 1em',
       display: flex ? 'flex' : null,
       alignSelf: align ? flexAlignments[align] : null
