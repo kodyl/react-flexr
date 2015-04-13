@@ -87,7 +87,7 @@ Cell.propTypes = {
   }
 };
 
-Object.assign(Cell.prototype, baseMethods);
-Object.assign(Cell, staticProperties);
+assign(Cell.prototype, baseMethods);
+assign(Cell, staticProperties);
 
 export default Cell;

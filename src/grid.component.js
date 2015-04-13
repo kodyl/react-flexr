@@ -49,7 +49,7 @@ Grid.propTypes = {
   align: Type.oneOf(['top', 'center', 'bottom'])
 };
 
-Object.assign(Grid.prototype, baseMethods);
-Object.assign(Grid, staticProperties);
+assign(Grid.prototype, baseMethods);
+assign(Grid, staticProperties);
 
 export default Grid;

@@ -1,4 +1,5 @@
 import { PropTypes as Type } from 'react';
+import assign from 'react/lib/Object.assign';
 import shouldComponentUpdate from 'react/lib/shouldUpdateReactComponent';
 
 const canUseDOM = (
@@ -51,7 +52,7 @@ export default {
       const contextDefaults = {
         gutter: this.props.gutter || this.context.gutter || variables.gutter
       };
-      return Object.assign( this.context, contextDefaults );
+      return assign( this.context, contextDefaults );
     }
   }
 }
