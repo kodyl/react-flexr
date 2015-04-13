@@ -42,7 +42,6 @@ class Cell extends React.Component {
       1;
 
     this.styles = [
-      style,
       styling.cellBase,
       { padding: `0 ${ gutter }` }
     ];
@@ -64,6 +63,10 @@ class Cell extends React.Component {
 
     if ( align ) {
       this.styles.push({ alignSelf: flexAlignments[align] });
+    }
+
+    if ( style ) {
+      this.styles.push( style );
     }
 
     return (

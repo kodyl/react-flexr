@@ -28,10 +28,10 @@ class Grid extends Component {
     const gutter = propGutter || variables.gutter;
 
     this.styles = [
-      style,
       styling.gridBase,
       { margin: `0 -${ gutter } ${ gutter }` },
-      align ? { alignItems: flexAlignments[align] } : null
+      align ? { alignItems: flexAlignments[align] } : null,
+      style
     ];
 
     // const wrapChildren = flexCells ?
