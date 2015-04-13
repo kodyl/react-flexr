@@ -42,6 +42,10 @@ class Example extends React.component {
         <Cell size='3/12'>
           Fills a quarter
         <Cell>
+
+        <Cell palm='3/12' lap='1/2'>
+          Fills on mobile, half on lap and dynamic size everywhere else.
+        <Cell>
       </Grid>
     );
   }
@@ -50,6 +54,20 @@ class Example extends React.component {
 
 See the example folder for the full implementation of the flexbox grid.
 
+## Responsive Props
+The responsive props are based on [ergonomics](https://twitter.com/lukew/status/273453112902172672).
+
+I've used these breakpoints in a variety of [apps](https://github.com/chriskjaer/prototype-seed) and [ grids ](https://github.com/chriskjaer/prototype-seed/blob/master/source/assets/styles/utilities/_grid.scss) with success. So far
+the following breakpoints have beeen implemented:
+- Palm
+- Lap
+- Portable
+- Desk
+
+See [defauts file](https://github.com/chriskjaer/react-flexr/blob/master/src/defaults.js) for sizes.
+
 
 ## TODO:
-- [ ] Add Responsive capabilities
+- [x] Add Responsive capabilities
+- [ ] Find a decent way to test responsive grid props.
+- [ ] Add flex order
