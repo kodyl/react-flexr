@@ -32,27 +32,11 @@ export default {
   },
 
   staticProperties: {
-    contextTypes: {
-      gutter: Type.string
-    },
-
-    childContextTypes: {
-      gutter: Type.string
-    },
-
+    shouldComponentUpdate,
     propTypes: {
       gutter: Type.string,
       flexCells: Type.bool,
       align: Type.oneOf(['top', 'center', 'bottom'])
-    }
-  },
-
-  baseMethods: {
-    getChildContext() {
-      const contextDefaults = {
-        gutter: this.props.gutter || this.context.gutter || variables.gutter
-      };
-      return assign( this.context, contextDefaults );
     }
   }
 }

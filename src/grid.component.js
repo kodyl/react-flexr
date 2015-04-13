@@ -3,8 +3,8 @@ import assign from 'react/lib/Object.assign';
 import Cell from './cell.component';
 import flexAlignments from './flex-alignments';
 import StyleSheet from 'react-style';
-import { staticProperties, baseMethods } from './defaults';
-const { Component, Children, addons, PropTypes: Type } = React;
+import { staticProperties, baseMethods, variables } from './defaults';
+const { Component, PropTypes: Type } = React;
 
 const styling = StyleSheet.create({
   gridBase: {
@@ -18,8 +18,14 @@ const styling = StyleSheet.create({
 
 class Grid extends Component {
   render() {
-    const { gutter: propGutter, style, align, flexCells, children, ...rest } = this.props;
-    const gutter = propGutter || this.context.gutter;
+    const {
+      gutter: propGutter,
+      style,
+      align,
+      // flexCells,
+      children,
+      ...rest } = this.props;
+    const gutter = propGutter || variables.gutter;
 
     this.styles = [
       style,

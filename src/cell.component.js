@@ -2,7 +2,7 @@ import React from 'react';
 import assign from 'react/lib/Object.assign';
 import flexAlignments from './flex-alignments';
 import StyleSheet from 'react-style';
-import { staticProperties, baseMethods, media } from './defaults';
+import { staticProperties, baseMethods, media, variables } from './defaults';
 const { PropTypes: Type } = React;
 
 const styling = StyleSheet.create({
@@ -35,7 +35,7 @@ class Cell extends React.Component {
       grow,
       children,
       ...rest } = this.props;
-    const gutter = propGutter || this.context.gutter;
+    const gutter = propGutter || variables.gutter;
     const growStyle =
       typeof grow === 'number' ? grow :
       grow === false ? 0 :

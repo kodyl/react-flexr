@@ -32,23 +32,23 @@ describe('GridComponent', () => {
     });
   });
 
-  it('uses inheritet context if set', () => {
-    const gutter = '2em';
-    class ComponentWithContext extends React.Component {
-      getChildContext() {
-        return { gutter };
-      }
-      render() { return <div><Grid /></div>; }
-    }
-    ComponentWithContext.childContextTypes = {
-      gutter: React.PropTypes.string
-    };
-
-    const tree = React.addons.TestUtils.renderIntoDocument( <ComponentWithContext />);
-    const node = React.addons.TestUtils.findRenderedComponentWithType(tree, Grid);
-    const styles = sanitizeStyles(node.styles);
-    assert.equal( styles.margin, `0 -${ gutter } ${ gutter }` );
-  });
+  // it('uses inheritet context if set', () => {
+  //   const gutter = '2em';
+  //   class ComponentWithContext extends React.Component {
+  //     getChildContext() {
+  //       return { gutter };
+  //     }
+  //     render() { return <div><Grid /></div>; }
+  //   }
+  //   ComponentWithContext.childContextTypes = {
+  //     gutter: React.PropTypes.string
+  //   };
+  //
+  //   const tree = React.addons.TestUtils.renderIntoDocument( <ComponentWithContext />);
+  //   const node = React.addons.TestUtils.findRenderedComponentWithType(tree, Grid);
+  //   const styles = sanitizeStyles(node.styles);
+  //   assert.equal( styles.margin, `0 -${ gutter } ${ gutter }` );
+  // });
 });
 
 
@@ -74,21 +74,21 @@ describe('CellComponent', () => {
     });
   });
 
-  it('uses inheritet context if set', () => {
-    const gutter = '2em';
-    class ComponentWithContext extends React.Component {
-      getChildContext() {
-        return { gutter };
-      }
-      render() { return <div><Cell /></div>; }
-    }
-    ComponentWithContext.childContextTypes = {
-      gutter: React.PropTypes.string
-    };
-
-    const tree = React.addons.TestUtils.renderIntoDocument( <ComponentWithContext />);
-    const node = React.addons.TestUtils.findRenderedComponentWithType(tree, Cell);
-    const styles = sanitizeStyles(node.styles);
-    assert.equal( styles.padding, `0 ${ gutter }` );
-  });
+  // it('uses inheritet context if set', () => {
+  //   const gutter = '2em';
+  //   class ComponentWithContext extends React.Component {
+  //     getChildContext() {
+  //       return { gutter };
+  //     }
+  //     render() { return <div><Cell /></div>; }
+  //   }
+  //   ComponentWithContext.childContextTypes = {
+  //     gutter: React.PropTypes.string
+  //   };
+  //
+  //   const tree = React.addons.TestUtils.renderIntoDocument( <ComponentWithContext />);
+  //   const node = React.addons.TestUtils.findRenderedComponentWithType(tree, Cell);
+  //   const styles = sanitizeStyles(node.styles);
+  //   assert.equal( styles.padding, `0 ${ gutter }` );
+  // });
 });
