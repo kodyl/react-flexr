@@ -19,7 +19,7 @@ dev:
 test:
 	@ NODE_PATH='./test' $(BIN)/mocha \
 		--require mocha-clean           \
-		--compilers js:babel/register   \
+		--require test/babelinit        \
 		./test/*.test.js
 
 .PHONY: install test dev

@@ -2,48 +2,54 @@ import React from 'react/addons';
 import assign from 'react/lib/Object.assign';
 import Cell from './cell.component';
 import flexAlignments from './flex-alignments';
-const { Component, Children, PropTypes, addons } = React;
+import StyleSheet from 'react-style';
+import { staticProperties, baseMethods } from './defaults';
+const { Component, Children, addons, PropTypes: Type } = React;
+
+const styling = StyleSheet.create({
+  gridBase: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    listStyle: 'none',
+    padding: 0
+  }
+});
 
 
 class Grid extends Component {
-  constructor(props) {
-    super(props);
-    const { gutter, style, align } = props;
-
-    const styles = {
-      display: 'flex',
-      flexWrap: 'wrap',
-      listStyle: 'none',
-      margin: gutter ? gutter : '0 -1em 1em',
-      padding: 0,
-      alignItems: align ? flexAlignments[align] : null
-    };
-
-    this.styles = style ?
-      assign({}, styles, style) :
-      styles;
-  }
-
   render() {
-    const props = this.props;
-    const children = props.flexCells ?
-      Children.map( props.children, child => {
-        return child.type === Cell ? addons.cloneWithProps(child, { flex: true }) : child;
-      }) :
-      props.children;
+    const { gutter: propGutter, style, align, flexCells, children, ...rest } = this.props;
+    const gutter = propGutter || this.context.gutter;
+
+    this.styles = [
+      style,
+      styling.gridBase,
+      { margin: `0 -${ gutter } ${ gutter }` },
+      align ? { alignItems: flexAlignments[align] } : null
+    ];
+
+    const wrapChildren = flexCells ?
+      Children.map(
+        children, child => child.type === Cell ?
+          addons.cloneWithProps(child, { flex: true }) :
+          addons.cloneWithProps( child ) ) :
+      Children.map( children, child => addons.cloneWithProps(child));
 
     return (
-      <div style={ this.styles }>
-        { children }
+      <div { ...rest } styles={ this.styles }>
+        { wrapChildren }
       </div>
     );
   }
 }
 
 Grid.propTypes = {
-  gutter: PropTypes.string,
-  flexCells: PropTypes.bool,
-  align: PropTypes.oneOf(['top', 'center', 'bottom'])
+  gutter: Type.string,
+  flexCells: Type.bool,
+  align: Type.oneOf(['top', 'center', 'bottom'])
 };
+
+Object.assign(Grid.prototype, baseMethods);
+Object.assign(Grid, staticProperties);
 
 export default Grid;

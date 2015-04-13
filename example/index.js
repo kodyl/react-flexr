@@ -3,8 +3,8 @@ import Demo from './demo.component';
 import React from 'react';
 
 class Example extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.styles = {
       padding: 20
@@ -58,6 +58,18 @@ class Example extends React.Component {
           <Cell size='1/3'><Demo>1/3</Demo></Cell>
         </Grid>
 
+        <h3>Responsive</h3>
+        <p>Responsive Grids work by adding media classes to the Grid cells or containers. When those media values are met, the grids automatically adjust accordingly.</p>
+        <p>The cells below should be full width by default and scaled to fit above 48em. Resize your browser to see them in action.</p>
+
+        <Grid>
+          <Cell desk='10/12'>
+            <Demo>Desk(10/12)</Demo>
+          </Cell>
+          <Cell lap='10/12'>
+            <Demo>Lap(10/12)</Demo>
+          </Cell>
+        </Grid>
 
         <h2>Alignment Features</h2>
         <h3>Top-aligned Grid Cells</h3>
@@ -142,5 +154,9 @@ class Example extends React.Component {
     );
   }
 }
+
+Example.childContextTypes = {
+  gutter: React.PropTypes.string
+};
 
 React.render(<Example />, document.getElementById('root'));
