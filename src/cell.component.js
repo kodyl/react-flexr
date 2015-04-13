@@ -31,6 +31,7 @@ class Cell extends React.Component {
       gutter: propGutter,
       flex,
       style,
+      styles,
       align,
       grow,
       children,
@@ -67,6 +68,10 @@ class Cell extends React.Component {
 
     if ( style ) {
       this.styles.push( style );
+    }
+
+    if ( styles ) {
+      this.styles.push( styles );
     }
 
     return (

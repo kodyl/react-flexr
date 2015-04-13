@@ -21,6 +21,7 @@ class Grid extends Component {
     const {
       gutter: propGutter,
       style,
+      styles,
       align,
       // flexCells,
       children,
@@ -31,7 +32,8 @@ class Grid extends Component {
       styling.gridBase,
       { margin: `0 -${ gutter } ${ gutter }` },
       align ? { alignItems: flexAlignments[align] } : null,
-      style
+      style,
+      styles
     ];
 
     // const wrapChildren = flexCells ?
