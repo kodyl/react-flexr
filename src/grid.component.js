@@ -28,16 +28,16 @@ class Grid extends Component {
       align ? { alignItems: flexAlignments[align] } : null
     ];
 
-    const wrapChildren = flexCells ?
-      Children.map(
-        children, child => child.type === Cell ?
-          addons.cloneWithProps(child, { flex: true }) :
-          addons.cloneWithProps( child ) ) :
-      Children.map( children, child => addons.cloneWithProps(child));
+    // const wrapChildren = flexCells ?
+    //   Children.map(
+    //     children, child => child.type === Cell ?
+    //       addons.cloneWithProps(child, { flex: true }) :
+    //       addons.cloneWithProps( child ) ) :
+    //   Children.map( children, child => addons.cloneWithProps(child));
 
     return (
       <div { ...rest } styles={ this.styles }>
-        { wrapChildren }
+        { children }
       </div>
     );
   }
