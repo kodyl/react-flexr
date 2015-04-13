@@ -23,7 +23,7 @@ class Grid extends Component {
       style,
       styles,
       align,
-      // flexCells,
+      flexCells,
       children,
       ...rest } = this.props;
     const gutter = propGutter || variables.gutter;
@@ -36,16 +36,16 @@ class Grid extends Component {
       styles
     ];
 
-    // const wrapChildren = flexCells ?
-    //   Children.map(
-    //     children, child => child.type === Cell ?
-    //       addons.cloneWithProps(child, { flex: true }) :
-    //       addons.cloneWithProps( child ) ) :
-    //   Children.map( children, child => addons.cloneWithProps(child));
+    const wrapppedChildren = flexCells ?
+      React.Children.map(
+        children, child => child.type === Cell ?
+          React.addons.cloneWithProps( child, { flex: true }) :
+          React.addons.cloneWithProps( child ) ) :
+      children;
 
     return (
       <div { ...rest } styles={ this.styles }>
-        { children }
+        { wrapppedChildren }
       </div>
     );
   }
