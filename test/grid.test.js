@@ -38,7 +38,7 @@ describe('GridComponent', () => {
       getChildContext() {
         return { gutter };
       }
-      render() { return <div><Cell /></div>; }
+      render() { return <div><Grid /></div>; }
     }
     ComponentWithContext.childContextTypes = {
       gutter: React.PropTypes.string

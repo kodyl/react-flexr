@@ -6,7 +6,7 @@ LIB   = $(SRC:src/%.js=lib/%.js)
 lib: $(LIB)
 lib/%.js: src/%.js
 	@mkdir -p $(@D)
-	$(BIN)/babel $< -o $@
+	$(BIN)/babel $< -o $@ --stage 0
 
 clean:
 	@rm -rf ./lib
