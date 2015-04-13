@@ -66,8 +66,11 @@ class Example extends React.Component {
           <Cell desk='10/12'>
             <Demo>Desk(10/12)</Demo>
           </Cell>
-          <Cell lap='10/12'>
-            <Demo>Lap(10/12)</Demo>
+          <Cell lap='9/12'>
+            <Demo>Lap(9/12)</Demo>
+          </Cell>
+          <Cell portable='2/12'>
+            <Demo>Portable(2/12)</Demo>
           </Cell>
         </Grid>
 

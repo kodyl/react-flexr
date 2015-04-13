@@ -12,8 +12,13 @@ const canUseDOM = (
 function match(props) {
   if (!canUseDOM) { return false; }
   const { min, max } = props;
-  let str = `(min-width: ${ min }px)`;
-  str += max ? ` and (max-width: ${ max }px)` : '';
+  let minStr = min ? `(min-width: ${ min }px)` : null;
+  let maxStr = max ? `(max-width: ${ max }px)` : null;
+
+  let str =
+    minStr && maxStr ? `${ minStr } and ${ maxStr }` :
+    minStr ? minStr : maxStr;
+
   return window.matchMedia(str).matches;
 }
 
