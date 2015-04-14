@@ -53,7 +53,7 @@ class Cell extends React.Component {
     const growStyle =
       typeof grow === 'number' ? grow :
       grow === false ? 0 :
-      1;
+      undefined;
 
     const responsiveSize = findResponsiveSize(breakpoints, this.props);
 
@@ -64,7 +64,7 @@ class Cell extends React.Component {
       flex ? CellStyles.flex : null,
       responsiveSize ? calcWidth( responsiveSize ) :
         size ? calcWidth(size) :
-        grow ? { flex: `${ growStyle } 1 auto` } : null,
+        growStyle !== undefined ? { flex: `${ growStyle } 1 auto` } : null,
       style,
       styles
     ];

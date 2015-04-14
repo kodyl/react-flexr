@@ -75,6 +75,11 @@ describe('CellComponent', () => {
     });
   });
 
+  it('accepts grow params', () => {
+    const styles = extractStyles( <Cell grow={ false }/> );
+    assert.equal( styles.flex, '0 1 auto');
+  });
+
   // it('uses inheritet context if set', () => {
   //   const gutter = '2em';
   //   class ComponentWithContext extends React.Component {
