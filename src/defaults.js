@@ -1,7 +1,7 @@
 import { PropTypes as Type } from 'react';
 import assign from 'react/lib/Object.assign';
 import shouldComponentUpdate from 'react/lib/shouldUpdateReactComponent';
-import breakpoints from './breakpoints';
+import { matchMedia } from './breakpoints';
 
 const variables = {
   gutter: '1em'
@@ -9,7 +9,7 @@ const variables = {
 
 export default {
   variables,
-  breakpoints,
+  breakpoints: matchMedia,
 
   staticProperties: {
     shouldComponentUpdate,
