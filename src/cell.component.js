@@ -62,14 +62,15 @@ class Cell extends React.Component {
       align ? CellStyles[align] : null,
       gutter ? { padding: `0 ${ gutter }` } : null,
       flex ? CellStyles.flex : null,
-      responsiveSize ? calcWidth( responsiveSize ) :
+      responsiveSize && responsiveSize !== 'hidden' ? calcWidth( responsiveSize ) :
         size ? calcWidth(size) :
         growStyle !== undefined ? { flex: `${ growStyle } 1 auto` } : null,
       style,
       styles
     ];
 
-    return (
+    return responsiveSize === 'hidden' ?
+      null : (
       <div { ...rest } styles={ this.styles }>
         { children }
       </div>

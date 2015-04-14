@@ -63,14 +63,17 @@ class Example extends React.Component {
         <p>The cells below should be full width by default and scaled to fit above 48em. Resize your browser to see them in action.</p>
 
         <Grid>
-          <Cell desk='10/12'>
-            <Demo>Desk(10/12)</Demo>
+          <Cell desk='8/12'>
+            <Demo>Desk(8/12)</Demo>
           </Cell>
           <Cell lap='9/12'>
             <Demo>Lap(9/12)</Demo>
           </Cell>
           <Cell portable='2/12'>
             <Demo>Portable(2/12)</Demo>
+          </Cell>
+          <Cell desk='2/12' lap='hidden'>
+            <Demo>Hidden on lap</Demo>
           </Cell>
         </Grid>
 
