@@ -1,13 +1,14 @@
 import './testdom';
 import assert from 'assert';
-import flexAlignments from '../src/flex-alignments';
 import React from 'react/addons';
-import Grid from '../src/grid.component';
-import Cell from '../src/cell.component';
-import { variables } from '../src/defaults';
+import assign from 'react/lib/Object.assign';
+import flexAlignments from '../flex-alignments';
+import Grid from '../grid.component';
+import Cell from '../cell.component';
+import { variables } from '../defaults';
 
 function sanitizeStyles(arr) {
-  return Object.assign.apply(null, [{}].concat( arr ) );
+  return assign.apply(null, [{}].concat( arr ) );
 }
 
 function extractStyles(component) {
