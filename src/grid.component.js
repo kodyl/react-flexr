@@ -1,37 +1,45 @@
+import StyleSheet from 'react-style';
 import React from 'react/addons';
 import assign from 'react/lib/Object.assign';
 import Cell from './cell.component';
 import flexAlignments from './flex-alignments';
-import StyleSheet from 'react-style';
 import { staticProperties, baseMethods, variables } from './defaults';
 const { Component, PropTypes: Type } = React;
 
-const styling = StyleSheet.create({
-  gridBase: {
+const GridStyles = StyleSheet.create({
+  base: {
     display: 'flex',
     flexWrap: 'wrap',
     listStyle: 'none',
-    padding: 0
+    padding: 0,
+    margin: `0 -${ variables.gutter } ${ variables.gutter }`
+  },
+  top: {
+    alignItems: flexAlignments.top
+  },
+  bottom: {
+    alignItems: flexAlignments.bottom
+  },
+  center: {
+    alignItems: flexAlignments.center
   }
-});
-
+}, process.env.NODE_ENV === 'production');
 
 class Grid extends Component {
   render() {
     const {
-      gutter: propGutter,
+      gutter,
       style,
       styles,
       align,
       flexCells,
       children,
       ...rest } = this.props;
-    const gutter = propGutter || variables.gutter;
 
     this.styles = [
-      styling.gridBase,
-      { margin: `0 -${ gutter } ${ gutter }` },
-      align ? { alignItems: flexAlignments[align] } : null,
+      GridStyles.base,
+      gutter ? { margin: `0 -${ gutter } ${ gutter }` } : null,
+      align ? GridStyles[align] : null,
       style,
       styles
     ];

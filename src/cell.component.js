@@ -1,15 +1,28 @@
+import StyleSheet from 'react-style';
 import React from 'react';
 import assign from 'react/lib/Object.assign';
 import flexAlignments from './flex-alignments';
-import StyleSheet from 'react-style';
 import { staticProperties, baseMethods, media, variables } from './defaults';
 const { PropTypes: Type } = React;
 
-const styling = StyleSheet.create({
-  cellBase: {
-    flex: 1
+const CellStyles = StyleSheet.create({
+  base: {
+    flex: 1,
+    padding: `0 ${ variables.gutter }`
+  },
+  flex: {
+    display: 'flex'
+  },
+  top: {
+    alignSelf: flexAlignments.top
+  },
+  bottom: {
+    alignSelf: flexAlignments.bottom
+  },
+  center: {
+    alignSelf: flexAlignments.center
   }
-});
+}, process.env.NODE_ENV === 'production');
 
 function calcWidth(size) {
   const [ numerator, denominator ] = size ? size.split('/') : [];
@@ -28,7 +41,7 @@ class Cell extends React.Component {
   render() {
     const {
       size,
-      gutter: propGutter,
+      gutter,
       flex,
       style,
       styles,
@@ -36,43 +49,25 @@ class Cell extends React.Component {
       grow,
       children,
       ...rest } = this.props;
-    const gutter = propGutter || variables.gutter;
+
     const growStyle =
       typeof grow === 'number' ? grow :
       grow === false ? 0 :
       1;
 
-    this.styles = [
-      styling.cellBase,
-      { padding: `0 ${ gutter }` }
-    ];
-
     const responsiveSize = findResponsiveSize(media, this.props);
-    if ( responsiveSize ) {
-      this.styles.push( calcWidth( responsiveSize ) );
-    }
-    else if ( size ) {
-      this.styles.push( calcWidth(size) );
-    }
-    else if (grow !== undefined) {
-      this.styles.push({ flex: `${ growStyle } 1 auto` });
-    }
 
-    if ( flex ) {
-      this.styles.push({ display: 'flex' });
-    }
-
-    if ( align ) {
-      this.styles.push({ alignSelf: flexAlignments[align] });
-    }
-
-    if ( style ) {
-      this.styles.push( style );
-    }
-
-    if ( styles ) {
-      this.styles.push( styles );
-    }
+    this.styles = [
+      CellStyles.base,
+      align ? CellStyles[align] : null,
+      gutter ? { padding: `0 ${ gutter }` } : null,
+      flex ? CellStyles.flex : null,
+      responsiveSize ? calcWidth( responsiveSize ) :
+        size ? calcWidth(size) :
+        grow ? { flex: `${ growStyle } 1 auto` } : null,
+      style,
+      styles
+    ];
 
     return (
       <div { ...rest } styles={ this.styles }>

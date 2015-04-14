@@ -67,6 +67,10 @@ the following breakpoints have beeen implemented:
 See [defauts file](https://github.com/chriskjaer/react-flexr/blob/master/src/defaults.js) for sizes.
 
 
+# Production
+This is still very experimental. If you decide to run this in production. Use it
+in combination with [react-style-webpack-plugin](https://github.com/boligbesked/react-style-webpack-plugin) to extract the css.
+
 ## TODO:
 - [x] Add Responsive capabilities
 - [ ] Find a decent way to test responsive grid props.
