@@ -2,7 +2,7 @@ import StyleSheet from 'react-style';
 import React from 'react';
 import assign from 'react/lib/Object.assign';
 import flexAlignments from './flex-alignments';
-import { staticProperties, baseMethods, media, variables } from './defaults';
+import { staticProperties, baseMethods, breakpoints, variables } from './defaults';
 const { PropTypes: Type } = React;
 
 const CellStyles = StyleSheet.create({
@@ -29,9 +29,9 @@ function calcWidth(size) {
   return { flex: `0 0 ${ ( 100 / denominator ) * numerator }%` };
 }
 
-function findResponsiveSize(mediaQuerries, props) {
-  for (let breakpoint of Object.keys( mediaQuerries )) {
-    if (mediaQuerries[breakpoint] && props[breakpoint]) {
+function findResponsiveSize(breakpoints, props) {
+  for ( let breakpoint of Object.keys( breakpoints ) ) {
+    if ( breakpoints[breakpoint] && props[breakpoint] ) {
       return props[breakpoint];
     }
   }
@@ -55,7 +55,7 @@ class Cell extends React.Component {
       grow === false ? 0 :
       1;
 
-    const responsiveSize = findResponsiveSize(media, this.props);
+    const responsiveSize = findResponsiveSize(breakpoints, this.props);
 
     this.styles = [
       CellStyles.base,
