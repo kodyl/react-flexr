@@ -65,9 +65,8 @@ class Cell extends React.Component {
       responsiveSize && responsiveSize !== 'hidden' ? calcWidth( responsiveSize ) :
         size ? calcWidth(size) :
         growStyle !== undefined ? { flex: `${ growStyle } 1 auto` } : null,
-      style,
-      styles
-    ];
+      style
+    ].concat( Array.isArray(styles) ? styles : [styles] );
 
     return responsiveSize === 'hidden' ?
       null : (

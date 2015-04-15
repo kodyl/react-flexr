@@ -40,9 +40,8 @@ class Grid extends Component {
       GridStyles.base,
       gutter ? { margin: `0 -${ gutter } ${ gutter }` } : null,
       align ? GridStyles[align] : null,
-      style,
-      styles
-    ];
+      style
+    ].concat( Array.isArray(styles) ? styles : [styles] );
 
     const wrapppedChildren = flexCells ?
       React.Children.map(
