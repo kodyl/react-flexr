@@ -6,6 +6,7 @@ import flexAlignments from '../flex-alignments';
 import Grid from '../grid.component';
 import Cell from '../cell.component';
 import { variables } from '../defaults';
+import doubleUnit from '../utils/double-unit';
 
 function sanitizeStyles(arr) {
   return assign.apply(null, [{}].concat( arr ) );
@@ -23,7 +24,7 @@ describe('GridComponent', () => {
     assert.equal( styles.flexWrap, 'wrap' );
     assert.equal( styles.listStyle, 'none' );
     assert.equal( styles.padding, 0 );
-    assert.equal( styles.margin, `0 -${ variables.gutter } ${ variables.gutter }`);
+    assert.equal( styles.margin, `0 -${ variables.gutter } ${ doubleUnit( variables.gutter ) }`);
   });
 
   ['top', 'bottom', 'center'].map(alignment => {

@@ -4,13 +4,8 @@ import assign from 'react/lib/Object.assign';
 import Cell from './cell.component';
 import flexAlignments from './flex-alignments';
 import { staticProperties, baseMethods, variables } from './defaults';
+import doubleUnit from './utils/double-unit';
 const { Component, PropTypes: Type } = React;
-const valunit = /(\d+)(\w+)/;
-
-function doubleUnit(str) {
-  const [, val, unit] = str.match(valunit);
-  return `${ val * 2 }${ unit }`;
-}
 
 const GridStyles = StyleSheet.create({
   base: {
