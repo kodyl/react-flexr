@@ -4,7 +4,7 @@ import shouldComponentUpdate from 'react/lib/shouldUpdateReactComponent';
 import { matchMedia } from './breakpoints';
 
 const variables = {
-  gutter: '1em'
+  gutter: '11px'
 };
 
 export default {

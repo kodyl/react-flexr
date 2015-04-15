@@ -5,6 +5,12 @@ import Cell from './cell.component';
 import flexAlignments from './flex-alignments';
 import { staticProperties, baseMethods, variables } from './defaults';
 const { Component, PropTypes: Type } = React;
+const valunit = /(\d+)(\w+)/;
+
+function doubleUnit(str) {
+  const [, val, unit] = str.match(valunit);
+  return `${ val * 2 }${ unit }`;
+}
 
 const GridStyles = StyleSheet.create({
   base: {
@@ -12,7 +18,7 @@ const GridStyles = StyleSheet.create({
     flexWrap: 'wrap',
     listStyle: 'none',
     padding: 0,
-    margin: `0 -${ variables.gutter } ${ variables.gutter }`
+    margin: `0 -${ variables.gutter } ${ doubleUnit(variables.gutter) }`
   },
   top: {
     alignItems: flexAlignments.top
@@ -38,7 +44,7 @@ class Grid extends Component {
 
     this.styles = [
       GridStyles.base,
-      gutter ? { margin: `0 -${ gutter } ${ gutter }` } : null,
+      gutter ? { margin: `0 -${ gutter } ${ doubleUnit(gutter) }` } : null,
       align ? GridStyles[align] : null,
       style
     ].concat( Array.isArray(styles) ? styles : [styles] );
