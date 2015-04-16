@@ -26,7 +26,11 @@ const CellStyles = StyleSheet.create({
 
 function calcWidth(size) {
   const [ numerator, denominator ] = size ? size.split('/') : [];
-  return { flex: `0 0 ${ ( 100 / denominator ) * numerator }%` };
+  const calcSize = `0 0 ${ ( 100 / denominator ) * numerator }%`;
+  return {
+    WebkitFlex: calcSize,
+    flex: calcSize
+  };
 }
 
 function findResponsiveSize(breakpoints, props) {
@@ -64,7 +68,10 @@ class Cell extends React.Component {
       flex ? CellStyles.flex : null,
       responsiveSize && responsiveSize !== 'hidden' ? calcWidth( responsiveSize ) :
         size ? calcWidth(size) :
-        growStyle !== undefined ? { flex: `${ growStyle } 1 auto` } : null,
+        growStyle !== undefined ? {
+          flex: `${ growStyle } 1 auto`,
+          WebkitFlex: `${ growStyle } 1 auto`
+      } : null,
       style
     ].concat( Array.isArray(styles) ? styles : [styles] );
 
