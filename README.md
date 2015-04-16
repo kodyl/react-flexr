@@ -64,7 +64,7 @@ the following breakpoints have beeen implemented:
 - Portable
 - Desk
 
-See [defauts file](https://github.com/chriskjaer/react-flexr/blob/master/src/defaults.js) for sizes.
+See [breakpoints file](https://github.com/chriskjaer/react-flexr/blob/master/src/breakpoints.js) for sizes.
 
 
 # Production
