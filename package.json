@@ -16,7 +16,7 @@
   "devDependencies": {
     "babel": "^5.0.9",
     "babel-loader": "^5.0.0",
-    "jsdom": "^4.0.5",
+    "jsdom": "^5.0.0",
     "mocha": "^2.2.1",
     "mocha-clean": "^0.4.0",
     "react-hot-loader": "^1.2.2",
@@ -27,6 +27,7 @@
     "react": "^0.13.0",
     "react-style": "^0.5.2"
   },
+  "repository": "chriskjaer/react-flexr",
   "author": "Chris Kjær Sørensen",
   "license": "MIT"
 }
