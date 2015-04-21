@@ -4,7 +4,7 @@ import React from 'react/addons';
 import flexAlignments from '../utils/flex-alignments';
 import Cell from '../cell.component';
 import { variables } from '../defaults';
-import { extractStyles } from './test-utils';
+import { sanitizeStyles, extractStyles } from './test-utils';
 
 describe('CellComponent', () => {
   it('has correct base styling', () => {
@@ -33,21 +33,25 @@ describe('CellComponent', () => {
     assert.equal( styles.flex, '0 1 auto');
   });
 
-  // it('uses inheritet context if set', () => {
-  //   const gutter = '2em';
-  //   class ComponentWithContext extends React.Component {
-  //     getChildContext() {
-  //       return { gutter };
-  //     }
-  //     render() { return <div><Cell /></div>; }
-  //   }
-  //   ComponentWithContext.childContextTypes = {
-  //     gutter: React.PropTypes.string
-  //   };
-  //
-  //   const tree = React.addons.TestUtils.renderIntoDocument( <ComponentWithContext />);
-  //   const node = React.addons.TestUtils.findRenderedComponentWithType(tree, Cell);
-  //   const styles = sanitizeStyles(node.styles);
-  //   assert.equal( styles.padding, `0 ${ gutter }` );
-  // });
+  it('uses inheritet context if set', () => {
+    const gutter = '2em';
+    class ComponentWithContext extends React.Component {
+      getChildContext() {
+        return {
+          flexr: {
+            gutter
+          }
+        };
+      }
+      render() { return <div><Cell /></div>; }
+    }
+    ComponentWithContext.childContextTypes = {
+      flexr: React.PropTypes.object
+    };
+
+    const tree = React.addons.TestUtils.renderIntoDocument( <ComponentWithContext />);
+    const node = React.addons.TestUtils.findRenderedComponentWithType(tree, Cell);
+    const styles = sanitizeStyles(node.styles);
+    assert.equal( styles.padding, `0 ${ gutter }` );
+  });
 });
