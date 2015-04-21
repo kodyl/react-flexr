@@ -2,7 +2,7 @@ import StyleSheet from 'react-style';
 import React from 'react/addons';
 import assign from 'react/lib/Object.assign';
 import Cell from './cell.component';
-import flexAlignments from './flex-alignments';
+import flexAlignments from './utils/flex-alignments';
 import { staticProperties, baseMethods, variables } from './defaults';
 import doubleUnit from './utils/double-unit';
 const { Component, PropTypes: Type } = React;

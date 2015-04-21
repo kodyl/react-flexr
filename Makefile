@@ -20,13 +20,13 @@ test:
 	@echo "\nTesting source files, hang on..."
 	@$(BIN)/mocha                  \
 		--require mocha-clean         \
-		--require src/test/babelinit  \
-		./src/test/*.test.js
+		--require src/__tests__/babelinit  \
+		./src/__tests__/*.test.js
 
 test-build:
 	@echo "\nTesting build files, almost there..!"
 	@$(BIN)/mocha                  \
 		--require mocha-clean         \
-		./lib/test/*.test.js
+		./lib/__tests__/*.test.js
 
 .PHONY: install test test-build dev

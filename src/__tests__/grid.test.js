@@ -2,7 +2,7 @@ import './testdom';
 import assert from 'assert';
 import React from 'react/addons';
 import assign from 'react/lib/Object.assign';
-import flexAlignments from '../flex-alignments';
+import flexAlignments from '../utils/flex-alignments';
 import Grid from '../grid.component';
 import Cell from '../cell.component';
 import { variables } from '../defaults';

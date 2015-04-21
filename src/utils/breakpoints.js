@@ -1,4 +1,4 @@
-import { generateMediaString, match } from './utils/media-queries';
+import { generateMediaString, match } from './media-queries';
 
 const settings = {
   palm: { max: 680 },

@@ -1,7 +1,7 @@
 import StyleSheet from 'react-style';
 import React from 'react';
 import assign from 'react/lib/Object.assign';
-import flexAlignments from './flex-alignments';
+import flexAlignments from './utils/flex-alignments';
 import { staticProperties, baseMethods, breakpoints, variables } from './defaults';
 const { PropTypes: Type } = React;
 
