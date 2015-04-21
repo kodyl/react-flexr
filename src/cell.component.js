@@ -2,6 +2,7 @@ import StyleSheet from 'react-style';
 import React from 'react';
 import assign from 'react/lib/Object.assign';
 import flexAlignments from './utils/flex-alignments';
+import findMatchingBreakpointProp from './utils/find-matching-breakpoint-prop';
 import { staticProperties, baseMethods, breakpoints, variables } from './defaults';
 const { PropTypes: Type } = React;
 
@@ -24,24 +25,17 @@ const CellStyles = StyleSheet.create({
   }
 }, process.env.NODE_ENV === 'production');
 
-function calcWidth(size) {
-  const [ numerator, denominator ] = size ? size.split('/') : [];
-  const calcSize = `0 0 ${ ( 100 / denominator ) * numerator }%`;
-  return {
-    WebkitFlex: calcSize,
-    flex: calcSize
-  };
-}
-
-function findResponsiveSize(breakpoints, props) {
-  for ( let breakpoint of Object.keys( breakpoints ) ) {
-    if ( breakpoints[breakpoint] && props[breakpoint] ) {
-      return props[breakpoint];
-    }
-  }
-}
-
 class Cell extends React.Component {
+
+  calcWidth(size) {
+    const [ numerator, denominator ] = size ? size.split('/') : [];
+    const calcSize = `0 0 ${ ( 100 / denominator ) * numerator }%`;
+    return {
+      WebkitFlex: calcSize,
+      flex: calcSize
+    };
+  }
+
   render() {
     const {
       size,
@@ -59,15 +53,15 @@ class Cell extends React.Component {
       grow === false ? 0 :
       undefined;
 
-    const responsiveSize = findResponsiveSize(breakpoints, this.props);
+    const currentBreakpointProp = findMatchingBreakpointProp(breakpoints, this.props);
 
     this.styles = [
       CellStyles.base,
       align ? CellStyles[align] : null,
       gutter ? { padding: `0 ${ gutter }` } : null,
       flex ? CellStyles.flex : null,
-      responsiveSize && responsiveSize !== 'hidden' ? calcWidth( responsiveSize ) :
-        size ? calcWidth(size) :
+      currentBreakpointProp && currentBreakpointProp !== 'hidden' ? this.calcWidth( currentBreakpointProp ) :
+        size ? this.calcWidth(size) :
         growStyle !== undefined ? {
           flex: `${ growStyle } 1 auto`,
           WebkitFlex: `${ growStyle } 1 auto`
@@ -75,7 +69,7 @@ class Cell extends React.Component {
       style
     ].concat( Array.isArray(styles) ? styles : [styles] );
 
-    return responsiveSize === 'hidden' ?
+    return currentBreakpointProp === 'hidden' ?
       null : (
       <div { ...rest } styles={ this.styles }>
         { children }
