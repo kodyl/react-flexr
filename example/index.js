@@ -1,4 +1,4 @@
-import { Grid, Cell } from '../src';
+import { Grid, Cell } from '../lib';
 import Demo from './demo.component';
 import React from 'react';
 
@@ -8,6 +8,14 @@ class Example extends React.Component {
 
     this.styles = {
       padding: 20
+    };
+  }
+
+  getChildContext() {
+    return {
+      flexr: {
+        gutter: '2em'
+      }
     };
   }
 
@@ -162,7 +170,7 @@ class Example extends React.Component {
 }
 
 Example.childContextTypes = {
-  gutter: React.PropTypes.string
+  flexr: React.PropTypes.object
 };
 
 React.render(<Example />, document.getElementById('root'));

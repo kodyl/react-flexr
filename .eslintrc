@@ -4,6 +4,9 @@
     "node": true,
     "mocha": true
   },
+  "plugins": [
+    "react"
+  ],
   "parser": "babel-eslint",
   "rules": {
     "quotes": [2, "single"],
