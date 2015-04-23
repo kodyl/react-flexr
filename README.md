@@ -1,6 +1,7 @@
-# Flexr
+# Flexr [![Build Status](https://travis-ci.org/chriskjaer/react-flexr.svg)](https://travis-ci.org/chriskjaer/react-flexr) [![npm version](https://badge.fury.io/js/react-flexr.svg)](http://badge.fury.io/js/react-flexr)
 
-React Flexbox Grid made simple. Based on the [ "Solved-by-flexbox"-grid ]( http://philipwalton.github.io/solved-by-flexbox/demos/grids/ )
+React Flexbox grid made simple.
+Based on the [ "Solved-by-flexbox"-grid ]( http://philipwalton.github.io/solved-by-flexbox/demos/grids/ )
 
 ### Usage
 
@@ -45,6 +46,10 @@ class Example extends React.component {
 
         <Cell palm='3/12' lap='1/2'>
           Fills on mobile, half on lap and dynamic size everywhere else.
+        <Cell>
+
+        <Cell palm='hidden' size='1/2'>
+          Hidden on palm, half width otherwise
         <Cell>
       </Grid>
     );

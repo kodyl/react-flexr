@@ -28,6 +28,7 @@
     "react": "^0.13.2",
     "react-style": "^0.5.5"
   },
+  "repository": "chriskjaer/react-flexr",
   "author": "Chris Kjær Sørensen",
   "license": "MIT"
 }
