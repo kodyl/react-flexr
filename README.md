@@ -52,7 +52,34 @@ class Example extends React.component {
 }
 ```
 
-See the example folder for the full implementation of the flexbox grid.
+# Component API:
+### Grid
+```
+<Grid
+  align={ string }    // Vertical Align Sub Cells: top, center, bottom
+  hAlign={ string }   // Horizontal Align Sub Cells: left, center, right
+  gutter={ string }   // Override default gutter: '1em', '5%', '10px', etc.
+  flexCells={ bool }  // All sub cells will be full height
+/>
+```
+### Cell
+```
+<Cell
+  align={ string }    // Vertical Align This Cell: top, center, bottom
+  gutter={ string }   // Override default gutter: '1em', '5%', '10px', etc.
+  flex={ bool }       // Like flexCells above, but for a single cell.
+  size={ string }     // Takes a fraction. e.g. 1/6
+  palm={ string }     // Like size, but only applies for palm devices.*
+  lap={ string }      // Like size, but only applies for lap devices.*
+  portable={ string } // Like size, but only applies for ( palm + lap )
+  devices.*
+  desk={ string }     // Like size, but only applies for desk devices.*
+/>
+```
+__* Ergonomic breakpoints accepts 'hidden' as well. This will prevent the
+component from being rendered in that state.___
+
+See the example folder for more examples.
 
 ## Responsive Props
 The responsive props are based on [ergonomics](https://twitter.com/lukew/status/273453112902172672).

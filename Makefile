@@ -9,7 +9,7 @@ dist/%.js: lib/%.js
 	$(BIN)/babel $< -o $@ --stage 0
 
 clean:
-	@rm -rf ./lib
+	@rm -rf ./dist
 
 build: test clean dist test-build
 

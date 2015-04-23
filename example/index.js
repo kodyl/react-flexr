@@ -141,6 +141,21 @@ class Example extends React.Component {
           </Cell>
         </Grid>
 
+        <h3>Vertically And Horizontally Centered Grid Cells</h3>
+
+        <Grid align='center' hAlign='center'>
+          <Cell size='4/12'>
+            <Demo>
+              This cell should be vertically-centered with the cell to its right.
+            </Demo>
+          </Cell>
+          <Cell size='4/12'>
+            <Demo>
+              Curabitur pulvinar dolor lectus, quis porta turpis ullamcorper nec. Quisque eget varius turpis, quis iaculis nibh. Ut interdum ligula id metus hendrerit cursus. Integer eu leo felis. Aenean commodo ultrices nunc, sit amet blandit elit gravida in. Sed est ligula, ornare ac nisi adipiscing, iaculis facilisis tellus. Nullam vel facilisis libero. Duis semper lobortis elit, vitae dictum erat.
+            </Demo>
+          </Cell>
+        </Grid>
+
         <h3>Mixed Vertical Alignment</h3>
 
         <Grid>
