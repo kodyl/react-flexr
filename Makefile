@@ -1,7 +1,7 @@
 BIN   = ./node_modules/.bin
 PATH := $(BIN):$(PATH)
 LIB   = $(shell find lib -name "*.js")
-DIST   = $(patsubst src/%.js,dist/%.js,$(LIB))
+DIST   = $(patsubst lib/%.js,dist/%.js,$(LIB))
 
 dist: $(DIST)
 dist/%.js: lib/%.js
@@ -18,15 +18,17 @@ dev:
 
 test:
 	@echo "\nTesting source files, hang on..."
-	@$(BIN)/mocha                  \
-		--require mocha-clean         \
-		--require lib/__tests__/babelinit  \
+	@$(BIN)/mocha                       \
+		--require mocha-clean             \
+		--require lib/__tests__/testdom   \
+		--require lib/__tests__/babelinit \
 		./lib/__tests__/*.test.js
 
 test-build:
 	@echo "\nTesting build files, almost there..!"
-	@$(BIN)/mocha                  \
-		--require mocha-clean         \
+	@$(BIN)/mocha                       \
+		--require mocha-clean             \
+		--require dist/__tests__/testdom  \
 		./dist/__tests__/*.test.js
 
 .PHONY: install test test-build dev
