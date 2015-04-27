@@ -1,8 +1,8 @@
 {
   "name": "react-flexr",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "React flexbox grid made simple.",
-  "main": "lib",
+  "main": "dist",
   "scripts": {
     "test": "make test"
   },
