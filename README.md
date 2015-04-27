@@ -82,7 +82,7 @@ class Example extends React.component {
 />
 ```
 __* Ergonomic breakpoints accepts 'hidden' as well. This will prevent the
-component from being rendered in that state.___
+component from being rendered in that state.__
 
 See the example folder for more examples.
 
@@ -98,6 +98,38 @@ the following breakpoints have beeen implemented:
 
 See [breakpoints file](https://github.com/chriskjaer/react-flexr/blob/master/src/breakpoints.js) for sizes.
 
+# Context Rendering
+It's posible to render the grid in a specific size context. This is usefull for
+serverside rendering where you want to prerender the app for a mobile/tablet
+user.
+
+#### Usage:
+Wrap your app and set a context;
+
+```
+class Wrapper extends React.Component {
+  static childContextTypes = {
+    width: React.PropTypes.number
+  }
+
+  getChildContext() {
+    return {
+      width: this.props.size
+    };
+  }
+
+  render() {
+    return <App />
+  }
+}
+
+React.renderToString( <Wrapper size={ 320 } />);
+```
+
+This should render all your Cells in a palm state.
+
+Note that this is only enabled in non DOM execution environments. So it's only usefull on
+the server.
 
 # Production
 This is still very experimental. If you decide to run this in production. Use it
@@ -105,5 +137,5 @@ in combination with [react-style-webpack-plugin](https://github.com/boligbesked/
 
 ## TODO:
 - [x] Add Responsive capabilities
-- [ ] Find a decent way to test responsive grid props.
+- [x] Find a decent way to test responsive grid props.
 - [ ] Add flex order

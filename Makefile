@@ -18,7 +18,7 @@ dev:
 
 test:
 	@echo "\nTesting source files, hang on..."
-	@NODE_ENV=test $(BIN)/mocha       \
+	@NODE_ENV=test $(BIN)/mocha         \
 		--require mocha-clean             \
 		--require lib/__tests__/testdom   \
 		--require lib/__tests__/babelinit \
@@ -26,7 +26,7 @@ test:
 
 test-build:
 	@echo "\nTesting build files, almost there..!"
-	@$(BIN)/mocha                       \
+	@NODE_ENV=test $(BIN)/mocha         \
 		--require mocha-clean             \
 		--require dist/__tests__/testdom  \
 		./dist/__tests__/*.test.js
