@@ -1,4 +1,4 @@
-src/test
-lib/test
-dist/test
+src/__test__
+lib/__test__
+dist/__test__
 example
