@@ -11,14 +11,6 @@ class Example extends React.Component {
     };
   }
 
-  getChildContext() {
-    return {
-      flexr: {
-        gutter: '2em'
-      }
-    };
-  }
-
   render() {
     return (
       <div style={ this.styles }>
@@ -184,8 +176,5 @@ class Example extends React.Component {
   }
 }
 
-Example.childContextTypes = {
-  flexr: React.PropTypes.object
-};
 
 React.render(<Example />, document.getElementById('root'));
