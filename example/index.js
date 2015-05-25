@@ -1,6 +1,7 @@
 import { Grid, Cell } from '../lib';
 import Demo from './demo.component';
 import React from 'react';
+import StyleSheet from 'stilr';
 
 class Example extends React.Component {
   constructor(props, context) {
@@ -9,6 +10,12 @@ class Example extends React.Component {
     this.styles = {
       padding: 20
     };
+  }
+
+  componentWillMount() {
+    let stylesheet = document.createElement('style');
+    stylesheet.textContent = StyleSheet.render();
+    document.head.appendChild(stylesheet);
   }
 
   render() {
