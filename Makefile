@@ -11,10 +11,13 @@ dist/%.js: lib/%.js
 clean:
 	@rm -rf ./dist
 
-build: test clean dist test-build
+build: test clean dist test-build extract-styles
 
 dev:
 	@node ./example/server.js
+
+extract-styles:
+	@node -p "var s = require('stilr'); require('./dist'); s.render()" >> ./dist/styles.css
 
 test:
 	@echo "\nTesting source files, hang on..."
