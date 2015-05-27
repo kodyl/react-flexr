@@ -17,7 +17,7 @@ dev:
 	@node ./example/server.js
 
 extract-styles:
-	@node -p "var s = require('stilr'); require('./dist'); s.render()" >> ./dist/styles.css
+	@node -p "var s = require('stilr'); require('./dist'); s.render()" > ./styles.css
 
 test:
 	@echo "\nTesting source files, hang on..."

@@ -4,14 +4,6 @@ import React from 'react';
 import StyleSheet from 'stilr';
 
 class Example extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-
-    this.styles = {
-      padding: 20
-    };
-  }
-
   componentWillMount() {
     let stylesheet = document.createElement('style');
     stylesheet.textContent = StyleSheet.render();
