@@ -3,6 +3,7 @@ import Demo from './demo.component';
 import React from 'react';
 import StyleSheet from 'stilr';
 
+
 class Example extends React.Component {
   componentWillMount() {
     let styles = document.createElement('style');
