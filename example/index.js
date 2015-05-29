@@ -5,11 +5,11 @@ import StyleSheet from 'stilr';
 
 
 class Example extends React.Component {
-  componentWillMount() {
-    let styles = document.createElement('style');
-    styles.textContent = StyleSheet.render({}, stylesheet);
-    document.head.appendChild(styles);
-  }
+  // componentWillMount() {
+  //   let styles = document.createElement('style');
+  //   styles.textContent = StyleSheet.render({}, stylesheet);
+  //   document.head.appendChild(styles);
+  // }
 
   render() {
     return (
