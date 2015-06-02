@@ -1,15 +1,35 @@
-import { Grid, Cell, stylesheet } from '../lib';
+import { Grid, Cell, stylesheet, findCurrentBreakpoints, optimizedResize } from '../lib';
 import Demo from './demo.component';
-import React from 'react';
+import React, { PropTypes as Type } from 'react';
 import StyleSheet from 'stilr';
 
-
 class Example extends React.Component {
-  // componentWillMount() {
-  //   let styles = document.createElement('style');
-  //   styles.textContent = StyleSheet.render({}, stylesheet);
-  //   document.head.appendChild(styles);
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      updatedAt: 0
+    };
+  }
+
+  componentWillMount() {
+    let styles = document.createElement('style');
+    styles.textContent = StyleSheet.render({}, stylesheet);
+    document.head.appendChild(styles);
+  }
+
+  static childContextTypes = {
+    breakpoints: Type.arrayOf( Type.string )
+  }
+
+  getChildContext() {
+    return {
+      breakpoints: findCurrentBreakpoints()
+    };
+  }
+
+  componentDidMount() {
+    optimizedResize.init( () => this.forceUpdate() );
+  }
 
   render() {
     return (
