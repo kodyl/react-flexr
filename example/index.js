@@ -1,7 +1,8 @@
-import { Grid, Cell, stylesheet, findCurrentBreakpoints, optimizedResize } from '../lib';
+import { Grid, Cell, stylesheet, findBreakpoints, optimizedResize } from '../lib';
 import Demo from './demo.component';
 import React, { PropTypes as Type } from 'react';
 import StyleSheet from 'stilr';
+import Nested from './nested.component';
 
 class Example extends React.Component {
   constructor(props) {
@@ -17,23 +18,20 @@ class Example extends React.Component {
     document.head.appendChild(styles);
   }
 
-  static childContextTypes = {
-    breakpoints: Type.arrayOf( Type.string )
-  }
-
-  getChildContext() {
-    return {
-      breakpoints: findCurrentBreakpoints()
-    };
-  }
-
   componentDidMount() {
-    optimizedResize.init( () => this.forceUpdate() );
+    optimizedResize.init( () => {
+      if ( findBreakpoints() ) {
+        console.log('New Breakpoints');
+        this.forceUpdate();
+      }
+    });
   }
 
   render() {
     return (
       <div style={ this.styles }>
+
+        <Nested />
 
         <h3>Basic Grids</h3>
         <p>The grid cells below do not specify any widths, they just naturally space themselves equally and expand to fit the entire row. They're also equal height by default.</p>
