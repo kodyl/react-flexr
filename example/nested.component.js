@@ -13,7 +13,7 @@ class Nested extends React.Component {
 
         { foo.map( (num) => (
           <Grid key={ num }>
-            <Cell palm='1/2' desk='10/12'>
+            <Cell palm='1/2' lap='hidden' desk='10/12'>
               <Demo>1/2</Demo>
             </Cell>
           </Grid>

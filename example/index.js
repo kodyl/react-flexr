@@ -1,4 +1,4 @@
-import { Grid, Cell, stylesheet, findBreakpoints, optimizedResize } from '../lib';
+import { Grid, Cell, stylesheet, findMatch, findBreakpoints, optimizedResize } from '../lib';
 import Demo from './demo.component';
 import React, { PropTypes as Type } from 'react';
 import StyleSheet from 'stilr';
@@ -30,7 +30,6 @@ class Example extends React.Component {
   render() {
     return (
       <div style={ this.styles }>
-
         <Nested />
 
         <h3>Basic Grids</h3>
