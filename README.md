@@ -23,10 +23,8 @@ class Example extends React.component {
   }
 }
 ```
-*If you don't use webpack with css-loader, make sure to include the react-flexr/styles.css somewhere in your project.
-
-For more advanced use cases, the [Stilr](https://github.com/chriskjaer/stilr)
-stylesheet is also exposed.*
+**If you don't use webpack with css-loader, make sure to include the `react-flexr/styles.css` somewhere in your project. For more advanced use cases, the [Stilr](https://github.com/chriskjaer/stilr)
+stylesheet is also exposed.**
 
 
 Cell sizes can be controlled with fractions.
