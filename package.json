@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "react": ">=0.11.0",
-    "stilr": "^0.3.x"
+    "stilr": "^1.0.0"
   },
   "repository": "chriskjaer/react-flexr",
   "author": "Chris Kjær Sørensen",
