@@ -1,8 +1,7 @@
-import { Grid, Cell, stylesheet, findMatch, findBreakpoints, optimizedResize } from '../lib';
+import { Grid, Cell, stylesheet, findMatch, findBreakpoints, optimizedResize, palm, desk, lap, portable } from '../lib';
 import Demo from './demo.component';
-import React, { PropTypes as Type } from 'react';
+import React from 'react';
 import StyleSheet from 'stilr';
-import Nested from './nested.component';
 
 class Example extends React.Component {
   constructor(props) {
@@ -30,8 +29,6 @@ class Example extends React.Component {
   render() {
     return (
       <div style={ this.styles }>
-        <Nested />
-
         <h3>Basic Grids</h3>
         <p>The grid cells below do not specify any widths, they just naturally space themselves equally and expand to fit the entire row. They're also equal height by default.</p>
         <Grid>
@@ -188,6 +185,18 @@ class Example extends React.Component {
             </Demo>
           </Cell>
         </Grid>
+
+        <h1>Using 'findMatch' helper</h1>
+
+        <p>Only visible in palm:</p>
+        { findMatch('palm')
+          ? <strong>Palm</strong>
+          : null }
+
+        <p>Only visible in desk and lap:</p>
+        { findMatch('desk', 'lap')
+          ? <strong>Desk or Lap</strong>
+          : null }
       </div>
     );
   }
