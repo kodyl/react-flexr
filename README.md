@@ -9,6 +9,7 @@ Base example.
 ```javascript
 import React from 'react';
 import { Grid, Cell } from 'react-flexr';
+import 'react-flexr/styles.css'
 
 class Example extends React.component {
   render() {
@@ -22,6 +23,11 @@ class Example extends React.component {
   }
 }
 ```
+*If you don't use webpack with css-loader, make sure to include the react-flexr/styles.css somewhere in your project.
+
+For more advanced use cases, the [Stilr](https://github.com/chriskjaer/stilr)
+stylesheet is also exposed.*
+
 
 Cell sizes can be controlled with fractions.
 ```javascript
@@ -58,17 +64,23 @@ class Example extends React.component {
 ```
 
 # Component API:
-### Grid
-```
+#### `Grid`
+```javascript
+import { Grid } from 'react-flexr';
+
 <Grid
   align={ string }    // Vertical Align Sub Cells: top, center, bottom
   hAlign={ string }   // Horizontal Align Sub Cells: left, center, right
   gutter={ string }   // Override default gutter: '1em', '5%', '10px', etc.
+  Propagates downwards. Cells inside this Grid component will use the same gutter.
   flexCells={ bool }  // All sub cells will be full height
 />
 ```
-### Cell
-```
+
+#### `Cell`
+```javascript
+import { Cell } from 'react-flexr';
+
 <Cell
   align={ string }    // Vertical Align This Cell: top, center, bottom
   gutter={ string }   // Override default gutter: '1em', '5%', '10px', etc.
@@ -98,44 +110,148 @@ the following breakpoints have beeen implemented:
 
 See [breakpoints file](https://github.com/chriskjaer/react-flexr/blob/master/src/breakpoints.js) for sizes.
 
-# Context Rendering
-It's posible to render the grid in a specific size context. This is usefull for
-serverside rendering where you want to prerender the app for a mobile/tablet
-user.
 
-#### Usage:
-Wrap your app and set a context;
+## Flexr Helpers
+Use these to get the most out of Flexr.
 
-```
-class Wrapper extends React.Component {
-  static childContextTypes = {
-    width: React.PropTypes.number
-  }
+#### `string|false findMatch(string arguments)`
+This is the internal function that Flexr uses to check which ergonomic state
+it's currently in. It's usefull if you have components outside the grid that you
+want to show/hide/manipulate props.
 
-  getChildContext() {
-    return {
-      width: this.props.size
-    };
-  }
+__Example__
+```javascript
+import { findMatch } from 'react-flexr';
+import React from 'react';
 
+class App extends React.Component {
   render() {
-    return <App />
+    const isPalm = findMatch('palm');
+
+    if (isPalm) console.log( 'only logged in palm' );
+
+    return (
+      <div>
+        <h1>Only visible in palm:</h1>
+        { isPalm
+          ? <h2>Palm</h2>
+          : null }
+
+        <h1>Allows Multiple Matches</h1>
+        { findMatch('desk', 'lap')
+          ? <h2>Lap or Desk</h2>
+          : null }
+      </div>
+    );
   }
 }
 
-React.renderToString( <Wrapper size={ 320 } />);
 ```
 
-This should render all your Cells in a palm state.
+#### `setBreakpoints( array breakpoints )`
+It's posible to force flexr to be in a specific ergonomic state. This is
+primarily usefull when rendering on the server. E.g. looking at the user agent
+string on rendering the app in palm/portable if it's an iOS/iPhone or
+lap/portable if iOS/iPad.
 
-Note that this is only enabled in non DOM execution environments. So it's only usefull on
-the server.
+__Example__
+```javascript
+import { setBreakpoints } from 'react-flexr';
+import App from '../your-app';
+import React from 'react';
 
-# Production
-This is still very experimental. If you decide to run this in production. Use it
-in combination with [react-style-webpack-plugin](https://github.com/boligbesked/react-style-webpack-plugin) to extract the css.
+const isMobile = /iP(hone|od)|Mobile/;
+function (req, res) {
+  if ( isMobile.test( req.headers['user-agent'] ) ) {
+    setBreakpoints(['palm', 'portable'])
+  }
+  else {
+    setBreakpoints(['desk'])
+  }
+  const html = React.renderToString( <App />);
 
-## TODO:
-- [x] Add Responsive capabilities
-- [x] Find a decent way to test responsive grid props.
-- [ ] Add flex order
+  res.send( '<!doctype html>' + html );
+}
+```
+
+#### `array|false findBreakpoints()`
+Force flexr to find the current breakpoints. Returns an array of the current
+breakpoints that flexr matches in. If they haven't changed since the last time
+`findBreakpoints()` was called, false will be returned.
+Use in combination with `optimizedResize`.
+
+__Example__
+```javascript
+import { findBreakpoints } from 'react-flexr';
+
+// First run. Window is sized to match lap.
+findBreakpoints()       // => ['lap', 'portable'];
+
+// Second run. Window not resized.
+findBreakpoints()       // => false;
+```
+
+#### `optimizedResize.init( function )`
+Simple resize event throttler. Usefull for force updating when the app have been
+resized. For best performance, use it in your main app component in the
+componentDidMount life cycle.
+
+__Example__
+```javascript
+import React from 'react';
+import { optimizedResize, findBreakpoints } from 'react-flexr';
+
+class App extends React.Component {
+  componentDidMount() {
+    optimizedResize.init( () => {
+      if ( findBreakpoints() ) {
+        console.log('New Breakpoints');
+        this.forceUpdate();
+      }
+    });
+  }
+}
+```
+
+
+#### `array getCurrentBreakpoints()`
+returns an array of current breakpoints.
+
+
+#### `Map stylesheet`
+The internal [Stilr](https://github.com/chriskjaer/stilr) stylesheet used to
+handle basic flexbox styling for the components.
+Usefull if you need full controll of how the CSS is rendered. Reed the Stilr
+documentation on how to use Stilr if you need finegrained controll over you
+styling.
+
+
+#### `palm, lap, portable, desk`
+The ergonomic breakpoint media queries that flexr uses internally is also
+exposed. These are especially useful in combination with [Stilr](https://github.com/chriskjaer/stilr).
+
+__Example__
+```javascript
+import { palm, lap } from 'react-flexr';
+import StyleSheet from 'stilr';
+
+console.log(palm)       // => '@media screen and (max-width: 600px)';
+
+
+// Stilr usage:
+const styles = Style.create({
+  constainer: {
+    color: 'tomato',
+    fontSize: 10,
+    [palm]: {
+      fontSize: 20,
+      color: '#fff'
+    },
+    [lap]: {
+      color: '#000',
+      width: 200
+    }
+  }
+});
+```
+
