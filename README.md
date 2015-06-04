@@ -70,7 +70,7 @@ import { Grid } from 'react-flexr';
   align={ string }    // Vertical Align Sub Cells: top, center, bottom
   hAlign={ string }   // Horizontal Align Sub Cells: left, center, right
   gutter={ string }   // Override default gutter: '1em', '5%', '10px', etc.
-  Propagates downwards. Cells inside this Grid component will use the same gutter.
+                      //   Propagates downwards. Cells inside this Grid component will use the same gutter.
   flexCells={ bool }  // All sub cells will be full height
 />
 ```
@@ -87,7 +87,7 @@ import { Cell } from 'react-flexr';
   palm={ string }     // Like size, but only applies for palm devices.*
   lap={ string }      // Like size, but only applies for lap devices.*
   portable={ string } // Like size, but only applies for ( palm + lap )
-  devices.*
+                      //   devices.*
   desk={ string }     // Like size, but only applies for desk devices.*
 />
 ```
