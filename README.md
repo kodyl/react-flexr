@@ -49,7 +49,7 @@ class Example extends React.component {
         <Cell>
 
         <Cell palm='3/12' lap='1/2'>
-          Fills on mobile, half on lap and dynamic size everywhere else.
+          Fills a quarter on palm (mobile), half on lap and dynamicly sized everywhere else.
         <Cell>
 
         <Cell palm='hidden' size='1/2'>
@@ -110,12 +110,14 @@ See [breakpoints file](https://github.com/chriskjaer/react-flexr/blob/master/src
 
 
 ## Flexr Helpers
-Use these to get the most out of Flexr.
+Use these to get the most out of Flexr. Especially `findMatch` is very useful when you need to add different behaviour based on window width outside of the grid/cell elements.
 
 #### `string|false findMatch(string arguments)`
 This is the internal function that Flexr uses to check which ergonomic state
-it's currently in. It's usefull if you have components outside the grid that you
-want to show/hide/manipulate props.
+it's currently in. It's really useful if you have components outside the grid, that you
+want to show/hide/manipulate passed properties or stuff in your lifecycle hooks.
+
+The function accepts multipe ergonomic breakpoints as strings and returns the first one matched or false if nothing matches.
 
 __Example__
 ```javascript
