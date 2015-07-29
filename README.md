@@ -1,6 +1,6 @@
-# Flexr :muscle: [![Build Status](https://travis-ci.org/kodyl/react-flexr.svg)](https://travis-ci.org/kodyl/react-flexr) [![npm version](https://badge.fury.io/js/react-flexr.svg)](http://badge.fury.io/js/react-flexr)
+# Flexr [![Build Status](https://travis-ci.org/kodyl/react-flexr.svg)](https://travis-ci.org/kodyl/react-flexr) [![npm version](https://badge.fury.io/js/react-flexr.svg)](http://badge.fury.io/js/react-flexr)
 
-React Flexbox grid made simple.
+React Flexbox grid made simple. :muscle:
 Based on the [ "Solved-by-flexbox"-grid ]( http://philipwalton.github.io/solved-by-flexbox/demos/grids/ )
 
 ### Usage

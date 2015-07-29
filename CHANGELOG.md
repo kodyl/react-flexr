@@ -10,6 +10,10 @@
 
 _Note: Gaps between patch versions are faulty/broken releases._
 
+## 2.0.1
+  * [Bug Fix]
+    * `react-flexr` now works correctly with `stilr@^1.2.1`
+
 ## 2.0.0
   * __[Breaking Change]__
     * Context rendering removed. Use `setBreakpoints` instead.
