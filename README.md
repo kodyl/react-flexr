@@ -1,4 +1,4 @@
-# Flexr [![Build Status](https://travis-ci.org/chriskjaer/react-flexr.svg)](https://travis-ci.org/chriskjaer/react-flexr) [![npm version](https://badge.fury.io/js/react-flexr.svg)](http://badge.fury.io/js/react-flexr)
+# Flexr :muscle: [![Build Status](https://travis-ci.org/kodyl/react-flexr.svg)](https://travis-ci.org/kodyl/react-flexr) [![npm version](https://badge.fury.io/js/react-flexr.svg)](http://badge.fury.io/js/react-flexr)
 
 React Flexbox grid made simple.
 Based on the [ "Solved-by-flexbox"-grid ]( http://philipwalton.github.io/solved-by-flexbox/demos/grids/ )
@@ -23,10 +23,8 @@ class Example extends React.component {
   }
 }
 ```
-*If you don't use webpack with css-loader, make sure to include the react-flexr/styles.css somewhere in your project.
-
-For more advanced use cases, the [Stilr](https://github.com/chriskjaer/stilr)
-stylesheet is also exposed.*
+**If you don't use webpack with css-loader, make sure to include the `react-flexr/styles.css` somewhere in your project. For more advanced use cases, the [Stilr](https://github.com/chriskjaer/stilr)
+stylesheet is also exposed.**
 
 
 Cell sizes can be controlled with fractions.
@@ -51,7 +49,7 @@ class Example extends React.component {
         <Cell>
 
         <Cell palm='3/12' lap='1/2'>
-          Fills on mobile, half on lap and dynamic size everywhere else.
+          Fills a quarter on palm (mobile), half on lap and dynamicly sized everywhere else.
         <Cell>
 
         <Cell palm='hidden' size='1/2'>
@@ -72,7 +70,7 @@ import { Grid } from 'react-flexr';
   align={ string }    // Vertical Align Sub Cells: top, center, bottom
   hAlign={ string }   // Horizontal Align Sub Cells: left, center, right
   gutter={ string }   // Override default gutter: '1em', '5%', '10px', etc.
-  Propagates downwards. Cells inside this Grid component will use the same gutter.
+                      //   Propagates downwards. Cells inside this Grid component will use the same gutter.
   flexCells={ bool }  // All sub cells will be full height
 />
 ```
@@ -89,7 +87,7 @@ import { Cell } from 'react-flexr';
   palm={ string }     // Like size, but only applies for palm devices.*
   lap={ string }      // Like size, but only applies for lap devices.*
   portable={ string } // Like size, but only applies for ( palm + lap )
-  devices.*
+                      //   devices.*
   desk={ string }     // Like size, but only applies for desk devices.*
 />
 ```
@@ -112,12 +110,14 @@ See [breakpoints file](https://github.com/chriskjaer/react-flexr/blob/master/src
 
 
 ## Flexr Helpers
-Use these to get the most out of Flexr.
+Use these to get the most out of Flexr. Especially `findMatch` is very useful when you need to add different behaviour based on window width outside of the grid/cell elements.
 
 #### `string|false findMatch(string arguments)`
 This is the internal function that Flexr uses to check which ergonomic state
-it's currently in. It's usefull if you have components outside the grid that you
-want to show/hide/manipulate props.
+it's currently in. It's really useful if you have components outside the grid, that you
+want to show/hide/manipulate passed properties or stuff in your lifecycle hooks.
+
+The function accepts multipe ergonomic breakpoints as strings and returns the first one matched or false if nothing matches.
 
 __Example__
 ```javascript
