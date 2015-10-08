@@ -1,6 +1,7 @@
 import { Grid, Cell, stylesheet, findMatch, findBreakpoints, optimizedResize, palm, desk, lap, portable } from '../lib';
 import Demo from './demo.component';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import StyleSheet from 'stilr';
 
 class Example extends React.Component {
@@ -203,4 +204,4 @@ class Example extends React.Component {
 }
 
 
-React.render(<Example />, document.getElementById('root'));
+ReactDOM.render(<Example />, document.getElementById('root'));
