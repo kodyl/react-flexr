@@ -5,8 +5,8 @@ DIST   = $(patsubst lib/%.js,dist/%.js,$(LIB))
 
 dist: $(DIST)
 dist/%.js: lib/%.js
-	@mkdir -p $(@D)
-	$(BIN)/babel $< -o $@ --stage 0
+	@ mkdir -p $(@D)
+	$(BIN)/babel $< -o $@
 
 clean:
 	@rm -rf ./dist
@@ -22,15 +22,13 @@ extract-styles:
 test:
 	@echo "\nTesting source files, hang on..."
 	@NODE_ENV=test $(BIN)/mocha         \
-		--require mocha-clean             \
+		--compilers js:babel/register     \
 		--require lib/__tests__/testdom   \
-		--require lib/__tests__/babelinit \
 		./lib/__tests__/*.test.js
 
 test-build:
 	@echo "\nTesting build files, almost there..!"
 	@NODE_ENV=test $(BIN)/mocha         \
-		--require mocha-clean             \
 		--require dist/__tests__/testdom  \
 		./dist/__tests__/*.test.js
 

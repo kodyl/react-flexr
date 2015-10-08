@@ -19,7 +19,6 @@
     "babel-loader": "^5.0.0",
     "jsdom": "^5.4.1",
     "mocha": "^2.2.4",
-    "mocha-clean": "^0.4.0",
     "react-hot-loader": "^1.2.7",
     "semver": "^5.0.1",
     "webpack": "^1.9.4",

@@ -1,0 +1,13 @@
+{
+  "stage": 0,
+  "loose": ["es6.modules", "es6.classes"],
+  "env": {
+    "production": {
+      "optional": [
+        "optimisation.react.constantElements",
+        "optimisation.react.inlineElements",
+        "validation.react"
+      ]
+    }
+  }
+} 
