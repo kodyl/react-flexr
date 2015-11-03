@@ -106,7 +106,7 @@ the following breakpoints have beeen implemented:
 - Portable
 - Desk
 
-See [breakpoints file](https://github.com/chriskjaer/react-flexr/blob/master/src/breakpoints.js) for sizes.
+See the [breakpoint config object](https://github.com/kodyl/react-flexr/blob/master/lib/utils/index.js#L8) for sizes.
 
 
 ## Flexr Helpers
