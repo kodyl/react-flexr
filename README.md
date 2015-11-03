@@ -23,7 +23,7 @@ class Example extends React.component {
   }
 }
 ```
-**If you don't use webpack with css-loader, make sure to include the `react-flexr/styles.css` somewhere in your project. For more advanced use cases, the [Stilr](https://github.com/chriskjaer/stilr)
+**If you don't use webpack with css-loader, make sure to include the `react-flexr/styles.css` somewhere in your project. For more advanced use cases, the [Stilr](https://github.com/kodyl/stilr)
 stylesheet is also exposed.**
 
 
@@ -219,7 +219,7 @@ returns an array of current breakpoints.
 
 
 #### `Map stylesheet`
-The internal [Stilr](https://github.com/chriskjaer/stilr) stylesheet used to
+The internal [Stilr](https://github.com/kodyl/stilr) stylesheet used to
 handle basic flexbox styling for the components.
 Usefull if you need full controll of how the CSS is rendered. Reed the Stilr
 documentation on how to use Stilr if you need finegrained controll over you
@@ -228,7 +228,7 @@ styling.
 
 #### `palm, lap, portable, desk`
 The ergonomic breakpoint media queries that flexr uses internally is also
-exposed. These are especially useful in combination with [Stilr](https://github.com/chriskjaer/stilr).
+exposed. These are especially useful in combination with [Stilr](https://github.com/kodyl/stilr).
 
 __Example__
 ```javascript
