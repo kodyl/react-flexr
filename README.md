@@ -15,9 +15,9 @@ class Example extends React.component {
   render() {
     return (
       <Grid>
-        <Cell>1/3<Cell>
-        <Cell>1/3<Cell>
-        <Cell>1/3<Cell>
+        <Cell>1/3</Cell>
+        <Cell>1/3</Cell>
+        <Cell>1/3</Cell>
       </Grid>
     );
   }
@@ -38,7 +38,7 @@ class Example extends React.component {
       <Grid>
         <Cell size='6/12'>
           Fills Half
-        <Cell>
+        </Cell>
 
         <Cell>
           Fills Rest.. (Yay for Flexbox)
@@ -46,15 +46,15 @@ class Example extends React.component {
 
         <Cell size='3/12'>
           Fills a quarter
-        <Cell>
+        </Cell>
 
         <Cell palm='3/12' lap='1/2'>
           Fills a quarter on palm (mobile), half on lap and dynamicly sized everywhere else.
-        <Cell>
+        </Cell>
 
         <Cell palm='hidden' size='1/2'>
           Hidden on palm, half width otherwise
-        <Cell>
+        </Cell>
       </Grid>
     );
   }
