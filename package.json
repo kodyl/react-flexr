@@ -32,6 +32,11 @@
     "stilr": "^1.2.1"
   },
   "repository": "kodyl/react-flexr",
-  "author": "Chris Kjær Sørensen",
+  "author": "Kodyl ApS",
+  "contributors": [{
+    "name": "Chris Kjær Sørensen"
+  },{
+    "name": "Daniel Juhl"
+  }],
   "license": "MIT"
 }
