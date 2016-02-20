@@ -44,12 +44,20 @@ class Example extends React.component {
           Fills Rest.. (Yay for Flexbox)
         </Cell>
 
+        <Cell size={200} lap={150}>
+          Fills 150px on lap and 200px everywhere else
+        </Cell>
+
+        <Cell size={0.5} lap={0.25}>
+          Fills a quarter on lap and half everywhere else
+        </Cell>
+
         <Cell size='3/12'>
           Fills a quarter
         </Cell>
 
         <Cell palm='3/12' lap='1/2'>
-          Fills a quarter on palm (mobile), half on lap and dynamicly sized everywhere else.
+          Fills a quarter on palm (mobile), half on lap and dynamicly sized everywhere else
         </Cell>
 
         <Cell palm='hidden' size='1/2'>
@@ -80,15 +88,14 @@ import { Grid } from 'react-flexr';
 import { Cell } from 'react-flexr';
 
 <Cell
-  align={ string }    // Vertical Align This Cell: top, center, bottom
-  gutter={ string }   // Override default gutter: '1em', '5%', '10px', etc.
-  flex={ bool }       // Like flexCells above, but for a single cell.
-  size={ string }     // Takes a fraction. e.g. 1/6
-  palm={ string }     // Like size, but only applies for palm devices.*
-  lap={ string }      // Like size, but only applies for lap devices.*
-  portable={ string } // Like size, but only applies for ( palm + lap )
-                      //   devices.*
-  desk={ string }     // Like size, but only applies for desk devices.*
+  align={ string }             // Vertical Align This Cell: top, center, bottom
+  gutter={ string }            // Override default gutter: '1em', '5%', '10px', etc.
+  flex={ bool }                // Like flexCells above, but for a single cell.
+  size={ string | number }     // Takes a fraction. e.g. 1/6
+  palm={ string | number }     // Like size, but only for palm devices.*
+  lap={ string | number }      // Like size, but only for lap devices.*
+  portable={ string | number } // Like size, but only for ( palm + lap ) devices.*
+  desk={ string | number }     // Like size, but only for desk devices.*
 />
 ```
 __* Ergonomic breakpoints accepts 'hidden' as well. This will prevent the
@@ -99,8 +106,7 @@ See the example folder for more examples.
 ## Responsive Props
 The responsive props are based on [ergonomics](https://twitter.com/lukew/status/273453112902172672).
 
-I've used these breakpoints in a variety of [apps](https://github.com/chriskjaer/prototype-seed) and [ grids ](https://github.com/chriskjaer/prototype-seed/blob/master/source/assets/styles/utilities/_grid.scss) with success. So far
-the following breakpoints have beeen implemented:
+We've used these breakpoints in a variety of apps and grids with success. So far the following breakpoints have beeen implemented:
 - Palm
 - Lap
 - Portable
