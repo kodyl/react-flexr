@@ -1,16 +1,19 @@
 {
-  "stage": 0,
-  "loose": ["es6.modules", "es6.classes"],
-  "optional": [
-    "runtime"
+  "plugins": [
+    "transform-runtime",
+    "add-module-exports"
+  ],
+  "presets": [
+    "es2015",
+    "react",
+    "stage-0"
   ],
   "env": {
     "production": {
-      "optional": [
-        "optimisation.react.constantElements",
-        "optimisation.react.inlineElements",
-        "validation.react"
+      "plugins": [
+        "transform-react-constant-elements",
+        "transform-react-inline-elements"
       ]
     }
   }
-} 
+}

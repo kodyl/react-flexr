@@ -5,24 +5,28 @@ DIST   = $(patsubst lib/%.js,dist/%.js,$(LIB))
 
 dist: $(DIST)
 dist/%.js: lib/%.js
-	@ mkdir -p $(@D)
-	$(BIN)/babel $< -o $@
+	@echo "Building $<"
+	@mkdir -p $(@D)
+	@$(BIN)/babel $< -o $@
 
 clean:
+	@echo "\nRemove existing build files..."
 	@rm -rf ./dist
 
 build: test clean dist test-build extract-styles
+	@echo "\nBuild done!\n"
 
 dev:
 	@node ./example/server.js
 
 extract-styles:
+	@echo "\nExtracting Stilr StyleSheet..."
 	@node -p "var s = require('stilr'); var b = require('./dist'); s.render({}, b.stylesheet)" > ./styles.css
 
 test:
 	@echo "\nTesting source files, hang on..."
 	@NODE_ENV=test $(BIN)/mocha         \
-		--compilers js:babel/register     \
+		--compilers js:babel-register     \
 		--require lib/__tests__/testdom   \
 		./lib/__tests__/*.test.js
 
