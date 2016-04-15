@@ -23,6 +23,10 @@ extract-styles:
 	@echo "\nExtracting Stilr StyleSheet..."
 	@node -p "var s = require('stilr'); var b = require('./dist'); s.render({}, b.stylesheet)" > ./styles.css
 
+lint:
+	@echo "\nLinting source files..."
+	@$(BIN)/eslint lib/
+
 test:
 	@echo "\nTesting source files, hang on..."
 	@NODE_ENV=test $(BIN)/mocha         \
