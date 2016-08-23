@@ -7,11 +7,11 @@ Based on the [ "Solved-by-flexbox"-grid ]( http://philipwalton.github.io/solved-
 
 Base example.
 ```javascript
-import React from 'react';
+import React, { Component } from 'react';
 import { Grid, Cell } from 'react-flexr';
 import 'react-flexr/styles.css'
 
-class Example extends React.component {
+class Example extends Component {
   render() {
     return (
       <Grid>
@@ -29,10 +29,10 @@ stylesheet is also exposed.**
 
 Cell sizes can be controlled with fractions.
 ```javascript
-import React from 'react';
+import React, { Component } from 'react';
 import { Grid, Cell } from 'react-flexr';
 
-class Example extends React.component {
+class Example extends Component {
   render() {
     return (
       <Grid>
@@ -128,9 +128,9 @@ The function accepts multipe ergonomic breakpoints as strings and returns the fi
 __Example__
 ```javascript
 import { findMatch } from 'react-flexr';
-import React from 'react';
+import React, { Component } from 'react';
 
-class App extends React.Component {
+class App extends Component {
   render() {
     const isPalm = findMatch('palm');
 
@@ -204,10 +204,10 @@ componentDidMount life cycle.
 
 __Example__
 ```javascript
-import React from 'react';
+import React, { Component } from 'react';
 import { optimizedResize, findBreakpoints } from 'react-flexr';
 
-class App extends React.Component {
+class App extends Component {
   componentDidMount() {
     optimizedResize.init( () => {
       if ( findBreakpoints() ) {
@@ -260,4 +260,3 @@ const styles = Style.create({
   }
 });
 ```
-
