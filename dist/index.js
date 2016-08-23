@@ -1,18 +1,20 @@
 'use strict';
 
-var _extends = require('babel-runtime/helpers/extends')['default'];
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
+var _extends2 = require('babel-runtime/helpers/extends');
 
-exports.__esModule = true;
+var _extends3 = _interopRequireDefault(_extends2);
 
-var _gridComponent = require('./grid.component');
+var _grid = require('./grid.component');
 
-var _gridComponent2 = _interopRequireDefault(_gridComponent);
+var _grid2 = _interopRequireDefault(_grid);
 
-var _cellComponent = require('./cell.component');
+var _cell = require('./cell.component');
 
-var _cellComponent2 = _interopRequireDefault(_cellComponent);
+var _cell2 = _interopRequireDefault(_cell);
 
 var _stylesheet = require('./stylesheet');
 
@@ -20,10 +22,12 @@ var _stylesheet2 = _interopRequireDefault(_stylesheet);
 
 var _utils = require('./utils');
 
-exports['default'] = _extends({
-  Grid: _gridComponent2['default'],
-  Cell: _cellComponent2['default'],
-  stylesheet: _stylesheet2['default'],
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = (0, _extends3.default)({
+  Grid: _grid2.default,
+  Cell: _cell2.default,
+  stylesheet: _stylesheet2.default,
   optimizedResize: _utils.optimizedResize,
   findBreakpoints: _utils.findBreakpoints,
   findMatch: _utils.findMatch,

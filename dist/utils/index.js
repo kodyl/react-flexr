@@ -1,12 +1,22 @@
 'use strict';
 
-var _slicedToArray = require('babel-runtime/helpers/sliced-to-array')['default'];
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.variables = exports.horizontal = exports.vertical = exports.optimizedResize = exports.mediaQueries = exports.matchMediaQueries = exports.settings = exports.canUseDOM = undefined;
 
-var _Object$keys = require('babel-runtime/core-js/object/keys')['default'];
+var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
 
-var _Map = require('babel-runtime/core-js/map')['default'];
+var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
 
-exports.__esModule = true;
+var _map = require('babel-runtime/core-js/map');
+
+var _map2 = _interopRequireDefault(_map);
+
+var _keys = require('babel-runtime/core-js/object/keys');
+
+var _keys2 = _interopRequireDefault(_keys);
+
 exports.generateMatchMediaString = generateMatchMediaString;
 exports.setBreakpoints = setBreakpoints;
 exports.getBreakpoints = getBreakpoints;
@@ -16,19 +26,19 @@ exports.findBreakpoints = findBreakpoints;
 exports.findMatch = findMatch;
 exports.doubleUnit = doubleUnit;
 exports.assign = assign;
-var canUseDOM = (function () {
-  return typeof window !== 'undefined' && window.document && window.document.createElement && window.matchMedia;
-})();
 
-exports.canUseDOM = canUseDOM;
-var settings = {
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var canUseDOM = exports.canUseDOM = function () {
+  return typeof window !== 'undefined' && window.document && window.document.createElement && window.matchMedia;
+}();
+
+var settings = exports.settings = {
   palm: { max: 600 },
   lap: { max: 959, min: 601 },
   portable: { max: 959 },
   desk: { min: 960 }
 };
-
-exports.settings = settings;
 
 function generateMatchMediaString(_ref) {
   var min = _ref.min;
@@ -42,18 +52,16 @@ function generateMatchMediaString(_ref) {
   return str;
 }
 
-var matchMediaQueries = _Object$keys(settings).reduce(function (acc, breakpoint) {
+var matchMediaQueries = exports.matchMediaQueries = (0, _keys2.default)(settings).reduce(function (acc, breakpoint) {
   acc[breakpoint] = generateMatchMediaString(settings[breakpoint]);
   return acc;
 }, {});
 
-exports.matchMediaQueries = matchMediaQueries;
-var mediaQueries = _Object$keys(matchMediaQueries).reduce(function (acc, breakpoint) {
+var mediaQueries = exports.mediaQueries = (0, _keys2.default)(matchMediaQueries).reduce(function (acc, breakpoint) {
   acc[breakpoint] = '@media screen and ' + matchMediaQueries[breakpoint];
   return acc;
 }, {});
 
-exports.mediaQueries = mediaQueries;
 var breakpoints = [];
 var breakpointsString = '';
 
@@ -79,15 +87,15 @@ function isDifferent(arr) {
 function findBreakpoints() {
   if (!canUseDOM) return getBreakpoints();
 
-  var newBreakpoints = _Object$keys(matchMediaQueries).filter(function (breakpoint) {
+  var newBreakpoints = (0, _keys2.default)(matchMediaQueries).filter(function (breakpoint) {
     return window.matchMedia(matchMediaQueries[breakpoint]).matches;
   });
 
   return isDifferent(newBreakpoints) && setBreakpoints(newBreakpoints);
 }
 
-var optimizedResize = (function () {
-  var callbacks = new _Map();
+var optimizedResize = exports.optimizedResize = function () {
+  var callbacks = new _map2.default();
   var running = false;
 
   function resize() {
@@ -111,12 +119,12 @@ var optimizedResize = (function () {
 
   function addCallback(callback, key) {
     if (typeof callback === 'function') {
-      callbacks.setItem(key || callback, callback);
+      callbacks.set(key || callback, callback);
     }
   }
 
   function removeCallback(key) {
-    callbacks['delete'](key);
+    callbacks.delete(key);
   }
 
   return {
@@ -131,9 +139,7 @@ var optimizedResize = (function () {
       removeCallback(key);
     }
   };
-})();
-
-exports.optimizedResize = optimizedResize;
+}();
 
 function findMatch() {
   for (var _len = arguments.length, arr = Array(_len), _key = 0; _key < _len; _key++) {
@@ -155,11 +161,10 @@ function findMatch() {
 }
 
 var valunit = /(\d+)(\w+)/;
-
 function doubleUnit(str) {
   var _str$match = str.match(valunit);
 
-  var _str$match2 = _slicedToArray(_str$match, 3);
+  var _str$match2 = (0, _slicedToArray3.default)(_str$match, 3);
 
   var val = _str$match2[1];
   var unit = _str$match2[2];
@@ -167,27 +172,23 @@ function doubleUnit(str) {
   return '' + val * 2 + unit;
 }
 
-var vertical = {
+var vertical = exports.vertical = {
   top: 'flex-start',
   center: 'center',
   bottom: 'flex-end'
 };
 
-exports.vertical = vertical;
-var horizontal = {
+var horizontal = exports.horizontal = {
   left: 'flex-start',
   center: 'center',
   right: 'flex-end'
 };
 
-exports.horizontal = horizontal;
-var variables = {
+var variables = exports.variables = {
   gutter: '11px'
 };
 
-exports.variables = variables;
-
-function assign(target, sources) {
+function assign(target) {
   if (target == null) {
     throw new TypeError('Object.assign target cannot be null or undefined');
   }

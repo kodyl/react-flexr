@@ -1,16 +1,20 @@
 'use strict';
 
-var _Map = require('babel-runtime/core-js/map')['default'];
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
+var _map = require('babel-runtime/core-js/map');
 
-exports.__esModule = true;
+var _map2 = _interopRequireDefault(_map);
 
 var _stilr = require('stilr');
 
 var _stilr2 = _interopRequireDefault(_stilr);
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // Used as Stilr StyleSheet
-var stylesheet = new (_stilr2['default'].Map || _Map)();
-exports['default'] = stylesheet;
+var stylesheet = new (_stilr2.default.Map || _map2.default)();
+exports.default = stylesheet;
 module.exports = exports['default'];

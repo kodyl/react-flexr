@@ -1,20 +1,40 @@
 'use strict';
 
-var _inherits = require('babel-runtime/helpers/inherits')['default'];
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
-var _createClass = require('babel-runtime/helpers/create-class')['default'];
+var _extends2 = require('babel-runtime/helpers/extends');
 
-var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
+var _extends3 = _interopRequireDefault(_extends2);
 
-var _extends = require('babel-runtime/helpers/extends')['default'];
+var _keys = require('babel-runtime/core-js/object/keys');
 
-var _objectWithoutProperties = require('babel-runtime/helpers/object-without-properties')['default'];
+var _keys2 = _interopRequireDefault(_keys);
 
-var _Object$keys = require('babel-runtime/core-js/object/keys')['default'];
+var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
 
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 
-exports.__esModule = true;
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _stylesheet = require('./stylesheet');
 
@@ -30,13 +50,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _utils = require('./utils');
 
-var styles = _stilr2['default'].create({
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var styles = _stilr2.default.create({
   base: {
     display: 'flex',
     flexWrap: 'wrap',
     listStyle: 'none',
     padding: 0,
-    margin: '0 -' + _utils.variables.gutter + ' ' + _utils.doubleUnit(_utils.variables.gutter)
+    margin: '0 -' + _utils.variables.gutter + ' ' + (0, _utils.doubleUnit)(_utils.variables.gutter)
   },
   leftHorizontal: {
     justifyContent: _utils.horizontal.left
@@ -56,63 +78,62 @@ var styles = _stilr2['default'].create({
   bottomVertical: {
     alignItems: _utils.vertical.bottom
   }
-}, _stylesheet2['default']);
+}, _stylesheet2.default);
 
-var Grid = (function (_Component) {
-  _inherits(Grid, _Component);
+var Grid = function (_Component) {
+  (0, _inherits3.default)(Grid, _Component);
 
   function Grid(props) {
-    _classCallCheck(this, Grid);
+    (0, _classCallCheck3.default)(this, Grid);
 
-    _Component.call(this, props);
-    _utils.findBreakpoints();
+    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Grid).call(this, props));
+
+    (0, _utils.findBreakpoints)();
+    return _this;
   }
 
-  Grid.prototype.render = function render() {
-    var _props = this.props;
-    var gutter = _props.gutter;
-    var style = _props.style;
-    var align = _props.align;
-    var hAlign = _props.hAlign;
-    var flexCells = _props.flexCells;
-    var children = _props.children;
-    var className = _props.className;
+  (0, _createClass3.default)(Grid, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props;
+      var gutter = _props.gutter;
+      var style = _props.style;
+      var align = _props.align;
+      var hAlign = _props.hAlign;
+      var flexCells = _props.flexCells;
+      var children = _props.children;
+      var className = _props.className;
+      var rest = (0, _objectWithoutProperties3.default)(_props, ['gutter', 'style', 'align', 'hAlign', 'flexCells', 'children', 'className']);
 
-    var rest = _objectWithoutProperties(_props, ['gutter', 'style', 'align', 'hAlign', 'flexCells', 'children', 'className']);
 
-    this.styles = _utils.assign({}, style, gutter ? { margin: '0 -' + gutter + ' ' + _utils.doubleUnit(gutter) } : null);
+      this.styles = (0, _utils.assign)({}, style, gutter ? { margin: '0 -' + gutter + ' ' + (0, _utils.doubleUnit)(gutter) } : null);
 
-    var classes = [styles.base, className, align ? styles[align + 'Vertical'] : null, hAlign ? styles[hAlign + 'Horizontal'] : null].filter(Boolean).join(' ');
+      var classes = [styles.base, className, align ? styles[align + 'Vertical'] : null, hAlign ? styles[hAlign + 'Horizontal'] : null].filter(Boolean).join(' ');
 
-    var parentProps = {};
-    if (gutter) parentProps.gutter = gutter;
-    if (flexCells) parentProps.flex = true;
+      var parentProps = {};
+      if (gutter) parentProps.gutter = gutter;
+      if (flexCells) parentProps.flex = true;
 
-    var wrappedChildren = _Object$keys(parentProps).length ? _react2['default'].Children.map(children, function (child) {
-      return child ? _react2['default'].cloneElement(child, _extends({}, parentProps)) : child;
-    }) : children;
+      var wrappedChildren = (0, _keys2.default)(parentProps).length ? _react2.default.Children.map(children, function (child) {
+        return child ? _react2.default.cloneElement(child, (0, _extends3.default)({}, parentProps)) : child;
+      }) : children;
 
-    return _react2['default'].createElement(
-      'div',
-      _extends({}, rest, {
-        style: this.styles,
-        className: classes }),
-      wrappedChildren
-    );
-  };
-
-  _createClass(Grid, null, [{
-    key: 'propTypes',
-    value: {
-      gutter: _react.PropTypes.string,
-      flexCells: _react.PropTypes.bool,
-      align: _react.PropTypes.oneOf(['top', 'center', 'bottom'])
-    },
-    enumerable: true
+      return _react2.default.createElement(
+        'div',
+        (0, _extends3.default)({}, rest, {
+          style: this.styles,
+          className: classes }),
+        wrappedChildren
+      );
+    }
   }]);
-
   return Grid;
-})(_react.Component);
+}(_react.Component);
 
-exports['default'] = Grid;
+Grid.propTypes = {
+  gutter: _react.PropTypes.string,
+  flexCells: _react.PropTypes.bool,
+  align: _react.PropTypes.oneOf(['top', 'center', 'bottom'])
+};
+exports.default = Grid;
 module.exports = exports['default'];
