@@ -111,9 +111,19 @@ var optimizedResize = exports.optimizedResize = function () {
   }
 
   function runCallbacks() {
-    callbacks.values().forEach(function (callback) {
-      return callback();
-    });
+    var values = callbacks.values();
+    var more = true;
+    while (more) {
+      var _values$next = values.next();
+
+      var done = _values$next.done;
+      var callback = _values$next.value;
+
+      if (done) {
+        return more = false;
+      }
+      callback();
+    }
     running = false;
   }
 
