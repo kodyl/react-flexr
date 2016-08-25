@@ -1,4 +1,4 @@
-import { Grid, Cell, stylesheet, findMatch, findBreakpoints, optimizedResize, palm, desk, lap, portable } from '../lib';
+import { Grid, Cell, stylesheet, findMatch, findBreakpoints, optimizedResize } from '../lib';
 import Demo from './demo.component';
 import React from 'react';
 import ReactDOM from 'react-dom';
