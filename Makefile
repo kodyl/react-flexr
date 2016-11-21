@@ -13,7 +13,7 @@ clean:
 	@echo "\nRemove existing build files..."
 	@rm -rf ./dist
 
-build: test clean dist test-build extract-styles
+build: lint test clean dist test-build extract-styles
 	@echo "\nBuild done!\n"
 
 dev:
