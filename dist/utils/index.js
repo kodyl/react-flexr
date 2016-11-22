@@ -23,6 +23,7 @@ exports.getBreakpoints = getBreakpoints;
 exports.clearBreakpoints = clearBreakpoints;
 exports.isDifferent = isDifferent;
 exports.findBreakpoints = findBreakpoints;
+exports.initBreakpoints = initBreakpoints;
 exports.findMatch = findMatch;
 exports.doubleUnit = doubleUnit;
 exports.assign = assign;
@@ -41,8 +42,8 @@ var settings = exports.settings = {
 };
 
 function generateMatchMediaString(_ref) {
-  var min = _ref.min;
-  var max = _ref.max;
+  var min = _ref.min,
+      max = _ref.max;
 
   var minStr = min ? '(min-width: ' + min + 'px)' : null;
   var maxStr = max ? '(max-width: ' + max + 'px)' : null;
@@ -94,6 +95,14 @@ function findBreakpoints() {
   return isDifferent(newBreakpoints) && setBreakpoints(newBreakpoints);
 }
 
+var initialized = false;
+function initBreakpoints() {
+  if (!initialized) {
+    initialized = true;
+    findBreakpoints();
+  }
+}
+
 var optimizedResize = exports.optimizedResize = function () {
   var callbacks = new _map2.default();
   var running = false;
@@ -114,15 +123,15 @@ var optimizedResize = exports.optimizedResize = function () {
     var values = callbacks.values();
     var more = true;
     while (more) {
-      var _values$next = values.next();
-
-      var done = _values$next.done;
-      var callback = _values$next.value;
+      var _values$next = values.next(),
+          done = _values$next.done,
+          callback = _values$next.value;
 
       if (done) {
-        return more = false;
+        more = false;
+      } else {
+        callback();
       }
-      callback();
     }
     running = false;
   }
@@ -172,12 +181,10 @@ function findMatch() {
 
 var valunit = /(\d+)(\w+)/;
 function doubleUnit(str) {
-  var _str$match = str.match(valunit);
-
-  var _str$match2 = (0, _slicedToArray3.default)(_str$match, 3);
-
-  var val = _str$match2[1];
-  var unit = _str$match2[2];
+  var _str$match = str.match(valunit),
+      _str$match2 = (0, _slicedToArray3.default)(_str$match, 3),
+      val = _str$match2[1],
+      unit = _str$match2[2];
 
   return '' + val * 2 + unit;
 }

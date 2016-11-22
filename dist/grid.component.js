@@ -86,24 +86,24 @@ var Grid = function (_Component) {
   function Grid(props) {
     (0, _classCallCheck3.default)(this, Grid);
 
-    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Grid).call(this, props));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (Grid.__proto__ || (0, _getPrototypeOf2.default)(Grid)).call(this, props));
 
-    (0, _utils.findBreakpoints)();
+    (0, _utils.initBreakpoints)();
     return _this;
   }
 
   (0, _createClass3.default)(Grid, [{
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var gutter = _props.gutter;
-      var style = _props.style;
-      var align = _props.align;
-      var hAlign = _props.hAlign;
-      var flexCells = _props.flexCells;
-      var children = _props.children;
-      var className = _props.className;
-      var rest = (0, _objectWithoutProperties3.default)(_props, ['gutter', 'style', 'align', 'hAlign', 'flexCells', 'children', 'className']);
+      var _props = this.props,
+          gutter = _props.gutter,
+          style = _props.style,
+          align = _props.align,
+          hAlign = _props.hAlign,
+          flexCells = _props.flexCells,
+          children = _props.children,
+          className = _props.className,
+          rest = (0, _objectWithoutProperties3.default)(_props, ['gutter', 'style', 'align', 'hAlign', 'flexCells', 'children', 'className']);
 
 
       this.styles = (0, _utils.assign)({}, style, gutter ? { margin: '0 -' + gutter + ' ' + (0, _utils.doubleUnit)(gutter) } : null);

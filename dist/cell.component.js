@@ -85,7 +85,7 @@ var Cell = function (_React$Component) {
   function Cell(props, context) {
     (0, _classCallCheck3.default)(this, Cell);
 
-    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Cell).call(this, props, context));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (Cell.__proto__ || (0, _getPrototypeOf2.default)(Cell)).call(this, props, context));
 
     _initialiseProps.call(_this);
 
@@ -101,12 +101,10 @@ var Cell = function (_React$Component) {
         };
       }
 
-      var _ref = size ? size.split('/') : [];
-
-      var _ref2 = (0, _slicedToArray3.default)(_ref, 2);
-
-      var numerator = _ref2[0];
-      var denominator = _ref2[1];
+      var _ref = size ? size.split('/') : [],
+          _ref2 = (0, _slicedToArray3.default)(_ref, 2),
+          numerator = _ref2[0],
+          denominator = _ref2[1];
 
       return {
         width: 100 / denominator * numerator + '%'
@@ -115,19 +113,19 @@ var Cell = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var gutter = _props.gutter;
-      var flex = _props.flex;
-      var className = _props.className;
-      var align = _props.align;
-      var style = _props.style;
-      var children = _props.children;
-      var palm = _props.palm;
-      var lap = _props.lap;
-      var portable = _props.portable;
-      var desk = _props.desk;
-      var grow = _props.grow;
-      var rest = (0, _objectWithoutProperties3.default)(_props, ['gutter', 'flex', 'className', 'align', 'style', 'children', 'palm', 'lap', 'portable', 'desk', 'grow']);
+      var _props = this.props,
+          gutter = _props.gutter,
+          flex = _props.flex,
+          className = _props.className,
+          align = _props.align,
+          style = _props.style,
+          children = _props.children,
+          palm = _props.palm,
+          lap = _props.lap,
+          portable = _props.portable,
+          desk = _props.desk,
+          grow = _props.grow,
+          rest = (0, _objectWithoutProperties3.default)(_props, ['gutter', 'flex', 'className', 'align', 'style', 'children', 'palm', 'lap', 'portable', 'desk', 'grow']);
 
 
       var breakpoint = this.getMatchingBreakpoint();
@@ -172,9 +170,9 @@ var _initialiseProps = function _initialiseProps() {
   var _this2 = this;
 
   this.handleFlexSize = function (breakpoint) {
-    var _props2 = _this2.props;
-    var grow = _props2.grow;
-    var size = _props2.size;
+    var _props2 = _this2.props,
+        grow = _props2.grow,
+        size = _props2.size;
 
     var growStyle = typeof grow === 'number' ? grow : grow === false ? 0 : undefined;
 
