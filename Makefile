@@ -1,42 +1,42 @@
 BIN   = ./node_modules/.bin
 PATH := $(BIN):$(PATH)
 LIB   = $(shell find lib -name "*.js")
-DIST   = $(patsubst lib/%.js,dist/%.js,$(LIB))
+DIST  = $(patsubst lib/%.js,dist/%.js,$(LIB))
 
 dist: $(DIST)
 dist/%.js: lib/%.js
-	@echo "Building $<"
-	@mkdir -p $(@D)
-	@$(BIN)/babel $< -o $@
+	@ echo "Building $<"
+	@ mkdir -p $(@D)
+	@ $(BIN)/babel $< -o $@
 
 clean:
-	@echo "\nRemove existing build files..."
-	@rm -rf ./dist
+	@ echo "\nRemove existing build files..."
+	@ rm -rf ./dist
 
 build: lint test clean dist test-build extract-styles
-	@echo "\nBuild done!\n"
+	@ echo "\nBuild done!\n"
 
 dev:
-	@node ./example/server.js
+	@ node ./example/server.js
 
 extract-styles:
-	@echo "\nExtracting Stilr StyleSheet..."
-	@node -p "var s = require('stilr'); var b = require('./dist'); s.render({}, b.stylesheet)" > ./styles.css
+	@ echo "\nExtracting Stilr StyleSheet..."
+	@ node -p "var s = require('stilr'); var b = require('./dist'); s.render({}, b.stylesheet)" > ./styles.css
 
 lint:
 	@echo "\nLinting source files..."
 	@$(BIN)/eslint lib/
 
 test:
-	@echo "\nTesting source files, hang on..."
-	@NODE_ENV=test $(BIN)/mocha         \
+	@ echo "\nTesting source files, hang on..."
+	@ NODE_ENV=test $(BIN)/mocha         \
 		--compilers js:babel-register     \
 		--require lib/__tests__/testdom   \
 		./lib/__tests__/*.test.js
 
 test-build:
-	@echo "\nTesting build files, almost there..!"
-	@NODE_ENV=test $(BIN)/mocha         \
+	@ echo "\nTesting build files, almost there..!"
+	@ NODE_ENV=test $(BIN)/mocha         \
 		--require dist/__tests__/testdom  \
 		./dist/__tests__/*.test.js
 
