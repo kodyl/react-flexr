@@ -44,12 +44,11 @@ test-build:
 define release
 	VERSION=`node -pe "require('./package.json').version"` && \
 	NEXT_VERSION=`node -pe "require('semver').inc(\"$$VERSION\", '$(1)')"` && \
-	git flow release start $$NEXT_VERSION && \
 	make build && \
 	npm --no-git-tag-version version $(1) -m 'release %s' && \
 	git add . && \
 	git commit -m 'make build and release' && \
-	git flow release finish -m $$NEXT_VERSION $$NEXT_VERSION
+	git tag v$$NEXT_VERSION
 endef
 
 release-patch:
