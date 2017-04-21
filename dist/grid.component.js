@@ -48,6 +48,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _utils = require('./utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -131,9 +135,9 @@ var Grid = function (_Component) {
 }(_react.Component);
 
 Grid.propTypes = {
-  gutter: _react.PropTypes.string,
-  flexCells: _react.PropTypes.bool,
-  align: _react.PropTypes.oneOf(['top', 'center', 'bottom'])
+  gutter: _propTypes2.default.string,
+  flexCells: _propTypes2.default.bool,
+  align: _propTypes2.default.oneOf(['top', 'center', 'bottom'])
 };
 exports.default = Grid;
 module.exports = exports['default'];

@@ -52,6 +52,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _utils = require('./utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -79,8 +83,8 @@ var cellStyles = _stilr2.default.create({
   }
 }, _stylesheet2.default);
 
-var Cell = function (_React$Component) {
-  (0, _inherits3.default)(Cell, _React$Component);
+var Cell = function (_Component) {
+  (0, _inherits3.default)(Cell, _Component);
 
   function Cell(props, context) {
     (0, _classCallCheck3.default)(this, Cell);
@@ -120,12 +124,13 @@ var Cell = function (_React$Component) {
           align = _props.align,
           style = _props.style,
           children = _props.children,
+          size = _props.size,
           palm = _props.palm,
           lap = _props.lap,
           portable = _props.portable,
           desk = _props.desk,
           grow = _props.grow,
-          rest = (0, _objectWithoutProperties3.default)(_props, ['gutter', 'flex', 'className', 'align', 'style', 'children', 'palm', 'lap', 'portable', 'desk', 'grow']);
+          rest = (0, _objectWithoutProperties3.default)(_props, ['gutter', 'flex', 'className', 'align', 'style', 'children', 'size', 'palm', 'lap', 'portable', 'desk', 'grow']);
 
 
       var breakpoint = this.getMatchingBreakpoint();
@@ -143,21 +148,19 @@ var Cell = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        (0, _extends3.default)({}, rest, {
-          style: this.styles,
-          className: classes }),
+        (0, _extends3.default)({}, rest, { style: this.styles, className: classes }),
         children
       );
     }
   }]);
   return Cell;
-}(_react2.default.Component);
+}(_react.Component);
 
 Cell.propTypes = {
-  grow: _react.PropTypes.oneOf([false, true, _react.PropTypes.number]),
-  gutter: _react.PropTypes.string,
-  flex: _react.PropTypes.bool,
-  align: _react.PropTypes.oneOf(['top', 'center', 'bottom']),
+  grow: _propTypes2.default.oneOf([false, true, _propTypes2.default.number]),
+  gutter: _propTypes2.default.string,
+  flex: _propTypes2.default.bool,
+  align: _propTypes2.default.oneOf(['top', 'center', 'bottom']),
   size: function size(props, propName) {
     var value = props[propName];
     if (value && !(typeof value === 'number' || typeof value === 'string' && /^[0-9]+\/[0-9]+$/.test(value))) {
