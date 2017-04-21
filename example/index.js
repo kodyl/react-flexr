@@ -1,10 +1,10 @@
 import { Grid, Cell, stylesheet, findMatch, findBreakpoints, optimizedResize } from '../lib';
 import Demo from './demo.component';
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import StyleSheet from 'stilr';
 
-class Example extends React.Component {
+class Example extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,8 +19,8 @@ class Example extends React.Component {
   }
 
   componentDidMount() {
-    optimizedResize.init( () => {
-      if ( findBreakpoints() ) {
+    optimizedResize.init(() => {
+      if (findBreakpoints()) {
         console.log('New Breakpoints');
         this.forceUpdate();
       }
@@ -29,7 +29,7 @@ class Example extends React.Component {
 
   render() {
     return (
-      <div style={ this.styles }>
+      <div style={{ padding: '11px' }}>
         <h3>Basic Grids</h3>
         <p>The grid cells below do not specify any widths, they just naturally space themselves equally and expand to fit the entire row. They're also equal height by default.</p>
         <Grid>
@@ -202,6 +202,5 @@ class Example extends React.Component {
     );
   }
 }
-
 
 ReactDOM.render(<Example />, document.getElementById('root'));
