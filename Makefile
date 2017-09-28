@@ -16,29 +16,21 @@ clean:
 build: lint test clean dist test-build extract-styles
 	@ echo "\nBuild done!\n"
 
-dev:
-	@ node ./example/server.js
-
 extract-styles:
 	@ echo "\nExtracting Stilr StyleSheet..."
 	@ node -p "var s = require('stilr'); var b = require('./dist'); s.render({}, b.stylesheet)" > ./styles.css
 
 lint:
-	@echo "\nLinting source files..."
-	@$(BIN)/eslint lib/
+	@ echo "\nLinting source files..."
+	@ yarn lint
 
 test:
 	@ echo "\nTesting source files, hang on..."
-	@ NODE_ENV=test $(BIN)/mocha         \
-		--compilers js:babel-register     \
-		--require lib/__tests__/testdom   \
-		./lib/__tests__/*.test.js
+	@ yarn test
 
 test-build:
 	@ echo "\nTesting build files, almost there..!"
-	@ NODE_ENV=test $(BIN)/mocha         \
-		--require dist/__tests__/testdom  \
-		./dist/__tests__/*.test.js
+	@ yarn test-build
 
 
 define release
@@ -60,4 +52,4 @@ release-minor:
 release-major:
 	$(call release,major)
 
-.PHONY: install test test-build dev release-major release-minor release-patch
+.PHONY: install test test-build release-major release-minor release-patch

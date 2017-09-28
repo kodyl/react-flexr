@@ -4,6 +4,7 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'eval',
   entry: [
+    'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:9001',
     'webpack/hot/only-dev-server',
     './example/index.js'
@@ -15,16 +16,16 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
-    rules: [{
-      test: /\.js$/,
-      use: [
-        { loader: 'react-hot-loader' },
-        { loader: 'babel-loader?cacheDirectory=true' }
-      ],
-      exclude: /node_modules/
-    }]
+    rules: [
+      {
+        test: /\.js$/,
+        use: [{ loader: 'babel-loader?cacheDirectory=true' }],
+        exclude: /node_modules/
+      }
+    ]
   }
 };

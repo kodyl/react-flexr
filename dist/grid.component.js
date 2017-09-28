@@ -124,9 +124,7 @@ var Grid = function (_Component) {
 
       return _react2.default.createElement(
         'div',
-        (0, _extends3.default)({}, rest, {
-          style: this.styles,
-          className: classes }),
+        (0, _extends3.default)({}, rest, { style: this.styles, className: classes }),
         wrappedChildren
       );
     }
