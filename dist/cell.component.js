@@ -179,9 +179,11 @@ var _initialiseProps = function _initialiseProps() {
 
     var growStyle = typeof grow === 'number' ? grow : grow === false ? 0 : undefined;
 
-    return breakpoint && breakpoint !== 'hidden' ? _this2.calcWidth(breakpoint) : size ? _this2.calcWidth(size) : growStyle !== undefined ? { flex: growStyle + ' 1 auto',
+    return breakpoint && breakpoint !== 'hidden' ? _this2.calcWidth(breakpoint) : size ? _this2.calcWidth(size) : growStyle !== undefined ? {
+      flex: growStyle + ' 1 auto',
       WebkitFlex: growStyle + ' 1 auto',
-      msFlex: growStyle + ' 1 auto' } : null;
+      msFlex: growStyle + ' 1 auto'
+    } : null;
   };
 
   this.getDefinedBreakpoints = function () {
