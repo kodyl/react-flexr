@@ -1,4 +1,6 @@
 {
+  "presets": ["es2015", "react", "stage-0"],
+  "plugins": ["transform-runtime"],
   "env": {
     "development": {
       "presets": [
@@ -11,12 +13,11 @@
         "react",
         "stage-0"
       ],
-      "plugins": ["react-hot-loader/babel", "transform-runtime"]
+      "plugins": ["react-hot-loader/babel"]
     },
     "production": {
       "presets": ["es2015", "react", "stage-0"],
       "plugins": [
-        "transform-runtime",
         "transform-react-constant-elements",
         "transform-react-inline-elements",
         "add-module-exports"
