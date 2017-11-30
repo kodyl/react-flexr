@@ -12,10 +12,6 @@ var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProp
 
 var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 
-var _toConsumableArray2 = require('babel-runtime/helpers/toConsumableArray');
-
-var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
-
 var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -112,7 +108,7 @@ var Cell = function (_Component) {
       return breakpoints;
     }, _this.getMatchingBreakpoint = function () {
       var breakpoints = (_this.state.breakpoints || '').split(',');
-      var breakpoint = _utils.matchBreakpoints.apply(undefined, [breakpoints].concat((0, _toConsumableArray3.default)(_this.getDefinedBreakpoints())));
+      var breakpoint = (0, _utils.matchBreakpoints)(breakpoints, _this.getDefinedBreakpoints());
       return _this.props[breakpoint];
     }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
   }

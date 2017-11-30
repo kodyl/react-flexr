@@ -162,14 +162,10 @@ function findMatch() {
     arr[_key] = arguments[_key];
   }
 
-  return matchBreakpoints.apply(undefined, [[]].concat(arr));
+  return matchBreakpoints(breakpoints, arr);
 }
 
-function matchBreakpoints(breakpoints) {
-  for (var _len2 = arguments.length, arr = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-    arr[_key2 - 1] = arguments[_key2];
-  }
-
+function matchBreakpoints(breakpoints, arr) {
   if (typeof breakpoints === 'string') {
     breakpoints = breakpoints.split(',');
   }
