@@ -5,14 +5,15 @@
   "main": "dist",
   "scripts": {
     "lint": "eslint lib/",
-    "test": "NODE_ENV=test mocha --compilers js:babel-register --require lib/__tests__/testdom ./lib/__tests__/*.test.js",
-    "test-build": "NODE_ENV=test mocha --require dist/__tests__/testdom ./dist/__tests__/*.test.js",
+    "test:src": "NODE_ENV=test mocha --compilers js:babel-register --require lib/__tests__/testdom ./lib/__tests__/*.test.js",
+    "test:build": "NODE_ENV=test mocha --require dist/__tests__/testdom ./dist/__tests__/*.test.js",
+    "example:ssr": "babel-node ./example/ssr.js",
     "dev": "node ./example/server.js",
     "clean": "rm -rf ./dist",
     "dist": "NODE_ENV=production babel lib --out-dir dist --copy-files",
-    "pre-release": "yarn lint && yarn test",
+    "pre-release": "yarn lint && yarn test:src",
     "extract-styles": "make extract-styles",
-    "build": "yarn clean && yarn dist && yarn test-build && yarn extract-styles"
+    "build": "yarn clean && yarn dist && yarn test:build && yarn extract-styles"
   },
   "keywords": [
     "react",
