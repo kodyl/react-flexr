@@ -107,8 +107,8 @@ var Cell = function (_Component) {
 
       return breakpoints;
     }, _this.getMatchingBreakpoint = function () {
-      var breakpoints = (_this.state.breakpoints || '').split(',');
-      var breakpoint = (0, _utils.matchBreakpoints)(breakpoints, _this.getDefinedBreakpoints());
+      var definedBreakpoints = _this.getDefinedBreakpoints();
+      var breakpoint = _this.state.breakpoints ? (0, _utils.matchBreakpoints)(_this.state.breakpoints.split(','), definedBreakpoints) : _utils.findMatch.apply(null, definedBreakpoints);
       return _this.props[breakpoint];
     }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
   }
