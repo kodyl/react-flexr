@@ -219,8 +219,8 @@ class App extends Component {
 }
 ```
 
+#### `array getBreakpoints()`
 
-#### `array getCurrentBreakpoints()`
 returns an array of current breakpoints.
 
 
