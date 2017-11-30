@@ -87,13 +87,9 @@ var styles = _stilr2.default.create({
 var Grid = function (_Component) {
   (0, _inherits3.default)(Grid, _Component);
 
-  function Grid(props) {
+  function Grid() {
     (0, _classCallCheck3.default)(this, Grid);
-
-    var _this = (0, _possibleConstructorReturn3.default)(this, (Grid.__proto__ || (0, _getPrototypeOf2.default)(Grid)).call(this, props));
-
-    (0, _utils.initBreakpoints)();
-    return _this;
+    return (0, _possibleConstructorReturn3.default)(this, (Grid.__proto__ || (0, _getPrototypeOf2.default)(Grid)).apply(this, arguments));
   }
 
   (0, _createClass3.default)(Grid, [{

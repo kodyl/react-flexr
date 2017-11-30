@@ -23,10 +23,15 @@ exports.getBreakpoints = getBreakpoints;
 exports.clearBreakpoints = clearBreakpoints;
 exports.isDifferent = isDifferent;
 exports.findBreakpoints = findBreakpoints;
-exports.initBreakpoints = initBreakpoints;
 exports.findMatch = findMatch;
+exports.matchBreakpoints = matchBreakpoints;
 exports.doubleUnit = doubleUnit;
 exports.assign = assign;
+exports.getInitialBreakpoints = getInitialBreakpoints;
+exports.ssrWillHydrate = ssrWillHydrate;
+exports.ssrDidHydrate = ssrDidHydrate;
+exports.calcWidth = calcWidth;
+exports.handleFlexSize = handleFlexSize;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -95,14 +100,6 @@ function findBreakpoints() {
   return isDifferent(newBreakpoints) && setBreakpoints(newBreakpoints);
 }
 
-var initialized = false;
-function initBreakpoints() {
-  if (!initialized) {
-    initialized = true;
-    findBreakpoints();
-  }
-}
-
 var optimizedResize = exports.optimizedResize = function () {
   var callbacks = new _map2.default();
   var running = false;
@@ -165,6 +162,17 @@ function findMatch() {
     arr[_key] = arguments[_key];
   }
 
+  return matchBreakpoints.apply(undefined, [[]].concat(arr));
+}
+
+function matchBreakpoints(breakpoints) {
+  for (var _len2 = arguments.length, arr = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+    arr[_key2 - 1] = arguments[_key2];
+  }
+
+  if (typeof breakpoints === 'string') {
+    breakpoints = breakpoints.split(',');
+  }
   var breakpoint = false;
   if (!arr || arr.length === 0) return breakpoint;
   if (breakpoints.length === 0) findBreakpoints();
@@ -234,4 +242,63 @@ function assign(target) {
   }
 
   return to;
+}
+
+if (canUseDOM) {
+  if (window.__flexr) {
+    setBreakpoints(window.__flexr);
+  } else {
+    findBreakpoints();
+  }
+}
+
+var INITIAL_BREAKPOINT = getBreakpoints(true);
+var hydrating = false;
+
+function getInitialBreakpoints() {
+  if (!canUseDOM) {
+    return getBreakpoints(true);
+  }
+  return hydrating ? INITIAL_BREAKPOINT : null;
+}
+
+function ssrWillHydrate() {
+  hydrating = true;
+  findBreakpoints();
+}
+
+function ssrDidHydrate() {
+  hydrating = false;
+  INITIAL_BREAKPOINT = getBreakpoints(true);
+}
+
+function calcWidth(size) {
+  if (typeof size === 'number') {
+    return {
+      width: size < 1 ? Math.round(size * 10000) / 100 + '%' : size + 'px'
+    };
+  }
+
+  var _ref2 = size ? size.split('/') : [],
+      _ref3 = (0, _slicedToArray3.default)(_ref2, 2),
+      numerator = _ref3[0],
+      denominator = _ref3[1];
+
+  return {
+    width: 100 / denominator * numerator + '%'
+  };
+}
+
+function handleFlexSize(_ref4) {
+  var breakpoint = _ref4.breakpoint,
+      grow = _ref4.grow,
+      size = _ref4.size;
+
+  var growStyle = typeof grow === 'number' ? grow : grow === false ? 0 : undefined;
+
+  return breakpoint && breakpoint !== 'hidden' ? calcWidth(breakpoint) : size ? calcWidth(size) : growStyle !== undefined ? {
+    flex: growStyle + ' 1 auto',
+    WebkitFlex: growStyle + ' 1 auto',
+    msFlex: growStyle + ' 1 auto'
+  } : { flex: 1 };
 }
