@@ -13,10 +13,6 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    return (
-      <div style={ this.styles }>
-        { this.props.children }
-      </div>
-    );
+    return <div style={this.styles}>{this.props.children}</div>;
   }
 }

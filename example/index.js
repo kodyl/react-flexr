@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 
 const rootEl = document.getElementById('root');
 const render = Component =>
-  ReactDOM.render(
+  ReactDOM[rootEl.innerHTML ? 'hydrate' : 'render'](
     <AppContainer>
       <Component />
     </AppContainer>,
@@ -13,7 +13,9 @@ const render = Component =>
   );
 
 render(Example);
-if (module.hot)
+
+if (module.hot) {
   module.hot.accept('./example.component', () =>
     render(require('./example.component').default)
   );
+}
