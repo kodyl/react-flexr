@@ -62,6 +62,9 @@ var cellStyles = _stilr2.default.create({
   base: {
     padding: '0 ' + _utils.variables.gutter
   },
+  baseFlex: {
+    flex: 1
+  },
   flex: {
     display: 'flex'
   },
@@ -155,7 +158,7 @@ var Cell = function (_Component) {
 
       this.styles = (0, _utils.assign)({}, gutter ? { padding: '0 ' + gutter } : null, flexSize, style);
 
-      var classes = [cellStyles.base, className, flex ? cellStyles.flex : null, align ? cellStyles[align] : null].filter(Boolean).join(' ');
+      var classes = [cellStyles.base, flexSize ? null : cellStyles.baseFlex, className, flex ? cellStyles.flex : null, align ? cellStyles[align] : null].filter(Boolean).join(' ');
 
       return _react2.default.createElement(
         'div',

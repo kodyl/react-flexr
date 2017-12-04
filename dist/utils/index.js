@@ -296,5 +296,5 @@ function handleFlexSize(_ref4) {
     flex: growStyle + ' 1 auto',
     WebkitFlex: growStyle + ' 1 auto',
     msFlex: growStyle + ' 1 auto'
-  } : { flex: 1 };
+  } : null;
 }
