@@ -1,54 +1,41 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _Object$defineProperty2 = require("@babel/runtime-corejs3/core-js-stable/object/define-property");
-
-require("core-js/modules/es.array.join");
-
-require("core-js/modules/es.regexp.exec");
-
-require("core-js/modules/es.string.split");
-
-_Object$defineProperty2(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
 exports.default = void 0;
 
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/object/define-property"));
+require("core-js/modules/es7.object.get-own-property-descriptors");
 
-var _defineProperties = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/object/define-properties"));
+require("core-js/modules/es6.symbol");
 
-var _getOwnPropertyDescriptors = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/object/get-own-property-descriptors"));
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
 
-var _forEach = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/for-each"));
+require("core-js/modules/es6.regexp.split");
 
-var _getOwnPropertyDescriptor = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/object/get-own-property-descriptor"));
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
-var _getOwnPropertySymbols = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/object/get-own-property-symbols"));
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-var _filter = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/filter"));
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
 
-var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/objectWithoutProperties"));
+var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
-var _concat = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/concat"));
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
 
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/classCallCheck"));
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
-var _createClass2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/createClass"));
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/possibleConstructorReturn"));
+require("core-js/modules/web.dom.iterable");
 
-var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/getPrototypeOf"));
+require("core-js/modules/es6.array.iterator");
 
-var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/assertThisInitialized"));
+require("core-js/modules/es6.object.to-string");
 
-var _inherits2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/inherits"));
-
-var _defineProperty3 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/defineProperty"));
-
-var _keys = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/object/keys"));
+require("core-js/modules/es6.object.keys");
 
 var _stylesheet = _interopRequireDefault(require("./stylesheet"));
 
@@ -60,11 +47,11 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _utils = require("./utils");
 
-function ownKeys(object, enumerableOnly) { var keys = (0, _keys.default)(object); if (_getOwnPropertySymbols.default) { var symbols = (0, _getOwnPropertySymbols.default)(object); if (enumerableOnly) symbols = (0, _filter.default)(symbols).call(symbols, function (sym) { return (0, _getOwnPropertyDescriptor.default)(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { var _context3; (0, _forEach.default)(_context3 = ownKeys(Object(source), true)).call(_context3, function (key) { (0, _defineProperty3.default)(target, key, source[key]); }); } else if (_getOwnPropertyDescriptors.default) { (0, _defineProperties.default)(target, (0, _getOwnPropertyDescriptors.default)(source)); } else { var _context4; (0, _forEach.default)(_context4 = ownKeys(Object(source))).call(_context4, function (key) { (0, _defineProperty2.default)(target, key, (0, _getOwnPropertyDescriptor.default)(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-var ERGONOMICS = (0, _keys.default)(_utils.settings);
+var ERGONOMICS = Object.keys(_utils.settings);
 
 var cellStyles = _stilr.default.create({
   base: {
@@ -93,7 +80,7 @@ function (_React$Component) {
   (0, _inherits2.default)(Cell, _React$Component);
 
   function Cell() {
-    var _getPrototypeOf2, _context;
+    var _getPrototypeOf2;
 
     var _this;
 
@@ -103,11 +90,11 @@ function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(Cell)).call.apply(_getPrototypeOf2, (0, _concat.default)(_context = [this]).call(_context, args)));
-    (0, _defineProperty3.default)((0, _assertThisInitialized2.default)(_this), "state", {
+    _this = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(Cell)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "state", {
       breakpoints: (0, _utils.getInitialBreakpoints)()
     });
-    (0, _defineProperty3.default)((0, _assertThisInitialized2.default)(_this), "handleFlexSize", function (breakpoint) {
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "handleFlexSize", function (breakpoint) {
       var _this$props = _this.props,
           grow = _this$props.grow,
           size = _this$props.size;
@@ -117,7 +104,7 @@ function (_React$Component) {
         size: size
       });
     });
-    (0, _defineProperty3.default)((0, _assertThisInitialized2.default)(_this), "getDefinedBreakpoints", function () {
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "getDefinedBreakpoints", function () {
       var breakpoints = [];
 
       for (var i = 0, len = ERGONOMICS.length; i < len; i++) {
@@ -126,7 +113,7 @@ function (_React$Component) {
 
       return breakpoints;
     });
-    (0, _defineProperty3.default)((0, _assertThisInitialized2.default)(_this), "getMatchingBreakpoint", function () {
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "getMatchingBreakpoint", function () {
       var definedBreakpoints = _this.getDefinedBreakpoints();
 
       var breakpoint = _this.state.breakpoints ? (0, _utils.matchBreakpoints)(_this.state.breakpoints.split(","), definedBreakpoints) : _utils.findMatch.apply(null, definedBreakpoints);
@@ -155,8 +142,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _context2;
-
       var breakpoint = this.getMatchingBreakpoint();
 
       if (breakpoint === "hidden") {
@@ -181,7 +166,7 @@ function (_React$Component) {
       this.styles = (0, _utils.assign)({}, gutter ? {
         padding: "0 ".concat(gutter)
       } : null, flexSize, style);
-      var classes = (0, _filter.default)(_context2 = [cellStyles.base, flexSize ? null : cellStyles.baseFlex, className, flex ? cellStyles.flex : null, align ? cellStyles[align] : null]).call(_context2, Boolean).join(" ");
+      var classes = [cellStyles.base, flexSize ? null : cellStyles.baseFlex, className, flex ? cellStyles.flex : null, align ? cellStyles[align] : null].filter(Boolean).join(" ");
       return _react.default.createElement("div", _objectSpread({}, rest, {
         style: this.styles,
         className: classes

@@ -1,40 +1,23 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('core-js/modules/es.array.join'), require('@babel/runtime-corejs3/core-js-stable/object/define-property'), require('@babel/runtime-corejs3/core-js-stable/object/define-properties'), require('@babel/runtime-corejs3/core-js-stable/object/get-own-property-descriptors'), require('@babel/runtime-corejs3/core-js-stable/instance/for-each'), require('@babel/runtime-corejs3/core-js-stable/object/get-own-property-descriptor'), require('@babel/runtime-corejs3/core-js-stable/object/get-own-property-symbols'), require('@babel/runtime-corejs3/helpers/defineProperty'), require('@babel/runtime-corejs3/core-js-stable/instance/map'), require('@babel/runtime-corejs3/core-js-stable/object/keys'), require('@babel/runtime-corejs3/core-js-stable/instance/filter'), require('@babel/runtime-corejs3/helpers/objectWithoutProperties'), require('@babel/runtime-corejs3/helpers/classCallCheck'), require('@babel/runtime-corejs3/helpers/createClass'), require('@babel/runtime-corejs3/helpers/possibleConstructorReturn'), require('@babel/runtime-corejs3/helpers/getPrototypeOf'), require('@babel/runtime-corejs3/helpers/inherits'), require('@babel/runtime-corejs3/core-js-stable/instance/concat'), require('@babel/runtime-corejs3/core-js-stable/map'), require('stilr'), require('react'), require('prop-types'), require('core-js/modules/es.object.to-string'), require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.regexp.to-string'), require('core-js/modules/es.string.match'), require('core-js/modules/es.string.split'), require('@babel/runtime-corejs3/helpers/slicedToArray'), require('@babel/runtime-corejs3/core-js-stable/instance/index-of'), require('@babel/runtime-corejs3/core-js-stable/instance/values'), require('@babel/runtime-corejs3/core-js-stable/set-timeout'), require('@babel/runtime-corejs3/core-js-stable/instance/reduce'), require('@babel/runtime-corejs3/helpers/assertThisInitialized')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'core-js/modules/es.array.join', '@babel/runtime-corejs3/core-js-stable/object/define-property', '@babel/runtime-corejs3/core-js-stable/object/define-properties', '@babel/runtime-corejs3/core-js-stable/object/get-own-property-descriptors', '@babel/runtime-corejs3/core-js-stable/instance/for-each', '@babel/runtime-corejs3/core-js-stable/object/get-own-property-descriptor', '@babel/runtime-corejs3/core-js-stable/object/get-own-property-symbols', '@babel/runtime-corejs3/helpers/defineProperty', '@babel/runtime-corejs3/core-js-stable/instance/map', '@babel/runtime-corejs3/core-js-stable/object/keys', '@babel/runtime-corejs3/core-js-stable/instance/filter', '@babel/runtime-corejs3/helpers/objectWithoutProperties', '@babel/runtime-corejs3/helpers/classCallCheck', '@babel/runtime-corejs3/helpers/createClass', '@babel/runtime-corejs3/helpers/possibleConstructorReturn', '@babel/runtime-corejs3/helpers/getPrototypeOf', '@babel/runtime-corejs3/helpers/inherits', '@babel/runtime-corejs3/core-js-stable/instance/concat', '@babel/runtime-corejs3/core-js-stable/map', 'stilr', 'react', 'prop-types', 'core-js/modules/es.object.to-string', 'core-js/modules/es.regexp.exec', 'core-js/modules/es.regexp.to-string', 'core-js/modules/es.string.match', 'core-js/modules/es.string.split', '@babel/runtime-corejs3/helpers/slicedToArray', '@babel/runtime-corejs3/core-js-stable/instance/index-of', '@babel/runtime-corejs3/core-js-stable/instance/values', '@babel/runtime-corejs3/core-js-stable/set-timeout', '@babel/runtime-corejs3/core-js-stable/instance/reduce', '@babel/runtime-corejs3/helpers/assertThisInitialized'], factory) :
-  (global = global || self, factory(global['react-flexr'] = {}, null, global._Object$defineProperty, global._Object$defineProperties, global._Object$getOwnPropertyDescriptors, global._forEachInstanceProperty, global._Object$getOwnPropertyDescriptor, global._Object$getOwnPropertySymbols, global._defineProperty, global._mapInstanceProperty, global._Object$keys, global._filterInstanceProperty, global._objectWithoutProperties, global._classCallCheck, global._createClass, global._possibleConstructorReturn, global._getPrototypeOf, global._inherits, global._concatInstanceProperty, global._Map, global.StyleSheet, global.React, global.PropTypes, null, null, null, null, null, global._slicedToArray, global._indexOfInstanceProperty, global._valuesInstanceProperty, global._setTimeout, global._reduceInstanceProperty, global._assertThisInitialized));
-}(this, (function (exports, es_array_join, _Object$defineProperty, _Object$defineProperties, _Object$getOwnPropertyDescriptors, _forEachInstanceProperty, _Object$getOwnPropertyDescriptor, _Object$getOwnPropertySymbols, _defineProperty, _mapInstanceProperty, _Object$keys, _filterInstanceProperty, _objectWithoutProperties, _classCallCheck, _createClass, _possibleConstructorReturn, _getPrototypeOf, _inherits, _concatInstanceProperty, _Map, StyleSheet, React, PropTypes, es_object_toString, es_regexp_exec, es_regexp_toString, es_string_match, es_string_split, _slicedToArray, _indexOfInstanceProperty, _valuesInstanceProperty, _setTimeout, _reduceInstanceProperty, _assertThisInitialized) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('core-js/modules/es7.object.get-own-property-descriptors'), require('core-js/modules/es6.symbol'), require('@babel/runtime/helpers/defineProperty'), require('core-js/modules/web.dom.iterable'), require('core-js/modules/es6.array.iterator'), require('core-js/modules/es6.object.to-string'), require('core-js/modules/es6.object.keys'), require('@babel/runtime/helpers/objectWithoutProperties'), require('@babel/runtime/helpers/classCallCheck'), require('@babel/runtime/helpers/createClass'), require('@babel/runtime/helpers/possibleConstructorReturn'), require('@babel/runtime/helpers/getPrototypeOf'), require('@babel/runtime/helpers/inherits'), require('core-js/modules/es6.string.iterator'), require('core-js/modules/es6.map'), require('stilr'), require('react'), require('prop-types'), require('core-js/modules/es6.regexp.match'), require('@babel/runtime/helpers/slicedToArray'), require('core-js/modules/es6.regexp.split'), require('core-js/modules/es6.regexp.to-string'), require('@babel/runtime/helpers/assertThisInitialized')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'core-js/modules/es7.object.get-own-property-descriptors', 'core-js/modules/es6.symbol', '@babel/runtime/helpers/defineProperty', 'core-js/modules/web.dom.iterable', 'core-js/modules/es6.array.iterator', 'core-js/modules/es6.object.to-string', 'core-js/modules/es6.object.keys', '@babel/runtime/helpers/objectWithoutProperties', '@babel/runtime/helpers/classCallCheck', '@babel/runtime/helpers/createClass', '@babel/runtime/helpers/possibleConstructorReturn', '@babel/runtime/helpers/getPrototypeOf', '@babel/runtime/helpers/inherits', 'core-js/modules/es6.string.iterator', 'core-js/modules/es6.map', 'stilr', 'react', 'prop-types', 'core-js/modules/es6.regexp.match', '@babel/runtime/helpers/slicedToArray', 'core-js/modules/es6.regexp.split', 'core-js/modules/es6.regexp.to-string', '@babel/runtime/helpers/assertThisInitialized'], factory) :
+  (global = global || self, factory(global['react-flexr'] = {}, null, null, global._defineProperty, null, null, null, null, global._objectWithoutProperties, global._classCallCheck, global._createClass, global._possibleConstructorReturn, global._getPrototypeOf, global._inherits, null, null, global.StyleSheet, global.React, global.PropTypes, null, global._slicedToArray, null, null, global._assertThisInitialized));
+}(this, (function (exports, es7_object_getOwnPropertyDescriptors, es6_symbol, _defineProperty, web_dom_iterable, es6_array_iterator, es6_object_toString, es6_object_keys, _objectWithoutProperties, _classCallCheck, _createClass, _possibleConstructorReturn, _getPrototypeOf, _inherits, es6_string_iterator, es6_map, StyleSheet, React, PropTypes, es6_regexp_match, _slicedToArray, es6_regexp_split, es6_regexp_toString, _assertThisInitialized) { 'use strict';
 
-  _Object$defineProperty = _Object$defineProperty && _Object$defineProperty.hasOwnProperty('default') ? _Object$defineProperty['default'] : _Object$defineProperty;
-  _Object$defineProperties = _Object$defineProperties && _Object$defineProperties.hasOwnProperty('default') ? _Object$defineProperties['default'] : _Object$defineProperties;
-  _Object$getOwnPropertyDescriptors = _Object$getOwnPropertyDescriptors && _Object$getOwnPropertyDescriptors.hasOwnProperty('default') ? _Object$getOwnPropertyDescriptors['default'] : _Object$getOwnPropertyDescriptors;
-  _forEachInstanceProperty = _forEachInstanceProperty && _forEachInstanceProperty.hasOwnProperty('default') ? _forEachInstanceProperty['default'] : _forEachInstanceProperty;
-  _Object$getOwnPropertyDescriptor = _Object$getOwnPropertyDescriptor && _Object$getOwnPropertyDescriptor.hasOwnProperty('default') ? _Object$getOwnPropertyDescriptor['default'] : _Object$getOwnPropertyDescriptor;
-  _Object$getOwnPropertySymbols = _Object$getOwnPropertySymbols && _Object$getOwnPropertySymbols.hasOwnProperty('default') ? _Object$getOwnPropertySymbols['default'] : _Object$getOwnPropertySymbols;
   _defineProperty = _defineProperty && _defineProperty.hasOwnProperty('default') ? _defineProperty['default'] : _defineProperty;
-  _mapInstanceProperty = _mapInstanceProperty && _mapInstanceProperty.hasOwnProperty('default') ? _mapInstanceProperty['default'] : _mapInstanceProperty;
-  _Object$keys = _Object$keys && _Object$keys.hasOwnProperty('default') ? _Object$keys['default'] : _Object$keys;
-  _filterInstanceProperty = _filterInstanceProperty && _filterInstanceProperty.hasOwnProperty('default') ? _filterInstanceProperty['default'] : _filterInstanceProperty;
   _objectWithoutProperties = _objectWithoutProperties && _objectWithoutProperties.hasOwnProperty('default') ? _objectWithoutProperties['default'] : _objectWithoutProperties;
   _classCallCheck = _classCallCheck && _classCallCheck.hasOwnProperty('default') ? _classCallCheck['default'] : _classCallCheck;
   _createClass = _createClass && _createClass.hasOwnProperty('default') ? _createClass['default'] : _createClass;
   _possibleConstructorReturn = _possibleConstructorReturn && _possibleConstructorReturn.hasOwnProperty('default') ? _possibleConstructorReturn['default'] : _possibleConstructorReturn;
   _getPrototypeOf = _getPrototypeOf && _getPrototypeOf.hasOwnProperty('default') ? _getPrototypeOf['default'] : _getPrototypeOf;
   _inherits = _inherits && _inherits.hasOwnProperty('default') ? _inherits['default'] : _inherits;
-  _concatInstanceProperty = _concatInstanceProperty && _concatInstanceProperty.hasOwnProperty('default') ? _concatInstanceProperty['default'] : _concatInstanceProperty;
-  _Map = _Map && _Map.hasOwnProperty('default') ? _Map['default'] : _Map;
   StyleSheet = StyleSheet && StyleSheet.hasOwnProperty('default') ? StyleSheet['default'] : StyleSheet;
   React = React && React.hasOwnProperty('default') ? React['default'] : React;
   PropTypes = PropTypes && PropTypes.hasOwnProperty('default') ? PropTypes['default'] : PropTypes;
   _slicedToArray = _slicedToArray && _slicedToArray.hasOwnProperty('default') ? _slicedToArray['default'] : _slicedToArray;
-  _indexOfInstanceProperty = _indexOfInstanceProperty && _indexOfInstanceProperty.hasOwnProperty('default') ? _indexOfInstanceProperty['default'] : _indexOfInstanceProperty;
-  _valuesInstanceProperty = _valuesInstanceProperty && _valuesInstanceProperty.hasOwnProperty('default') ? _valuesInstanceProperty['default'] : _valuesInstanceProperty;
-  _setTimeout = _setTimeout && _setTimeout.hasOwnProperty('default') ? _setTimeout['default'] : _setTimeout;
-  _reduceInstanceProperty = _reduceInstanceProperty && _reduceInstanceProperty.hasOwnProperty('default') ? _reduceInstanceProperty['default'] : _reduceInstanceProperty;
   _assertThisInitialized = _assertThisInitialized && _assertThisInitialized.hasOwnProperty('default') ? _assertThisInitialized['default'] : _assertThisInitialized;
 
-  var stylesheet = new (StyleSheet.Map || _Map)();
-
-  var _context2, _context3;
+  var stylesheet = new (StyleSheet.Map || Map)();
 
   var canUseDOM = function () {
     return typeof window !== 'undefined' && window.document && window.document.createElement && window.matchMedia;
@@ -55,20 +38,18 @@
     }
   };
   function generateMatchMediaString(_ref) {
-    var _context;
-
     var min = _ref.min,
         max = _ref.max;
     var minStr = min ? "(min-width: ".concat(min, "px)") : null;
     var maxStr = max ? "(max-width: ".concat(max, "px)") : null;
-    var str = minStr && maxStr ? _concatInstanceProperty(_context = "".concat(minStr, " and ")).call(_context, maxStr) : minStr || maxStr;
+    var str = minStr && maxStr ? "".concat(minStr, " and ").concat(maxStr) : minStr || maxStr;
     return str;
   }
-  var matchMediaQueries = _reduceInstanceProperty(_context2 = _Object$keys(settings)).call(_context2, function (acc, breakpoint) {
+  var matchMediaQueries = Object.keys(settings).reduce(function (acc, breakpoint) {
     acc[breakpoint] = generateMatchMediaString(settings[breakpoint]);
     return acc;
   }, {});
-  var mediaQueries = _reduceInstanceProperty(_context3 = _Object$keys(matchMediaQueries)).call(_context3, function (acc, breakpoint) {
+  var mediaQueries = Object.keys(matchMediaQueries).reduce(function (acc, breakpoint) {
     acc[breakpoint] = "@media screen and ".concat(matchMediaQueries[breakpoint]);
     return acc;
   }, {});
@@ -80,9 +61,7 @@
     return breakpoints;
   }
   function getBreakpoints(asString) {
-    var _context4;
-
-    return asString ? breakpointsString : _concatInstanceProperty(_context4 = []).call(_context4, breakpoints);
+    return asString ? breakpointsString : [].concat(breakpoints);
   }
   function clearBreakpoints() {
     breakpoints = [];
@@ -92,18 +71,14 @@
     return arr.toString() !== breakpointsString;
   }
   function findBreakpoints() {
-    var _context5;
-
     if (!canUseDOM) return getBreakpoints();
-
-    var newBreakpoints = _filterInstanceProperty(_context5 = _Object$keys(matchMediaQueries)).call(_context5, function (breakpoint) {
+    var newBreakpoints = Object.keys(matchMediaQueries).filter(function (breakpoint) {
       return window.matchMedia(matchMediaQueries[breakpoint]).matches;
     });
-
     return isDifferent(newBreakpoints) && setBreakpoints(newBreakpoints);
   }
   var optimizedResize = function () {
-    var callbacks = new _Map();
+    var callbacks = new Map();
     var running = false;
 
     function resize() {
@@ -113,14 +88,13 @@
         if (window.requestAnimationFrame) {
           window.requestAnimationFrame(runCallbacks);
         } else {
-          _setTimeout(runCallbacks, 66);
+          setTimeout(runCallbacks, 66);
         }
       }
     }
 
     function runCallbacks() {
-      var values = _valuesInstanceProperty(callbacks).call(callbacks);
-
+      var values = callbacks.values();
       var more = true;
 
       while (more) {
@@ -178,7 +152,7 @@
     if (breakpoints.length === 0) findBreakpoints();
 
     for (var i = 0, len = arr.length; i < len; i++) {
-      if (_indexOfInstanceProperty(breakpoints).call(breakpoints, arr[i]) !== -1) {
+      if (breakpoints.indexOf(arr[i]) !== -1) {
         breakpoint = arr[i];
         break;
       }
@@ -188,14 +162,12 @@
   }
   var valunit = /(\d+)(\w+)/;
   function doubleUnit(str) {
-    var _context6;
-
     var _str$match = str.match(valunit),
         _str$match2 = _slicedToArray(_str$match, 3),
         val = _str$match2[1],
         unit = _str$match2[2];
 
-    return _concatInstanceProperty(_context6 = "".concat(val * 2)).call(_context6, unit);
+    return "".concat(val * 2).concat(unit);
   }
   var vertical = {
     top: 'flex-start',
@@ -293,18 +265,16 @@
     } : null;
   }
 
-  var _context;
+  function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-  function ownKeys(object, enumerableOnly) { var keys = _Object$keys(object); if (_Object$getOwnPropertySymbols) { var symbols = _Object$getOwnPropertySymbols(object); if (enumerableOnly) symbols = _filterInstanceProperty(symbols).call(symbols, function (sym) { return _Object$getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { var _context5; _forEachInstanceProperty(_context5 = ownKeys(Object(source), true)).call(_context5, function (key) { _defineProperty(target, key, source[key]); }); } else if (_Object$getOwnPropertyDescriptors) { _Object$defineProperties(target, _Object$getOwnPropertyDescriptors(source)); } else { var _context6; _forEachInstanceProperty(_context6 = ownKeys(Object(source))).call(_context6, function (key) { _Object$defineProperty(target, key, _Object$getOwnPropertyDescriptor(source, key)); }); } } return target; }
+  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
   var styles = StyleSheet.create({
     base: {
       display: 'flex',
       flexWrap: 'wrap',
       listStyle: 'none',
       padding: 0,
-      margin: _concatInstanceProperty(_context = "0 -".concat(variables.gutter, " ")).call(_context, doubleUnit(variables.gutter))
+      margin: "0 -".concat(variables.gutter, " ").concat(doubleUnit(variables.gutter))
     },
     leftHorizontal: {
       justifyContent: horizontal.left
@@ -340,8 +310,6 @@
     _createClass(Grid, [{
       key: "render",
       value: function render() {
-        var _context2, _context3, _context4;
-
         var _this$props = this.props,
             gutter = _this$props.gutter,
             style = _this$props.style,
@@ -353,15 +321,13 @@
             rest = _objectWithoutProperties(_this$props, ["gutter", "style", "align", "hAlign", "flexCells", "children", "className"]);
 
         this.styles = assign({}, style, gutter ? {
-          margin: _concatInstanceProperty(_context2 = "0 -".concat(gutter, " ")).call(_context2, doubleUnit(gutter))
+          margin: "0 -".concat(gutter, " ").concat(doubleUnit(gutter))
         } : null);
-
-        var classes = _filterInstanceProperty(_context3 = [styles.base, className, align ? styles[align + 'Vertical'] : null, hAlign ? styles[hAlign + 'Horizontal'] : null]).call(_context3, Boolean).join(' ');
-
+        var classes = [styles.base, className, align ? styles[align + 'Vertical'] : null, hAlign ? styles[hAlign + 'Horizontal'] : null].filter(Boolean).join(' ');
         var parentProps = {};
         if (gutter) parentProps.gutter = gutter;
         if (flexCells) parentProps.flex = true;
-        var wrappedChildren = _Object$keys(parentProps).length ? _mapInstanceProperty(_context4 = React.Children).call(_context4, children, function (child) {
+        var wrappedChildren = Object.keys(parentProps).length ? React.Children.map(children, function (child) {
           return child ? React.cloneElement(child, _objectSpread({}, parentProps)) : child;
         }) : children;
         return React.createElement('div', _objectSpread({}, rest, {
@@ -379,12 +345,10 @@
     align: PropTypes.oneOf(['top', 'center', 'bottom'])
   };
 
-  function ownKeys$1(object, enumerableOnly) { var keys = _Object$keys(object); if (_Object$getOwnPropertySymbols) { var symbols = _Object$getOwnPropertySymbols(object); if (enumerableOnly) symbols = _filterInstanceProperty(symbols).call(symbols, function (sym) { return _Object$getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+  function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-  function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { var _context3; _forEachInstanceProperty(_context3 = ownKeys$1(Object(source), true)).call(_context3, function (key) { _defineProperty(target, key, source[key]); }); } else if (_Object$getOwnPropertyDescriptors) { _Object$defineProperties(target, _Object$getOwnPropertyDescriptors(source)); } else { var _context4; _forEachInstanceProperty(_context4 = ownKeys$1(Object(source))).call(_context4, function (key) { _Object$defineProperty(target, key, _Object$getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-  var ERGONOMICS = _Object$keys(settings);
-
+  function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+  var ERGONOMICS = Object.keys(settings);
   var cellStyles = StyleSheet.create({
     base: {
       padding: "0 ".concat(variables.gutter)
@@ -412,7 +376,7 @@
     _inherits(Cell, _React$Component);
 
     function Cell() {
-      var _getPrototypeOf2, _context;
+      var _getPrototypeOf2;
 
       var _this;
 
@@ -422,7 +386,7 @@
         args[_key] = arguments[_key];
       }
 
-      _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Cell)).call.apply(_getPrototypeOf2, _concatInstanceProperty(_context = [this]).call(_context, args)));
+      _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Cell)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
       _defineProperty(_assertThisInitialized(_this), "state", {
         breakpoints: getInitialBreakpoints()
@@ -479,8 +443,6 @@
     }, {
       key: "render",
       value: function render() {
-        var _context2;
-
         var breakpoint = this.getMatchingBreakpoint();
 
         if (breakpoint === "hidden") {
@@ -507,9 +469,7 @@
         this.styles = assign({}, gutter ? {
           padding: "0 ".concat(gutter)
         } : null, flexSize, style);
-
-        var classes = _filterInstanceProperty(_context2 = [cellStyles.base, flexSize ? null : cellStyles.baseFlex, className, flex ? cellStyles.flex : null, align ? cellStyles[align] : null]).call(_context2, Boolean).join(" ");
-
+        var classes = [cellStyles.base, flexSize ? null : cellStyles.baseFlex, className, flex ? cellStyles.flex : null, align ? cellStyles[align] : null].filter(Boolean).join(" ");
         return React.createElement("div", _objectSpread$1({}, rest, {
           style: this.styles,
           className: classes

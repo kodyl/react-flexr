@@ -1,40 +1,28 @@
-import 'core-js/modules/es.array.join';
-import _Object$defineProperty from '@babel/runtime-corejs3/core-js-stable/object/define-property';
-import _Object$defineProperties from '@babel/runtime-corejs3/core-js-stable/object/define-properties';
-import _Object$getOwnPropertyDescriptors from '@babel/runtime-corejs3/core-js-stable/object/get-own-property-descriptors';
-import _forEachInstanceProperty from '@babel/runtime-corejs3/core-js-stable/instance/for-each';
-import _Object$getOwnPropertyDescriptor from '@babel/runtime-corejs3/core-js-stable/object/get-own-property-descriptor';
-import _Object$getOwnPropertySymbols from '@babel/runtime-corejs3/core-js-stable/object/get-own-property-symbols';
-import _defineProperty from '@babel/runtime-corejs3/helpers/defineProperty';
-import _mapInstanceProperty from '@babel/runtime-corejs3/core-js-stable/instance/map';
-import _Object$keys from '@babel/runtime-corejs3/core-js-stable/object/keys';
-import _filterInstanceProperty from '@babel/runtime-corejs3/core-js-stable/instance/filter';
-import _objectWithoutProperties from '@babel/runtime-corejs3/helpers/objectWithoutProperties';
-import _classCallCheck from '@babel/runtime-corejs3/helpers/classCallCheck';
-import _createClass from '@babel/runtime-corejs3/helpers/createClass';
-import _possibleConstructorReturn from '@babel/runtime-corejs3/helpers/possibleConstructorReturn';
-import _getPrototypeOf from '@babel/runtime-corejs3/helpers/getPrototypeOf';
-import _inherits from '@babel/runtime-corejs3/helpers/inherits';
-import _concatInstanceProperty from '@babel/runtime-corejs3/core-js-stable/instance/concat';
-import _Map from '@babel/runtime-corejs3/core-js-stable/map';
+import 'core-js/modules/es7.object.get-own-property-descriptors';
+import 'core-js/modules/es6.symbol';
+import _defineProperty from '@babel/runtime/helpers/defineProperty';
+import 'core-js/modules/web.dom.iterable';
+import 'core-js/modules/es6.array.iterator';
+import 'core-js/modules/es6.object.to-string';
+import 'core-js/modules/es6.object.keys';
+import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
+import _classCallCheck from '@babel/runtime/helpers/classCallCheck';
+import _createClass from '@babel/runtime/helpers/createClass';
+import _possibleConstructorReturn from '@babel/runtime/helpers/possibleConstructorReturn';
+import _getPrototypeOf from '@babel/runtime/helpers/getPrototypeOf';
+import _inherits from '@babel/runtime/helpers/inherits';
+import 'core-js/modules/es6.string.iterator';
+import 'core-js/modules/es6.map';
 import StyleSheet from 'stilr';
 import React from 'react';
 import PropTypes from 'prop-types';
-import 'core-js/modules/es.object.to-string';
-import 'core-js/modules/es.regexp.exec';
-import 'core-js/modules/es.regexp.to-string';
-import 'core-js/modules/es.string.match';
-import 'core-js/modules/es.string.split';
-import _slicedToArray from '@babel/runtime-corejs3/helpers/slicedToArray';
-import _indexOfInstanceProperty from '@babel/runtime-corejs3/core-js-stable/instance/index-of';
-import _valuesInstanceProperty from '@babel/runtime-corejs3/core-js-stable/instance/values';
-import _setTimeout from '@babel/runtime-corejs3/core-js-stable/set-timeout';
-import _reduceInstanceProperty from '@babel/runtime-corejs3/core-js-stable/instance/reduce';
-import _assertThisInitialized from '@babel/runtime-corejs3/helpers/assertThisInitialized';
+import 'core-js/modules/es6.regexp.match';
+import _slicedToArray from '@babel/runtime/helpers/slicedToArray';
+import 'core-js/modules/es6.regexp.split';
+import 'core-js/modules/es6.regexp.to-string';
+import _assertThisInitialized from '@babel/runtime/helpers/assertThisInitialized';
 
-var stylesheet = new (StyleSheet.Map || _Map)();
-
-var _context2, _context3;
+var stylesheet = new (StyleSheet.Map || Map)();
 
 var canUseDOM = function () {
   return typeof window !== 'undefined' && window.document && window.document.createElement && window.matchMedia;
@@ -55,20 +43,18 @@ var settings = {
   }
 };
 function generateMatchMediaString(_ref) {
-  var _context;
-
   var min = _ref.min,
       max = _ref.max;
   var minStr = min ? "(min-width: ".concat(min, "px)") : null;
   var maxStr = max ? "(max-width: ".concat(max, "px)") : null;
-  var str = minStr && maxStr ? _concatInstanceProperty(_context = "".concat(minStr, " and ")).call(_context, maxStr) : minStr || maxStr;
+  var str = minStr && maxStr ? "".concat(minStr, " and ").concat(maxStr) : minStr || maxStr;
   return str;
 }
-var matchMediaQueries = _reduceInstanceProperty(_context2 = _Object$keys(settings)).call(_context2, function (acc, breakpoint) {
+var matchMediaQueries = Object.keys(settings).reduce(function (acc, breakpoint) {
   acc[breakpoint] = generateMatchMediaString(settings[breakpoint]);
   return acc;
 }, {});
-var mediaQueries = _reduceInstanceProperty(_context3 = _Object$keys(matchMediaQueries)).call(_context3, function (acc, breakpoint) {
+var mediaQueries = Object.keys(matchMediaQueries).reduce(function (acc, breakpoint) {
   acc[breakpoint] = "@media screen and ".concat(matchMediaQueries[breakpoint]);
   return acc;
 }, {});
@@ -80,9 +66,7 @@ function setBreakpoints(arr) {
   return breakpoints;
 }
 function getBreakpoints(asString) {
-  var _context4;
-
-  return asString ? breakpointsString : _concatInstanceProperty(_context4 = []).call(_context4, breakpoints);
+  return asString ? breakpointsString : [].concat(breakpoints);
 }
 function clearBreakpoints() {
   breakpoints = [];
@@ -92,18 +76,14 @@ function isDifferent(arr) {
   return arr.toString() !== breakpointsString;
 }
 function findBreakpoints() {
-  var _context5;
-
   if (!canUseDOM) return getBreakpoints();
-
-  var newBreakpoints = _filterInstanceProperty(_context5 = _Object$keys(matchMediaQueries)).call(_context5, function (breakpoint) {
+  var newBreakpoints = Object.keys(matchMediaQueries).filter(function (breakpoint) {
     return window.matchMedia(matchMediaQueries[breakpoint]).matches;
   });
-
   return isDifferent(newBreakpoints) && setBreakpoints(newBreakpoints);
 }
 var optimizedResize = function () {
-  var callbacks = new _Map();
+  var callbacks = new Map();
   var running = false;
 
   function resize() {
@@ -113,14 +93,13 @@ var optimizedResize = function () {
       if (window.requestAnimationFrame) {
         window.requestAnimationFrame(runCallbacks);
       } else {
-        _setTimeout(runCallbacks, 66);
+        setTimeout(runCallbacks, 66);
       }
     }
   }
 
   function runCallbacks() {
-    var values = _valuesInstanceProperty(callbacks).call(callbacks);
-
+    var values = callbacks.values();
     var more = true;
 
     while (more) {
@@ -178,7 +157,7 @@ function matchBreakpoints(breakpoints, arr) {
   if (breakpoints.length === 0) findBreakpoints();
 
   for (var i = 0, len = arr.length; i < len; i++) {
-    if (_indexOfInstanceProperty(breakpoints).call(breakpoints, arr[i]) !== -1) {
+    if (breakpoints.indexOf(arr[i]) !== -1) {
       breakpoint = arr[i];
       break;
     }
@@ -188,14 +167,12 @@ function matchBreakpoints(breakpoints, arr) {
 }
 var valunit = /(\d+)(\w+)/;
 function doubleUnit(str) {
-  var _context6;
-
   var _str$match = str.match(valunit),
       _str$match2 = _slicedToArray(_str$match, 3),
       val = _str$match2[1],
       unit = _str$match2[2];
 
-  return _concatInstanceProperty(_context6 = "".concat(val * 2)).call(_context6, unit);
+  return "".concat(val * 2).concat(unit);
 }
 var vertical = {
   top: 'flex-start',
@@ -293,18 +270,16 @@ function handleFlexSize(_ref4) {
   } : null;
 }
 
-var _context;
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function ownKeys(object, enumerableOnly) { var keys = _Object$keys(object); if (_Object$getOwnPropertySymbols) { var symbols = _Object$getOwnPropertySymbols(object); if (enumerableOnly) symbols = _filterInstanceProperty(symbols).call(symbols, function (sym) { return _Object$getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { var _context5; _forEachInstanceProperty(_context5 = ownKeys(Object(source), true)).call(_context5, function (key) { _defineProperty(target, key, source[key]); }); } else if (_Object$getOwnPropertyDescriptors) { _Object$defineProperties(target, _Object$getOwnPropertyDescriptors(source)); } else { var _context6; _forEachInstanceProperty(_context6 = ownKeys(Object(source))).call(_context6, function (key) { _Object$defineProperty(target, key, _Object$getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var styles = StyleSheet.create({
   base: {
     display: 'flex',
     flexWrap: 'wrap',
     listStyle: 'none',
     padding: 0,
-    margin: _concatInstanceProperty(_context = "0 -".concat(variables.gutter, " ")).call(_context, doubleUnit(variables.gutter))
+    margin: "0 -".concat(variables.gutter, " ").concat(doubleUnit(variables.gutter))
   },
   leftHorizontal: {
     justifyContent: horizontal.left
@@ -340,8 +315,6 @@ function (_React$Component) {
   _createClass(Grid, [{
     key: "render",
     value: function render() {
-      var _context2, _context3, _context4;
-
       var _this$props = this.props,
           gutter = _this$props.gutter,
           style = _this$props.style,
@@ -353,15 +326,13 @@ function (_React$Component) {
           rest = _objectWithoutProperties(_this$props, ["gutter", "style", "align", "hAlign", "flexCells", "children", "className"]);
 
       this.styles = assign({}, style, gutter ? {
-        margin: _concatInstanceProperty(_context2 = "0 -".concat(gutter, " ")).call(_context2, doubleUnit(gutter))
+        margin: "0 -".concat(gutter, " ").concat(doubleUnit(gutter))
       } : null);
-
-      var classes = _filterInstanceProperty(_context3 = [styles.base, className, align ? styles[align + 'Vertical'] : null, hAlign ? styles[hAlign + 'Horizontal'] : null]).call(_context3, Boolean).join(' ');
-
+      var classes = [styles.base, className, align ? styles[align + 'Vertical'] : null, hAlign ? styles[hAlign + 'Horizontal'] : null].filter(Boolean).join(' ');
       var parentProps = {};
       if (gutter) parentProps.gutter = gutter;
       if (flexCells) parentProps.flex = true;
-      var wrappedChildren = _Object$keys(parentProps).length ? _mapInstanceProperty(_context4 = React.Children).call(_context4, children, function (child) {
+      var wrappedChildren = Object.keys(parentProps).length ? React.Children.map(children, function (child) {
         return child ? React.cloneElement(child, _objectSpread({}, parentProps)) : child;
       }) : children;
       return React.createElement('div', _objectSpread({}, rest, {
@@ -379,12 +350,10 @@ Grid.propTypes = {
   align: PropTypes.oneOf(['top', 'center', 'bottom'])
 };
 
-function ownKeys$1(object, enumerableOnly) { var keys = _Object$keys(object); if (_Object$getOwnPropertySymbols) { var symbols = _Object$getOwnPropertySymbols(object); if (enumerableOnly) symbols = _filterInstanceProperty(symbols).call(symbols, function (sym) { return _Object$getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { var _context3; _forEachInstanceProperty(_context3 = ownKeys$1(Object(source), true)).call(_context3, function (key) { _defineProperty(target, key, source[key]); }); } else if (_Object$getOwnPropertyDescriptors) { _Object$defineProperties(target, _Object$getOwnPropertyDescriptors(source)); } else { var _context4; _forEachInstanceProperty(_context4 = ownKeys$1(Object(source))).call(_context4, function (key) { _Object$defineProperty(target, key, _Object$getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-var ERGONOMICS = _Object$keys(settings);
-
+function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var ERGONOMICS = Object.keys(settings);
 var cellStyles = StyleSheet.create({
   base: {
     padding: "0 ".concat(variables.gutter)
@@ -412,7 +381,7 @@ function (_React$Component) {
   _inherits(Cell, _React$Component);
 
   function Cell() {
-    var _getPrototypeOf2, _context;
+    var _getPrototypeOf2;
 
     var _this;
 
@@ -422,7 +391,7 @@ function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Cell)).call.apply(_getPrototypeOf2, _concatInstanceProperty(_context = [this]).call(_context, args)));
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Cell)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       breakpoints: getInitialBreakpoints()
@@ -479,8 +448,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _context2;
-
       var breakpoint = this.getMatchingBreakpoint();
 
       if (breakpoint === "hidden") {
@@ -507,9 +474,7 @@ function (_React$Component) {
       this.styles = assign({}, gutter ? {
         padding: "0 ".concat(gutter)
       } : null, flexSize, style);
-
-      var classes = _filterInstanceProperty(_context2 = [cellStyles.base, flexSize ? null : cellStyles.baseFlex, className, flex ? cellStyles.flex : null, align ? cellStyles[align] : null]).call(_context2, Boolean).join(" ");
-
+      var classes = [cellStyles.base, flexSize ? null : cellStyles.baseFlex, className, flex ? cellStyles.flex : null, align ? cellStyles[align] : null].filter(Boolean).join(" ");
       return React.createElement("div", _objectSpread$1({}, rest, {
         style: this.styles,
         className: classes

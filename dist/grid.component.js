@@ -1,50 +1,37 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _Object$defineProperty2 = require("@babel/runtime-corejs3/core-js-stable/object/define-property");
-
-require("core-js/modules/es.array.join");
-
-_Object$defineProperty2(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
 exports.default = void 0;
 
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/object/define-property"));
+require("core-js/modules/es7.object.get-own-property-descriptors");
 
-var _defineProperties = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/object/define-properties"));
+require("core-js/modules/es6.symbol");
 
-var _getOwnPropertyDescriptors = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/object/get-own-property-descriptors"));
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
-var _forEach = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/for-each"));
+require("core-js/modules/web.dom.iterable");
 
-var _getOwnPropertyDescriptor = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/object/get-own-property-descriptor"));
+require("core-js/modules/es6.array.iterator");
 
-var _getOwnPropertySymbols = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/object/get-own-property-symbols"));
+require("core-js/modules/es6.object.to-string");
 
-var _defineProperty3 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/defineProperty"));
+require("core-js/modules/es6.object.keys");
 
-var _map = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/map"));
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
 
-var _keys = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/object/keys"));
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
-var _filter = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/filter"));
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/objectWithoutProperties"));
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
 
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/classCallCheck"));
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
-var _createClass2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/createClass"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/possibleConstructorReturn"));
-
-var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/getPrototypeOf"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/inherits"));
-
-var _concat = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/concat"));
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
 var _stylesheet = _interopRequireDefault(require("./stylesheet"));
 
@@ -56,11 +43,9 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _utils = require("./utils");
 
-var _context;
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function ownKeys(object, enumerableOnly) { var keys = (0, _keys.default)(object); if (_getOwnPropertySymbols.default) { var symbols = (0, _getOwnPropertySymbols.default)(object); if (enumerableOnly) symbols = (0, _filter.default)(symbols).call(symbols, function (sym) { return (0, _getOwnPropertyDescriptor.default)(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { var _context5; (0, _forEach.default)(_context5 = ownKeys(Object(source), true)).call(_context5, function (key) { (0, _defineProperty3.default)(target, key, source[key]); }); } else if (_getOwnPropertyDescriptors.default) { (0, _defineProperties.default)(target, (0, _getOwnPropertyDescriptors.default)(source)); } else { var _context6; (0, _forEach.default)(_context6 = ownKeys(Object(source))).call(_context6, function (key) { (0, _defineProperty2.default)(target, key, (0, _getOwnPropertyDescriptor.default)(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 var styles = _stilr.default.create({
   base: {
@@ -68,7 +53,7 @@ var styles = _stilr.default.create({
     flexWrap: 'wrap',
     listStyle: 'none',
     padding: 0,
-    margin: (0, _concat.default)(_context = "0 -".concat(_utils.variables.gutter, " ")).call(_context, (0, _utils.doubleUnit)(_utils.variables.gutter))
+    margin: "0 -".concat(_utils.variables.gutter, " ").concat((0, _utils.doubleUnit)(_utils.variables.gutter))
   },
   leftHorizontal: {
     justifyContent: _utils.horizontal.left
@@ -103,8 +88,6 @@ function (_React$Component) {
   (0, _createClass2.default)(Grid, [{
     key: "render",
     value: function render() {
-      var _context2, _context3, _context4;
-
       var _this$props = this.props,
           gutter = _this$props.gutter,
           style = _this$props.style,
@@ -115,13 +98,13 @@ function (_React$Component) {
           className = _this$props.className,
           rest = (0, _objectWithoutProperties2.default)(_this$props, ["gutter", "style", "align", "hAlign", "flexCells", "children", "className"]);
       this.styles = (0, _utils.assign)({}, style, gutter ? {
-        margin: (0, _concat.default)(_context2 = "0 -".concat(gutter, " ")).call(_context2, (0, _utils.doubleUnit)(gutter))
+        margin: "0 -".concat(gutter, " ").concat((0, _utils.doubleUnit)(gutter))
       } : null);
-      var classes = (0, _filter.default)(_context3 = [styles.base, className, align ? styles[align + 'Vertical'] : null, hAlign ? styles[hAlign + 'Horizontal'] : null]).call(_context3, Boolean).join(' ');
+      var classes = [styles.base, className, align ? styles[align + 'Vertical'] : null, hAlign ? styles[hAlign + 'Horizontal'] : null].filter(Boolean).join(' ');
       var parentProps = {};
       if (gutter) parentProps.gutter = gutter;
       if (flexCells) parentProps.flex = true;
-      var wrappedChildren = (0, _keys.default)(parentProps).length ? (0, _map.default)(_context4 = _react.default.Children).call(_context4, children, function (child) {
+      var wrappedChildren = Object.keys(parentProps).length ? _react.default.Children.map(children, function (child) {
         return child ? _react.default.cloneElement(child, _objectSpread({}, parentProps)) : child;
       }) : children;
       return _react.default.createElement('div', _objectSpread({}, rest, {

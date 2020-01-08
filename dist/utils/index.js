@@ -1,23 +1,10 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _Object$defineProperty = require("@babel/runtime-corejs3/core-js-stable/object/define-property");
-
-require("core-js/modules/es.object.to-string");
-
-require("core-js/modules/es.regexp.exec");
-
-require("core-js/modules/es.regexp.to-string");
-
-require("core-js/modules/es.string.match");
-
-require("core-js/modules/es.string.split");
-
-_Object$defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
 exports.generateMatchMediaString = generateMatchMediaString;
 exports.setBreakpoints = setBreakpoints;
 exports.getBreakpoints = getBreakpoints;
@@ -35,25 +22,25 @@ exports.calcWidth = calcWidth;
 exports.handleFlexSize = handleFlexSize;
 exports.variables = exports.horizontal = exports.vertical = exports.optimizedResize = exports.mediaQueries = exports.matchMediaQueries = exports.settings = exports.canUseDOM = void 0;
 
-var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/slicedToArray"));
+require("core-js/modules/es6.regexp.match");
 
-var _indexOf = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/index-of"));
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
-var _values = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/values"));
+require("core-js/modules/es6.regexp.split");
 
-var _setTimeout2 = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/set-timeout"));
+require("core-js/modules/es6.string.iterator");
 
-var _map = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/map"));
+require("core-js/modules/es6.map");
 
-var _filter = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/filter"));
+require("core-js/modules/es6.regexp.to-string");
 
-var _keys = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/object/keys"));
+require("core-js/modules/web.dom.iterable");
 
-var _reduce = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/reduce"));
+require("core-js/modules/es6.array.iterator");
 
-var _concat = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/concat"));
+require("core-js/modules/es6.object.to-string");
 
-var _context2, _context3;
+require("core-js/modules/es6.object.keys");
 
 var canUseDOM = function () {
   return typeof window !== 'undefined' && window.document && window.document.createElement && window.matchMedia;
@@ -78,22 +65,20 @@ var settings = {
 exports.settings = settings;
 
 function generateMatchMediaString(_ref) {
-  var _context;
-
   var min = _ref.min,
       max = _ref.max;
   var minStr = min ? "(min-width: ".concat(min, "px)") : null;
   var maxStr = max ? "(max-width: ".concat(max, "px)") : null;
-  var str = minStr && maxStr ? (0, _concat.default)(_context = "".concat(minStr, " and ")).call(_context, maxStr) : minStr || maxStr;
+  var str = minStr && maxStr ? "".concat(minStr, " and ").concat(maxStr) : minStr || maxStr;
   return str;
 }
 
-var matchMediaQueries = (0, _reduce.default)(_context2 = (0, _keys.default)(settings)).call(_context2, function (acc, breakpoint) {
+var matchMediaQueries = Object.keys(settings).reduce(function (acc, breakpoint) {
   acc[breakpoint] = generateMatchMediaString(settings[breakpoint]);
   return acc;
 }, {});
 exports.matchMediaQueries = matchMediaQueries;
-var mediaQueries = (0, _reduce.default)(_context3 = (0, _keys.default)(matchMediaQueries)).call(_context3, function (acc, breakpoint) {
+var mediaQueries = Object.keys(matchMediaQueries).reduce(function (acc, breakpoint) {
   acc[breakpoint] = "@media screen and ".concat(matchMediaQueries[breakpoint]);
   return acc;
 }, {});
@@ -108,9 +93,7 @@ function setBreakpoints(arr) {
 }
 
 function getBreakpoints(asString) {
-  var _context4;
-
-  return asString ? breakpointsString : (0, _concat.default)(_context4 = []).call(_context4, breakpoints);
+  return asString ? breakpointsString : [].concat(breakpoints);
 }
 
 function clearBreakpoints() {
@@ -123,17 +106,15 @@ function isDifferent(arr) {
 }
 
 function findBreakpoints() {
-  var _context5;
-
   if (!canUseDOM) return getBreakpoints();
-  var newBreakpoints = (0, _filter.default)(_context5 = (0, _keys.default)(matchMediaQueries)).call(_context5, function (breakpoint) {
+  var newBreakpoints = Object.keys(matchMediaQueries).filter(function (breakpoint) {
     return window.matchMedia(matchMediaQueries[breakpoint]).matches;
   });
   return isDifferent(newBreakpoints) && setBreakpoints(newBreakpoints);
 }
 
 var optimizedResize = function () {
-  var callbacks = new _map.default();
+  var callbacks = new Map();
   var running = false;
 
   function resize() {
@@ -143,13 +124,13 @@ var optimizedResize = function () {
       if (window.requestAnimationFrame) {
         window.requestAnimationFrame(runCallbacks);
       } else {
-        (0, _setTimeout2.default)(runCallbacks, 66);
+        setTimeout(runCallbacks, 66);
       }
     }
   }
 
   function runCallbacks() {
-    var values = (0, _values.default)(callbacks).call(callbacks);
+    var values = callbacks.values();
     var more = true;
 
     while (more) {
@@ -211,7 +192,7 @@ function matchBreakpoints(breakpoints, arr) {
   if (breakpoints.length === 0) findBreakpoints();
 
   for (var i = 0, len = arr.length; i < len; i++) {
-    if ((0, _indexOf.default)(breakpoints).call(breakpoints, arr[i]) !== -1) {
+    if (breakpoints.indexOf(arr[i]) !== -1) {
       breakpoint = arr[i];
       break;
     }
@@ -223,14 +204,12 @@ function matchBreakpoints(breakpoints, arr) {
 var valunit = /(\d+)(\w+)/;
 
 function doubleUnit(str) {
-  var _context6;
-
   var _str$match = str.match(valunit),
       _str$match2 = (0, _slicedToArray2.default)(_str$match, 3),
       val = _str$match2[1],
       unit = _str$match2[2];
 
-  return (0, _concat.default)(_context6 = "".concat(val * 2)).call(_context6, unit);
+  return "".concat(val * 2).concat(unit);
 }
 
 var vertical = {

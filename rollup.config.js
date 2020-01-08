@@ -55,14 +55,14 @@ export default {
             debug: true,
             targets: { browsers: ["> 1%", "last 2 versions", "ie > 9"] },
             modules: false,
-            useBuiltIns: "usage",
-            corejs: 3
+            corejs: 2,
+            useBuiltIns: "usage"
           }
         ],
         "@babel/preset-react"
       ],
       plugins: [
-        ["@babel/plugin-transform-runtime", { corejs: 3 }],
+        ["@babel/plugin-transform-runtime" /*, { corejs: 3 }*/],
         "@babel/plugin-proposal-class-properties",
         "@babel/plugin-proposal-object-rest-spread"
       ],

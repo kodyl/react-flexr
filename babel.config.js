@@ -9,8 +9,8 @@ module.exports = function(api) {
           // debug: true,
           targets: { browsers: ["> 1%", "last 2 versions", "ie > 9"] },
           // modules: false,
-          useBuiltIns: "usage",
-          corejs: 3
+          corejs: 2,
+          useBuiltIns: "usage"
         }
       ],
       "@babel/preset-react"
@@ -31,7 +31,7 @@ module.exports = function(api) {
       },
       production: {
         plugins: [
-          ["@babel/plugin-transform-runtime", { corejs: 3 }],
+          ["@babel/plugin-transform-runtime" /*, { corejs: 3 }*/],
           "@babel/plugin-transform-react-constant-elements",
           "@babel/plugin-transform-react-inline-elements"
         ]

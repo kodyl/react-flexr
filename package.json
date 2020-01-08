@@ -42,7 +42,7 @@
   "dependencies": {
     "@babel/runtime": "^7.7.7",
     "@babel/runtime-corejs3": "^7.0.0",
-    "core-js": "^3.0.0",
+    "core-js": "^2.6.11",
     "prop-types": "^15.6.0",
     "stilr": "^2.0.0-0"
   },
