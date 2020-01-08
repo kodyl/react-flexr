@@ -4,6 +4,16 @@ var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequ
 
 var _Object$defineProperty = require("@babel/runtime-corejs3/core-js-stable/object/define-property");
 
+require("core-js/modules/es.object.to-string");
+
+require("core-js/modules/es.regexp.exec");
+
+require("core-js/modules/es.regexp.to-string");
+
+require("core-js/modules/es.string.match");
+
+require("core-js/modules/es.string.split");
+
 _Object$defineProperty(exports, "__esModule", {
   value: true
 });
@@ -74,16 +84,16 @@ function generateMatchMediaString(_ref) {
       max = _ref.max;
   var minStr = min ? "(min-width: ".concat(min, "px)") : null;
   var maxStr = max ? "(max-width: ".concat(max, "px)") : null;
-  var str = minStr && maxStr ? (0, _concat["default"])(_context = "".concat(minStr, " and ")).call(_context, maxStr) : minStr || maxStr;
+  var str = minStr && maxStr ? (0, _concat.default)(_context = "".concat(minStr, " and ")).call(_context, maxStr) : minStr || maxStr;
   return str;
 }
 
-var matchMediaQueries = (0, _reduce["default"])(_context2 = (0, _keys["default"])(settings)).call(_context2, function (acc, breakpoint) {
+var matchMediaQueries = (0, _reduce.default)(_context2 = (0, _keys.default)(settings)).call(_context2, function (acc, breakpoint) {
   acc[breakpoint] = generateMatchMediaString(settings[breakpoint]);
   return acc;
 }, {});
 exports.matchMediaQueries = matchMediaQueries;
-var mediaQueries = (0, _reduce["default"])(_context3 = (0, _keys["default"])(matchMediaQueries)).call(_context3, function (acc, breakpoint) {
+var mediaQueries = (0, _reduce.default)(_context3 = (0, _keys.default)(matchMediaQueries)).call(_context3, function (acc, breakpoint) {
   acc[breakpoint] = "@media screen and ".concat(matchMediaQueries[breakpoint]);
   return acc;
 }, {});
@@ -100,7 +110,7 @@ function setBreakpoints(arr) {
 function getBreakpoints(asString) {
   var _context4;
 
-  return asString ? breakpointsString : (0, _concat["default"])(_context4 = []).call(_context4, breakpoints);
+  return asString ? breakpointsString : (0, _concat.default)(_context4 = []).call(_context4, breakpoints);
 }
 
 function clearBreakpoints() {
@@ -116,14 +126,14 @@ function findBreakpoints() {
   var _context5;
 
   if (!canUseDOM) return getBreakpoints();
-  var newBreakpoints = (0, _filter["default"])(_context5 = (0, _keys["default"])(matchMediaQueries)).call(_context5, function (breakpoint) {
+  var newBreakpoints = (0, _filter.default)(_context5 = (0, _keys.default)(matchMediaQueries)).call(_context5, function (breakpoint) {
     return window.matchMedia(matchMediaQueries[breakpoint]).matches;
   });
   return isDifferent(newBreakpoints) && setBreakpoints(newBreakpoints);
 }
 
 var optimizedResize = function () {
-  var callbacks = new _map["default"]();
+  var callbacks = new _map.default();
   var running = false;
 
   function resize() {
@@ -133,13 +143,13 @@ var optimizedResize = function () {
       if (window.requestAnimationFrame) {
         window.requestAnimationFrame(runCallbacks);
       } else {
-        (0, _setTimeout2["default"])(runCallbacks, 66);
+        (0, _setTimeout2.default)(runCallbacks, 66);
       }
     }
   }
 
   function runCallbacks() {
-    var values = (0, _values["default"])(callbacks).call(callbacks);
+    var values = (0, _values.default)(callbacks).call(callbacks);
     var more = true;
 
     while (more) {
@@ -164,7 +174,7 @@ var optimizedResize = function () {
   }
 
   function removeCallback(key) {
-    callbacks["delete"](key);
+    callbacks.delete(key);
   }
 
   return {
@@ -201,7 +211,7 @@ function matchBreakpoints(breakpoints, arr) {
   if (breakpoints.length === 0) findBreakpoints();
 
   for (var i = 0, len = arr.length; i < len; i++) {
-    if ((0, _indexOf["default"])(breakpoints).call(breakpoints, arr[i]) !== -1) {
+    if ((0, _indexOf.default)(breakpoints).call(breakpoints, arr[i]) !== -1) {
       breakpoint = arr[i];
       break;
     }
@@ -216,11 +226,11 @@ function doubleUnit(str) {
   var _context6;
 
   var _str$match = str.match(valunit),
-      _str$match2 = (0, _slicedToArray2["default"])(_str$match, 3),
+      _str$match2 = (0, _slicedToArray2.default)(_str$match, 3),
       val = _str$match2[1],
       unit = _str$match2[2];
 
-  return (0, _concat["default"])(_context6 = "".concat(val * 2)).call(_context6, unit);
+  return (0, _concat.default)(_context6 = "".concat(val * 2)).call(_context6, unit);
 }
 
 var vertical = {
@@ -307,7 +317,7 @@ function calcWidth(size) {
   }
 
   var _ref2 = size ? size.split('/') : [],
-      _ref3 = (0, _slicedToArray2["default"])(_ref2, 2),
+      _ref3 = (0, _slicedToArray2.default)(_ref2, 2),
       numerator = _ref3[0],
       denominator = _ref3[1];
 

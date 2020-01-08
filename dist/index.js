@@ -11,28 +11,28 @@ _Object$defineProperty(exports, "__esModule", {
 _Object$defineProperty(exports, "Grid", {
   enumerable: true,
   get: function get() {
-    return _grid["default"];
+    return _grid.default;
   }
 });
 
 _Object$defineProperty(exports, "Cell", {
   enumerable: true,
   get: function get() {
-    return _cell["default"];
+    return _cell.default;
   }
 });
 
 _Object$defineProperty(exports, "HydrateSSR", {
   enumerable: true,
   get: function get() {
-    return _hydrateSsr["default"];
+    return _hydrateSsr.default;
   }
 });
 
 _Object$defineProperty(exports, "stylesheet", {
   enumerable: true,
   get: function get() {
-    return _stylesheet["default"];
+    return _stylesheet.default;
   }
 });
 
