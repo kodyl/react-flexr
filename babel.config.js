@@ -31,6 +31,7 @@ module.exports = function(api) {
       },
       production: {
         plugins: [
+          ["@babel/plugin-transform-runtime", { corejs: 3 }],
           "@babel/plugin-transform-react-constant-elements",
           "@babel/plugin-transform-react-inline-elements"
         ]
