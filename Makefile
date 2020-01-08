@@ -4,12 +4,12 @@ extract-styles:
 
 pre-release:
 	@ echo "\nVerifying code..."
-	@ yarn pre-release
+	@ npm run pre-release
 
 define release
 	VERSION=`node -pe "require('./package.json').version"` && \
 	NEXT_VERSION=`node -pe "require('semver').inc(\"$$VERSION\", '$(1)')"` && \
-	yarn build && \
+	npm run build && \
 	npm --no-git-tag-version version $(1) -m 'release %s' && \
 	git add . && \
 	git commit -m 'make build and release' && \

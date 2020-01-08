@@ -1,6 +1,9 @@
 language: node_js
 node_js:
-  - 'node'
-  - '8'
-  - '6'
-script: yarn pre-release && yarn build
+  - "node"
+  - "13"
+  - "12"
+  - "10"
+  - "8"
+  - "6"
+script: npm run pre-release && npm run build
