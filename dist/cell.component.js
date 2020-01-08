@@ -1,66 +1,56 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
+var _interopRequireWildcard = require("@babel/runtime-corejs3/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
+
+var _Object$defineProperty = require("@babel/runtime-corejs3/core-js-stable/object/define-property");
+
+_Object$defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends2 = require('babel-runtime/helpers/extends');
+exports["default"] = void 0;
 
-var _extends3 = _interopRequireDefault(_extends2);
+var _extends2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/extends"));
 
-var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
+var _filter = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/filter"));
 
-var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/objectWithoutProperties"));
 
-var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+var _concat = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/concat"));
 
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/classCallCheck"));
 
-var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+var _createClass2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/createClass"));
 
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/possibleConstructorReturn"));
 
-var _createClass2 = require('babel-runtime/helpers/createClass');
+var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/getPrototypeOf"));
 
-var _createClass3 = _interopRequireDefault(_createClass2);
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/assertThisInitialized"));
 
-var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+var _inherits2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/inherits"));
 
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/defineProperty"));
 
-var _inherits2 = require('babel-runtime/helpers/inherits');
+var _keys = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/object/keys"));
 
-var _inherits3 = _interopRequireDefault(_inherits2);
+var _stylesheet = _interopRequireDefault(require("./stylesheet"));
 
-var _keys = require('babel-runtime/core-js/object/keys');
+var _stilr = _interopRequireDefault(require("stilr"));
 
-var _keys2 = _interopRequireDefault(_keys);
+var _react = _interopRequireWildcard(require("react"));
 
-var _stylesheet = require('./stylesheet');
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _stylesheet2 = _interopRequireDefault(_stylesheet);
+var _utils = require("./utils");
 
-var _stilr = require('stilr');
+var ERGONOMICS = (0, _keys["default"])(_utils.settings);
 
-var _stilr2 = _interopRequireDefault(_stilr);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _utils = require('./utils');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var ERGONOMICS = (0, _keys2.default)(_utils.settings);
-
-var cellStyles = _stilr2.default.create({
+var cellStyles = _stilr["default"].create({
   base: {
-    padding: '0 ' + _utils.variables.gutter
+    padding: "0 ".concat(_utils.variables.gutter)
   },
   baseFlex: {
     flex: 1
@@ -77,31 +67,39 @@ var cellStyles = _stilr2.default.create({
   center: {
     alignSelf: _utils.vertical.center
   }
-}, _stylesheet2.default);
+}, _stylesheet["default"]);
 
-var Cell = function (_Component) {
-  (0, _inherits3.default)(Cell, _Component);
+var Cell =
+/*#__PURE__*/
+function (_Component) {
+  (0, _inherits2["default"])(Cell, _Component);
 
   function Cell() {
-    var _ref;
+    var _getPrototypeOf2, _context;
 
-    var _temp, _this, _ret;
+    var _this;
 
-    (0, _classCallCheck3.default)(this, Cell);
+    (0, _classCallCheck2["default"])(this, Cell);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Cell.__proto__ || (0, _getPrototypeOf2.default)(Cell)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    _this = (0, _possibleConstructorReturn2["default"])(this, (_getPrototypeOf2 = (0, _getPrototypeOf3["default"])(Cell)).call.apply(_getPrototypeOf2, (0, _concat["default"])(_context = [this]).call(_context, args)));
+    (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "state", {
       breakpoints: (0, _utils.getInitialBreakpoints)()
-    }, _this.handleFlexSize = function (breakpoint) {
+    });
+    (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "handleFlexSize", function (breakpoint) {
       var _this$props = _this.props,
           grow = _this$props.grow,
           size = _this$props.size;
-
-      return (0, _utils.handleFlexSize)({ breakpoint: breakpoint, grow: grow, size: size });
-    }, _this.getDefinedBreakpoints = function () {
+      return (0, _utils.handleFlexSize)({
+        breakpoint: breakpoint,
+        grow: grow,
+        size: size
+      });
+    });
+    (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "getDefinedBreakpoints", function () {
       var breakpoints = [];
 
       for (var i = 0, len = ERGONOMICS.length; i < len; i++) {
@@ -109,29 +107,38 @@ var Cell = function (_Component) {
       }
 
       return breakpoints;
-    }, _this.getMatchingBreakpoint = function () {
+    });
+    (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "getMatchingBreakpoint", function () {
       var definedBreakpoints = _this.getDefinedBreakpoints();
+
       var breakpoint = _this.state.breakpoints ? (0, _utils.matchBreakpoints)(_this.state.breakpoints.split(','), definedBreakpoints) : _utils.findMatch.apply(null, definedBreakpoints);
       return _this.props[breakpoint];
-    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+    });
+    return _this;
   }
 
-  (0, _createClass3.default)(Cell, [{
-    key: 'componentDidMount',
+  (0, _createClass2["default"])(Cell, [{
+    key: "componentDidMount",
     value: function componentDidMount() {
       if (this.state.breakpoints) {
         var breakpoints = (0, _utils.getBreakpoints)(true);
+
         if (breakpoints !== this.state.breakpoints) {
           var definedBreakpoints = this.getDefinedBreakpoints();
+
           if (definedBreakpoints.length) {
-            this.setState({ breakpoints: breakpoints });
+            this.setState({
+              breakpoints: breakpoints
+            });
           }
         }
       }
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
+      var _context2;
+
       var breakpoint = this.getMatchingBreakpoint();
 
       if (breakpoint === 'hidden') {
@@ -139,48 +146,44 @@ var Cell = function (_Component) {
       }
 
       var flexSize = this.handleFlexSize(breakpoint);
-
-      var _props = this.props,
-          gutter = _props.gutter,
-          flex = _props.flex,
-          className = _props.className,
-          align = _props.align,
-          style = _props.style,
-          children = _props.children,
-          size = _props.size,
-          palm = _props.palm,
-          lap = _props.lap,
-          portable = _props.portable,
-          desk = _props.desk,
-          grow = _props.grow,
-          rest = (0, _objectWithoutProperties3.default)(_props, ['gutter', 'flex', 'className', 'align', 'style', 'children', 'size', 'palm', 'lap', 'portable', 'desk', 'grow']);
-
-
-      this.styles = (0, _utils.assign)({}, gutter ? { padding: '0 ' + gutter } : null, flexSize, style);
-
-      var classes = [cellStyles.base, flexSize ? null : cellStyles.baseFlex, className, flex ? cellStyles.flex : null, align ? cellStyles[align] : null].filter(Boolean).join(' ');
-
-      return _react2.default.createElement(
-        'div',
-        (0, _extends3.default)({}, rest, { style: this.styles, className: classes }),
-        children
-      );
+      var _this$props2 = this.props,
+          gutter = _this$props2.gutter,
+          flex = _this$props2.flex,
+          className = _this$props2.className,
+          align = _this$props2.align,
+          style = _this$props2.style,
+          children = _this$props2.children,
+          size = _this$props2.size,
+          palm = _this$props2.palm,
+          lap = _this$props2.lap,
+          portable = _this$props2.portable,
+          desk = _this$props2.desk,
+          grow = _this$props2.grow,
+          rest = (0, _objectWithoutProperties2["default"])(_this$props2, ["gutter", "flex", "className", "align", "style", "children", "size", "palm", "lap", "portable", "desk", "grow"]);
+      this.styles = (0, _utils.assign)({}, gutter ? {
+        padding: "0 ".concat(gutter)
+      } : null, flexSize, style);
+      var classes = (0, _filter["default"])(_context2 = [cellStyles.base, flexSize ? null : cellStyles.baseFlex, className, flex ? cellStyles.flex : null, align ? cellStyles[align] : null]).call(_context2, Boolean).join(' ');
+      return _react["default"].createElement("div", (0, _extends2["default"])({}, rest, {
+        style: this.styles,
+        className: classes
+      }), children);
     }
   }]);
   return Cell;
 }(_react.Component);
 
-Cell.propTypes = {
-  grow: _propTypes2.default.oneOf([false, true, _propTypes2.default.number]),
-  gutter: _propTypes2.default.string,
-  flex: _propTypes2.default.bool,
-  align: _propTypes2.default.oneOf(['top', 'center', 'bottom']),
+exports["default"] = Cell;
+(0, _defineProperty2["default"])(Cell, "propTypes", {
+  grow: _propTypes["default"].oneOf([false, true, _propTypes["default"].number]),
+  gutter: _propTypes["default"].string,
+  flex: _propTypes["default"].bool,
+  align: _propTypes["default"].oneOf(['top', 'center', 'bottom']),
   size: function size(props, propName) {
     var value = props[propName];
+
     if (value && !(typeof value === 'number' || typeof value === 'string' && /^[0-9]+\/[0-9]+$/.test(value))) {
       return new Error('Size should be a fraction (e.g. 1/6) or a number for fixed size');
     }
   }
-};
-exports.default = Cell;
-module.exports = exports['default'];
+});

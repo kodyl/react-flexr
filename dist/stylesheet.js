@@ -1,20 +1,20 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, "__esModule", {
+var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault");
+
+var _Object$defineProperty = require("@babel/runtime-corejs3/core-js-stable/object/define-property");
+
+_Object$defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _map = require('babel-runtime/core-js/map');
+exports["default"] = void 0;
 
-var _map2 = _interopRequireDefault(_map);
+var _map = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/map"));
 
-var _stilr = require('stilr');
-
-var _stilr2 = _interopRequireDefault(_stilr);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _stilr = _interopRequireDefault(require("stilr"));
 
 // Used as Stilr StyleSheet
-var stylesheet = new (_stilr2.default.Map || _map2.default)();
-exports.default = stylesheet;
-module.exports = exports['default'];
+var stylesheet = new (_stilr["default"].Map || _map["default"])();
+var _default = stylesheet;
+exports["default"] = _default;

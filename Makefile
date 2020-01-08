@@ -1,6 +1,6 @@
 extract-styles:
 	@ echo "\nExtracting Stilr StyleSheet..."
-	@ node -p "var s = require('stilr'); var b = require('./dist'); s.render({}, b.stylesheet)" > ./styles.css
+	@ node -p "var s = require('stilr').default; var b = require('./dist'); s.render({}, b.stylesheet)" > ./styles.css
 
 pre-release:
 	@ echo "\nVerifying code..."
