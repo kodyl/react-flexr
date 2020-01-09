@@ -27,7 +27,9 @@
   "scripts": {
     "prebuild": "yarn lint && yarn test:src",
     "build": "yarn clean && yarn dist && yarn test:build && yarn bundle && yarn extract-styles",
-    "bundle": "NODE_ENV=production rollup -c rollup.config.js",
+    "bundle": "npm run bundle:cjs && npm run bundle:esm",
+    "bundle:cjs": "NODE_ENV=production FORMAT=commonjs rollup -c rollup.config.js",
+    "bundle:esm": "NODE_ENV=production rollup -c rollup.config.js",
     "clean": "rm -rf ./dist",
     "dev": "node ./example/server.js",
     "dist": "BABEL_ENV=commonjs NODE_ENV=production babel lib --out-dir dist --copy-files",

@@ -1,9 +1,11 @@
 module.exports = function(api) {
   api.cache(false);
 
-  const { NODE_ENV, BABEL_ENV } = process.env;
+  const { NODE_ENV, BABEL_ENV, FORMAT } = process.env;
   const devMode = NODE_ENV !== "production";
   const cjs = NODE_ENV === "test" || BABEL_ENV === "commonjs";
+
+  console.log(!(FORMAT === "commonjs" || cjs), cjs, FORMAT);
 
   const config = {
     presets: [
@@ -24,7 +26,7 @@ module.exports = function(api) {
       !devMode && [
         "@babel/transform-runtime",
         {
-          useESModules: !cjs,
+          useESModules: !(FORMAT === "commonjs" || cjs),
           version: require("./package.json").dependencies[
             "@babel/runtime"
           ].replace(/^[^0-9]*/, "")

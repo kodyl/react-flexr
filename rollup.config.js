@@ -6,6 +6,7 @@ import babel from "rollup-plugin-babel";
 import pkg from "./package.json";
 
 const env = process.env.NODE_ENV;
+const format = process.env.FORMAT;
 
 const external = Object.keys(pkg.peerDependencies || {});
 const allExternal = external.concat(Object.keys(pkg.dependencies || {}));
@@ -29,18 +30,19 @@ export default {
   external: makeExternalPredicate(allExternal),
   input: "lib/index.js",
   output: [
-    {
-      name,
-      globals,
-      format: "umd",
-      file: "index.js"
-    },
-    {
-      name,
-      globals,
-      format: "es",
-      file: "index.es.js"
-    }
+    format === "commonjs"
+      ? {
+          name,
+          globals,
+          format: "umd",
+          file: "index.js"
+        }
+      : {
+          name,
+          globals,
+          format: "es",
+          file: "index.es.js"
+        }
   ],
   plugins: [
     resolve({
