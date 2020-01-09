@@ -5,21 +5,9 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
-require("core-js/modules/es7.object.get-own-property-descriptors");
-
-require("core-js/modules/es6.symbol");
-
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
-
-require("core-js/modules/web.dom.iterable");
-
-require("core-js/modules/es6.array.iterator");
-
-require("core-js/modules/es6.object.to-string");
-
-require("core-js/modules/es6.object.keys");
+var _objectSpread2 = _interopRequireDefault(require("@babel/runtime/helpers/objectSpread2"));
 
 var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
 
@@ -43,11 +31,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _utils = require("./utils");
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-var styles = _stilr.default.create({
+var styles = _stilr["default"].create({
   base: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -73,19 +57,19 @@ var styles = _stilr.default.create({
   bottomVertical: {
     alignItems: _utils.vertical.bottom
   }
-}, _stylesheet.default);
+}, _stylesheet["default"]);
 
 var Grid =
 /*#__PURE__*/
 function (_React$Component) {
-  (0, _inherits2.default)(Grid, _React$Component);
+  (0, _inherits2["default"])(Grid, _React$Component);
 
   function Grid() {
-    (0, _classCallCheck2.default)(this, Grid);
-    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Grid).apply(this, arguments));
+    (0, _classCallCheck2["default"])(this, Grid);
+    return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(Grid).apply(this, arguments));
   }
 
-  (0, _createClass2.default)(Grid, [{
+  (0, _createClass2["default"])(Grid, [{
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -96,7 +80,7 @@ function (_React$Component) {
           flexCells = _this$props.flexCells,
           children = _this$props.children,
           className = _this$props.className,
-          rest = (0, _objectWithoutProperties2.default)(_this$props, ["gutter", "style", "align", "hAlign", "flexCells", "children", "className"]);
+          rest = (0, _objectWithoutProperties2["default"])(_this$props, ["gutter", "style", "align", "hAlign", "flexCells", "children", "className"]);
       this.styles = (0, _utils.assign)({}, style, gutter ? {
         margin: "0 -".concat(gutter, " ").concat((0, _utils.doubleUnit)(gutter))
       } : null);
@@ -104,21 +88,21 @@ function (_React$Component) {
       var parentProps = {};
       if (gutter) parentProps.gutter = gutter;
       if (flexCells) parentProps.flex = true;
-      var wrappedChildren = Object.keys(parentProps).length ? _react.default.Children.map(children, function (child) {
-        return child ? _react.default.cloneElement(child, _objectSpread({}, parentProps)) : child;
+      var wrappedChildren = Object.keys(parentProps).length ? _react["default"].Children.map(children, function (child) {
+        return child ? _react["default"].cloneElement(child, (0, _objectSpread2["default"])({}, parentProps)) : child;
       }) : children;
-      return _react.default.createElement('div', _objectSpread({}, rest, {
+      return _react["default"].createElement('div', (0, _objectSpread2["default"])({}, rest, {
         style: this.styles,
         className: classes
       }), wrappedChildren);
     }
   }]);
   return Grid;
-}(_react.default.Component);
+}(_react["default"].Component);
 
-exports.default = Grid;
+exports["default"] = Grid;
 Grid.propTypes = {
-  gutter: _propTypes.default.string,
-  flexCells: _propTypes.default.bool,
-  align: _propTypes.default.oneOf(['top', 'center', 'bottom'])
+  gutter: _propTypes["default"].string,
+  flexCells: _propTypes["default"].bool,
+  align: _propTypes["default"].oneOf(['top', 'center', 'bottom'])
 };

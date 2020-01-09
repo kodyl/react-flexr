@@ -30,7 +30,7 @@
     "bundle": "NODE_ENV=production rollup -c rollup.config.js",
     "clean": "rm -rf ./dist",
     "dev": "node ./example/server.js",
-    "dist": "NODE_ENV=production babel lib --out-dir dist --copy-files",
+    "dist": "BABEL_ENV=commonjs NODE_ENV=production babel lib --out-dir dist --copy-files",
     "example:ssr": "babel-node ./example/ssr.js",
     "extract-styles": "node -p \"var s = require('stilr').default; var b = require('./dist'); s.render({}, b.stylesheet)\" > ./styles.css",
     "lint": "eslint lib/",
@@ -41,8 +41,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.7.7",
-    "@babel/runtime-corejs3": "^7.0.0",
-    "core-js": "^2.6.11",
     "prop-types": "^15.6.0",
     "stilr": "^2.0.0-0"
   },
@@ -74,6 +72,7 @@
     "rollup-plugin-babel": "^5.0.0-alpha.1",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-node-resolve": "5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.5"
   },

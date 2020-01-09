@@ -1,15 +1,11 @@
 import resolve from "rollup-plugin-node-resolve";
-import commonJs from "rollup-plugin-commonjs";
+import replace from "rollup-plugin-replace";
+import commonjs from "rollup-plugin-commonjs";
 import babel from "rollup-plugin-babel";
 
 import pkg from "./package.json";
 
-const name = "react-flexr";
-const globals = {
-  stilr: "StyleSheet",
-  react: "React",
-  "prop-types": "PropTypes"
-};
+const env = process.env.NODE_ENV;
 
 const external = Object.keys(pkg.peerDependencies || {});
 const allExternal = external.concat(Object.keys(pkg.dependencies || {}));
@@ -20,6 +16,13 @@ const makeExternalPredicate = externalArr => {
   }
   const pattern = new RegExp(`^(${externalArr.join("|")})($|/)`);
   return id => pattern.test(id);
+};
+
+const name = "react-flexr";
+const globals = {
+  stilr: "StyleSheet",
+  react: "React",
+  "prop-types": "PropTypes"
 };
 
 export default {
@@ -41,33 +44,17 @@ export default {
   ],
   plugins: [
     resolve({
-      jsnext: true,
-      main: true
+      // jsnext: true,
+      // main: true
     }),
     babel({
-      babelHelpers: "runtime",
-      babelrc: false,
-      configFile: false,
-      presets: [
-        [
-          "@babel/preset-env",
-          {
-            debug: true,
-            targets: { browsers: ["> 1%", "last 2 versions", "ie > 9"] },
-            modules: false,
-            corejs: 2,
-            useBuiltIns: "usage"
-          }
-        ],
-        "@babel/preset-react"
-      ],
-      plugins: [
-        ["@babel/plugin-transform-runtime" /*, { corejs: 3 }*/],
-        "@babel/plugin-proposal-class-properties",
-        "@babel/plugin-proposal-object-rest-spread"
-      ],
-      exclude: ["node_modules/**"]
+      exclude: "**/node_modules/**",
+      babelHelpers: "runtime"
+      // runtimeHelpers: true
     }),
-    commonJs()
+    replace({
+      "process.env.NODE_ENV": JSON.stringify(env)
+    }),
+    commonjs()
   ]
 };

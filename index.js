@@ -1,10 +1,10 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('core-js/modules/es7.object.get-own-property-descriptors'), require('core-js/modules/es6.symbol'), require('@babel/runtime/helpers/defineProperty'), require('core-js/modules/web.dom.iterable'), require('core-js/modules/es6.array.iterator'), require('core-js/modules/es6.object.to-string'), require('core-js/modules/es6.object.keys'), require('@babel/runtime/helpers/objectWithoutProperties'), require('@babel/runtime/helpers/classCallCheck'), require('@babel/runtime/helpers/createClass'), require('@babel/runtime/helpers/possibleConstructorReturn'), require('@babel/runtime/helpers/getPrototypeOf'), require('@babel/runtime/helpers/inherits'), require('core-js/modules/es6.string.iterator'), require('core-js/modules/es6.map'), require('stilr'), require('react'), require('prop-types'), require('core-js/modules/es6.regexp.match'), require('@babel/runtime/helpers/slicedToArray'), require('core-js/modules/es6.regexp.split'), require('core-js/modules/es6.regexp.to-string'), require('@babel/runtime/helpers/assertThisInitialized')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'core-js/modules/es7.object.get-own-property-descriptors', 'core-js/modules/es6.symbol', '@babel/runtime/helpers/defineProperty', 'core-js/modules/web.dom.iterable', 'core-js/modules/es6.array.iterator', 'core-js/modules/es6.object.to-string', 'core-js/modules/es6.object.keys', '@babel/runtime/helpers/objectWithoutProperties', '@babel/runtime/helpers/classCallCheck', '@babel/runtime/helpers/createClass', '@babel/runtime/helpers/possibleConstructorReturn', '@babel/runtime/helpers/getPrototypeOf', '@babel/runtime/helpers/inherits', 'core-js/modules/es6.string.iterator', 'core-js/modules/es6.map', 'stilr', 'react', 'prop-types', 'core-js/modules/es6.regexp.match', '@babel/runtime/helpers/slicedToArray', 'core-js/modules/es6.regexp.split', 'core-js/modules/es6.regexp.to-string', '@babel/runtime/helpers/assertThisInitialized'], factory) :
-  (global = global || self, factory(global['react-flexr'] = {}, null, null, global._defineProperty, null, null, null, null, global._objectWithoutProperties, global._classCallCheck, global._createClass, global._possibleConstructorReturn, global._getPrototypeOf, global._inherits, null, null, global.StyleSheet, global.React, global.PropTypes, null, global._slicedToArray, null, null, global._assertThisInitialized));
-}(this, (function (exports, es7_object_getOwnPropertyDescriptors, es6_symbol, _defineProperty, web_dom_iterable, es6_array_iterator, es6_object_toString, es6_object_keys, _objectWithoutProperties, _classCallCheck, _createClass, _possibleConstructorReturn, _getPrototypeOf, _inherits, es6_string_iterator, es6_map, StyleSheet, React, PropTypes, es6_regexp_match, _slicedToArray, es6_regexp_split, es6_regexp_toString, _assertThisInitialized) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@babel/runtime/helpers/esm/objectSpread2'), require('@babel/runtime/helpers/esm/objectWithoutProperties'), require('@babel/runtime/helpers/esm/classCallCheck'), require('@babel/runtime/helpers/esm/createClass'), require('@babel/runtime/helpers/esm/possibleConstructorReturn'), require('@babel/runtime/helpers/esm/getPrototypeOf'), require('@babel/runtime/helpers/esm/inherits'), require('stilr'), require('react'), require('prop-types'), require('@babel/runtime/helpers/esm/slicedToArray'), require('@babel/runtime/helpers/esm/assertThisInitialized'), require('@babel/runtime/helpers/esm/defineProperty')) :
+  typeof define === 'function' && define.amd ? define(['exports', '@babel/runtime/helpers/esm/objectSpread2', '@babel/runtime/helpers/esm/objectWithoutProperties', '@babel/runtime/helpers/esm/classCallCheck', '@babel/runtime/helpers/esm/createClass', '@babel/runtime/helpers/esm/possibleConstructorReturn', '@babel/runtime/helpers/esm/getPrototypeOf', '@babel/runtime/helpers/esm/inherits', 'stilr', 'react', 'prop-types', '@babel/runtime/helpers/esm/slicedToArray', '@babel/runtime/helpers/esm/assertThisInitialized', '@babel/runtime/helpers/esm/defineProperty'], factory) :
+  (global = global || self, factory(global['react-flexr'] = {}, global._objectSpread, global._objectWithoutProperties, global._classCallCheck, global._createClass, global._possibleConstructorReturn, global._getPrototypeOf, global._inherits, global.StyleSheet, global.React, global.PropTypes, global._slicedToArray, global._assertThisInitialized, global._defineProperty));
+}(this, (function (exports, _objectSpread, _objectWithoutProperties, _classCallCheck, _createClass, _possibleConstructorReturn, _getPrototypeOf, _inherits, StyleSheet, React, PropTypes, _slicedToArray, _assertThisInitialized, _defineProperty) { 'use strict';
 
-  _defineProperty = _defineProperty && _defineProperty.hasOwnProperty('default') ? _defineProperty['default'] : _defineProperty;
+  _objectSpread = _objectSpread && _objectSpread.hasOwnProperty('default') ? _objectSpread['default'] : _objectSpread;
   _objectWithoutProperties = _objectWithoutProperties && _objectWithoutProperties.hasOwnProperty('default') ? _objectWithoutProperties['default'] : _objectWithoutProperties;
   _classCallCheck = _classCallCheck && _classCallCheck.hasOwnProperty('default') ? _classCallCheck['default'] : _classCallCheck;
   _createClass = _createClass && _createClass.hasOwnProperty('default') ? _createClass['default'] : _createClass;
@@ -16,6 +16,7 @@
   PropTypes = PropTypes && PropTypes.hasOwnProperty('default') ? PropTypes['default'] : PropTypes;
   _slicedToArray = _slicedToArray && _slicedToArray.hasOwnProperty('default') ? _slicedToArray['default'] : _slicedToArray;
   _assertThisInitialized = _assertThisInitialized && _assertThisInitialized.hasOwnProperty('default') ? _assertThisInitialized['default'] : _assertThisInitialized;
+  _defineProperty = _defineProperty && _defineProperty.hasOwnProperty('default') ? _defineProperty['default'] : _defineProperty;
 
   var stylesheet = new (StyleSheet.Map || Map)();
 
@@ -119,7 +120,7 @@
     }
 
     function removeCallback(key) {
-      callbacks.delete(key);
+      callbacks["delete"](key);
     }
 
     return {
@@ -265,9 +266,6 @@
     } : null;
   }
 
-  function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
   var styles = StyleSheet.create({
     base: {
       display: 'flex',
@@ -345,9 +343,6 @@
     align: PropTypes.oneOf(['top', 'center', 'bottom'])
   };
 
-  function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-  function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
   var ERGONOMICS = Object.keys(settings);
   var cellStyles = StyleSheet.create({
     base: {
@@ -470,7 +465,7 @@
           padding: "0 ".concat(gutter)
         } : null, flexSize, style);
         var classes = [cellStyles.base, flexSize ? null : cellStyles.baseFlex, className, flex ? cellStyles.flex : null, align ? cellStyles[align] : null].filter(Boolean).join(" ");
-        return React.createElement("div", _objectSpread$1({}, rest, {
+        return React.createElement("div", _objectSpread({}, rest, {
           style: this.styles,
           className: classes
         }), children);

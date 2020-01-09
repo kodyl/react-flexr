@@ -1,26 +1,16 @@
-import 'core-js/modules/es7.object.get-own-property-descriptors';
-import 'core-js/modules/es6.symbol';
-import _defineProperty from '@babel/runtime/helpers/defineProperty';
-import 'core-js/modules/web.dom.iterable';
-import 'core-js/modules/es6.array.iterator';
-import 'core-js/modules/es6.object.to-string';
-import 'core-js/modules/es6.object.keys';
-import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
-import _classCallCheck from '@babel/runtime/helpers/classCallCheck';
-import _createClass from '@babel/runtime/helpers/createClass';
-import _possibleConstructorReturn from '@babel/runtime/helpers/possibleConstructorReturn';
-import _getPrototypeOf from '@babel/runtime/helpers/getPrototypeOf';
-import _inherits from '@babel/runtime/helpers/inherits';
-import 'core-js/modules/es6.string.iterator';
-import 'core-js/modules/es6.map';
+import _objectSpread from '@babel/runtime/helpers/esm/objectSpread2';
+import _objectWithoutProperties from '@babel/runtime/helpers/esm/objectWithoutProperties';
+import _classCallCheck from '@babel/runtime/helpers/esm/classCallCheck';
+import _createClass from '@babel/runtime/helpers/esm/createClass';
+import _possibleConstructorReturn from '@babel/runtime/helpers/esm/possibleConstructorReturn';
+import _getPrototypeOf from '@babel/runtime/helpers/esm/getPrototypeOf';
+import _inherits from '@babel/runtime/helpers/esm/inherits';
 import StyleSheet from 'stilr';
 import React from 'react';
 import PropTypes from 'prop-types';
-import 'core-js/modules/es6.regexp.match';
-import _slicedToArray from '@babel/runtime/helpers/slicedToArray';
-import 'core-js/modules/es6.regexp.split';
-import 'core-js/modules/es6.regexp.to-string';
-import _assertThisInitialized from '@babel/runtime/helpers/assertThisInitialized';
+import _slicedToArray from '@babel/runtime/helpers/esm/slicedToArray';
+import _assertThisInitialized from '@babel/runtime/helpers/esm/assertThisInitialized';
+import _defineProperty from '@babel/runtime/helpers/esm/defineProperty';
 
 var stylesheet = new (StyleSheet.Map || Map)();
 
@@ -124,7 +114,7 @@ var optimizedResize = function () {
   }
 
   function removeCallback(key) {
-    callbacks.delete(key);
+    callbacks["delete"](key);
   }
 
   return {
@@ -270,9 +260,6 @@ function handleFlexSize(_ref4) {
   } : null;
 }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var styles = StyleSheet.create({
   base: {
     display: 'flex',
@@ -350,9 +337,6 @@ Grid.propTypes = {
   align: PropTypes.oneOf(['top', 'center', 'bottom'])
 };
 
-function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var ERGONOMICS = Object.keys(settings);
 var cellStyles = StyleSheet.create({
   base: {
@@ -475,7 +459,7 @@ function (_React$Component) {
         padding: "0 ".concat(gutter)
       } : null, flexSize, style);
       var classes = [cellStyles.base, flexSize ? null : cellStyles.baseFlex, className, flex ? cellStyles.flex : null, align ? cellStyles[align] : null].filter(Boolean).join(" ");
-      return React.createElement("div", _objectSpread$1({}, rest, {
+      return React.createElement("div", _objectSpread({}, rest, {
         style: this.styles,
         className: classes
       }), children);

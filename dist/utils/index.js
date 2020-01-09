@@ -22,25 +22,7 @@ exports.calcWidth = calcWidth;
 exports.handleFlexSize = handleFlexSize;
 exports.variables = exports.horizontal = exports.vertical = exports.optimizedResize = exports.mediaQueries = exports.matchMediaQueries = exports.settings = exports.canUseDOM = void 0;
 
-require("core-js/modules/es6.regexp.match");
-
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
-
-require("core-js/modules/es6.regexp.split");
-
-require("core-js/modules/es6.string.iterator");
-
-require("core-js/modules/es6.map");
-
-require("core-js/modules/es6.regexp.to-string");
-
-require("core-js/modules/web.dom.iterable");
-
-require("core-js/modules/es6.array.iterator");
-
-require("core-js/modules/es6.object.to-string");
-
-require("core-js/modules/es6.object.keys");
 
 var canUseDOM = function () {
   return typeof window !== 'undefined' && window.document && window.document.createElement && window.matchMedia;
@@ -155,7 +137,7 @@ var optimizedResize = function () {
   }
 
   function removeCallback(key) {
-    callbacks.delete(key);
+    callbacks["delete"](key);
   }
 
   return {
@@ -205,7 +187,7 @@ var valunit = /(\d+)(\w+)/;
 
 function doubleUnit(str) {
   var _str$match = str.match(valunit),
-      _str$match2 = (0, _slicedToArray2.default)(_str$match, 3),
+      _str$match2 = (0, _slicedToArray2["default"])(_str$match, 3),
       val = _str$match2[1],
       unit = _str$match2[2];
 
@@ -296,7 +278,7 @@ function calcWidth(size) {
   }
 
   var _ref2 = size ? size.split('/') : [],
-      _ref3 = (0, _slicedToArray2.default)(_ref2, 2),
+      _ref3 = (0, _slicedToArray2["default"])(_ref2, 2),
       numerator = _ref3[0],
       denominator = _ref3[1];
 

@@ -1,41 +1,42 @@
 module.exports = function(api) {
-  api.cache(true);
+  api.cache(false);
 
-  return {
+  const { NODE_ENV, BABEL_ENV } = process.env;
+  const devMode = NODE_ENV !== "production";
+  const cjs = NODE_ENV === "test" || BABEL_ENV === "commonjs";
+
+  const config = {
     presets: [
       [
         "@babel/preset-env",
         {
           // debug: true,
-          targets: { browsers: ["> 1%", "last 2 versions", "ie > 9"] },
-          // modules: false,
-          corejs: 2,
-          useBuiltIns: "usage"
+          // targets: { browsers: ["> 1%", "last 2 versions", "ie > 9"] },
+          modules: cjs && "commonjs"
+          // corejs: 2,
+          // useBuiltIns: "usage"
         }
       ],
       "@babel/preset-react"
     ],
-    // presets: ["es2015", "react", "stage-0"],
-    // plugins: [["@babel/plugin-transform-runtime"]],
     plugins: [
+      devMode && "react-hot-loader/babel",
+      !devMode && [
+        "@babel/transform-runtime",
+        {
+          useESModules: !cjs,
+          version: require("./package.json").dependencies[
+            "@babel/runtime"
+          ].replace(/^[^0-9]*/, "")
+        }
+      ],
       "@babel/plugin-proposal-class-properties",
-      "@babel/plugin-proposal-object-rest-spread"
-    ],
-    env: {
-      development: {
-        presets: [
-          ["@babel/preset-env", { modules: false }]
-          // "@babel/preset-react"
-        ],
-        plugins: ["react-hot-loader/babel"]
-      },
-      production: {
-        plugins: [
-          ["@babel/plugin-transform-runtime" /*, { corejs: 3 }*/],
-          "@babel/plugin-transform-react-constant-elements",
-          "@babel/plugin-transform-react-inline-elements"
-        ]
-      }
-    }
+      "@babel/plugin-proposal-object-rest-spread",
+
+      "@babel/plugin-transform-react-constant-elements",
+      "@babel/plugin-transform-react-inline-elements"
+    ].filter(Boolean)
   };
+
+  return config;
 };

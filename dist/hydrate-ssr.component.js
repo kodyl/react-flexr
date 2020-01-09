@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
@@ -24,18 +24,18 @@ var _utils = require("./utils");
 var HydrateSSR =
 /*#__PURE__*/
 function (_React$Component) {
-  (0, _inherits2.default)(HydrateSSR, _React$Component);
+  (0, _inherits2["default"])(HydrateSSR, _React$Component);
 
   function HydrateSSR(props) {
     var _this;
 
-    (0, _classCallCheck2.default)(this, HydrateSSR);
-    _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(HydrateSSR).call(this, props));
+    (0, _classCallCheck2["default"])(this, HydrateSSR);
+    _this = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(HydrateSSR).call(this, props));
     (0, _utils.ssrWillHydrate)();
     return _this;
   }
 
-  (0, _createClass2.default)(HydrateSSR, [{
+  (0, _createClass2["default"])(HydrateSSR, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       (0, _utils.ssrDidHydrate)();
@@ -47,6 +47,6 @@ function (_React$Component) {
     }
   }]);
   return HydrateSSR;
-}(_react.default.Component);
+}(_react["default"].Component);
 
-exports.default = HydrateSSR;
+exports["default"] = HydrateSSR;
