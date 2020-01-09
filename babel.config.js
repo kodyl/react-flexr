@@ -5,8 +5,6 @@ module.exports = function(api) {
   const devMode = NODE_ENV !== "production";
   const cjs = NODE_ENV === "test" || BABEL_ENV === "commonjs";
 
-  console.log(!(FORMAT === "commonjs" || cjs), cjs, FORMAT);
-
   const config = {
     presets: [
       [
